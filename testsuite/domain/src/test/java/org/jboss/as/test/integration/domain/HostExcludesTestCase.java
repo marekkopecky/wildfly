@@ -72,7 +72,7 @@ public class HostExcludesTestCase extends BuildConfigurationTestBase {
     private final boolean isFullDistribution = AssumeTestGroupUtil.isFullDistribution();
     private final boolean isPreviewGalleonPack = AssumeTestGroupUtil.isWildFlyPreview();
 
-    private static final String MAJOR = "37.";
+    private static final String MAJOR = "8.2";
 
     /**
      * Maintains the list of expected extensions for each host-exclude name for previous releases.
@@ -81,7 +81,11 @@ public class HostExcludesTestCase extends BuildConfigurationTestBase {
      * This must be corrected on each new host-exclude id added on the current release.
      */
     private enum ExtensionConf {
-        WILDFLY_10_0("WildFly10.0", null, Arrays.asList(
+        // If an extension is added to this enum, also check if it is supplied only by wildfly-galleon-pack. If so, add it also
+        // to the internal mpExtensions Set defined on this class.
+        // Don't add here extensions supplied only by the wildfly-preview-feature-pack because we are not tracking different releases
+        // of wildfly preview. In such a case, add them to previewExtensions set defined below.
+        EAP62("EAP62", null, List.of(
                 "org.jboss.as.appclient",
                 "org.jboss.as.clustering.infinispan",
                 "org.jboss.as.clustering.jgroups",
@@ -92,8 +96,8 @@ public class HostExcludesTestCase extends BuildConfigurationTestBase {
                 "org.jboss.as.ee",
                 "org.jboss.as.ejb3",
                 "org.jboss.as.jacorb",
-                "org.jboss.as.jaxrs",
                 "org.jboss.as.jaxr",
+                "org.jboss.as.jaxrs",
                 "org.jboss.as.jdr",
                 "org.jboss.as.jmx",
                 "org.jboss.as.jpa",
@@ -114,122 +118,74 @@ public class HostExcludesTestCase extends BuildConfigurationTestBase {
                 "org.jboss.as.webservices",
                 "org.jboss.as.weld",
                 "org.jboss.as.xts",
-                "org.keycloak.keycloak-adapter-subsystem",
+                // This module was added in EAP70, but we move it to the EAP62 extension list to allow the test passing
+                // without adding it to the host-exclude section. We don't want to expose it in the host-exclude.
+                "org.wildfly.extension.mod_cluster"
+        ), false),
+        EAP63("EAP63", EAP62, List.of(
+                "org.wildfly.extension.picketlink"
+        ), false),
+        EAP64("EAP64", EAP63, false),
+        EAP64z("EAP64z", EAP64, false),
+        EAP70("EAP70", EAP64z, List.of(
                 "org.wildfly.extension.batch.jberet",
                 "org.wildfly.extension.bean-validation",
                 "org.wildfly.extension.clustering.singleton",
                 "org.wildfly.extension.io",
                 "org.wildfly.extension.messaging-activemq",
-                "org.wildfly.extension.mod_cluster",
-                "org.wildfly.extension.picketlink",
                 "org.wildfly.extension.request-controller",
                 "org.wildfly.extension.rts",
                 "org.wildfly.extension.security.manager",
                 "org.wildfly.extension.undertow",
                 "org.wildfly.iiop-openjdk"
         ), false),
-        WILDFLY_10_1("WildFly10.1", WILDFLY_10_0, false),
-        WILDFLY_11_0("WildFly11.0", WILDFLY_10_1, Arrays.asList(
+        EAP71("EAP71", EAP70, List.of(
                 "org.wildfly.extension.core-management",
                 "org.wildfly.extension.discovery",
                 "org.wildfly.extension.elytron"
         ), false),
-        WILDFLY_12_0("WildFly12.0", WILDFLY_11_0, false),
-        WILDFLY_13_0("WildFly13.0", WILDFLY_12_0, List.of(
+        EAP72("EAP72", EAP71, List.of(
+                "org.wildfly.extension.datasources-agroal",
+                "org.wildfly.extension.microprofile.opentracing-smallrye",
+                "org.wildfly.extension.microprofile.health-smallrye",
+                "org.wildfly.extension.microprofile.config-smallrye",
                 "org.wildfly.extension.ee-security"
         ), false),
-        WILDFLY_14_0("WildFly14.0", WILDFLY_13_0, Arrays.asList(
-                "org.wildfly.extension.datasources-agroal",
-                "org.wildfly.extension.microprofile.config-smallrye",
-                "org.wildfly.extension.microprofile.health-smallrye",
-                "org.wildfly.extension.microprofile.opentracing-smallrye"
-        ), false),
-        WILDFLY_15_0("WildFly15.0", WILDFLY_14_0, List.of(
-                "org.wildfly.extension.microprofile.metrics-smallrye"
-        ), false),
-        WILDFLY_16_0("WildFly16.0", WILDFLY_15_0, List.of(
-                // This extension was added in WF17, however we add it here because WF16/WF17/WF18 use the same management
-                // kernel API, which is 10.0.0. Adding a host-exclusion for this extension on WF16 could affect to WF17/WF18
-                // We decided to add the host-exclusion only for WF15 and below. It means potentially a DC running on WF17
-                // with an WF16 as secondary will not exclude this extension. It is not a problem at all since mixed domains in
-                // WildFly is not supported.
+        EAP73("EAP73", EAP72, List.of(
+                "org.wildfly.extension.microprofile.metrics-smallrye",
                 "org.wildfly.extension.clustering.web"
         ), false),
-        WILDFLY_17_0("WildFly17.0", WILDFLY_16_0, false),
-        WILDFLY_18_0("WildFly18.0", WILDFLY_17_0, false),
-        WILDFLY_19_0("WildFly19.0", WILDFLY_18_0, Arrays.asList(
+        EAP74("EAP74", EAP73, List.of(
+                "org.wildfly.extension.health",
+                "org.wildfly.extension.metrics",
                 "org.wildfly.extension.microprofile.fault-tolerance-smallrye",
                 "org.wildfly.extension.microprofile.jwt-smallrye",
-                "org.wildfly.extension.microprofile.openapi-smallrye"
-        ), false),
-        WILDFLY_20_0("WildFly20.0", WILDFLY_19_0, false),
-        WILDFLY_21_0("WildFly21.0", WILDFLY_20_0, false),
-        WILDFLY_22_0("WildFly22.0", WILDFLY_21_0, Arrays.asList(
-                "org.wildfly.extension.health",
-                "org.wildfly.extension.metrics"
-        ), false),
-        WILDFLY_23_0("WildFly23.0", WILDFLY_22_0, Arrays.asList(
+                "org.wildfly.extension.microprofile.openapi-smallrye",
                 "org.wildfly.extension.microprofile.reactive-messaging-smallrye",
                 "org.wildfly.extension.microprofile.reactive-streams-operators-smallrye"
-        ), false),
-        WILDFLY_24_0("WildFly24.0", WILDFLY_23_0, true),
-        WILDFLY_25_0("WildFly25.0", WILDFLY_24_0, Arrays.asList(
-                "org.wildfly.extension.elytron-oidc-client",
-                "org.wildfly.extension.opentelemetry"
         ), true),
-        WILDFLY_26_0("WildFly26.0", WILDFLY_25_0, null, Arrays.asList(
-                "org.jboss.as.cmp",
-                "org.jboss.as.jaxr",
-                "org.jboss.as.configadmin"
-        ), true),
-        WILDFLY_27_0("WildFly27.0", WILDFLY_26_0, Arrays.asList(
+        EAP80("EAP80", EAP74, List.of(
                 "org.wildfly.extension.clustering.ejb",
-                "org.wildfly.extension.datasources-agroal"
-        ), true),
-        WILDFLY_28_0("WildFly28.0", WILDFLY_27_0, Arrays.asList(
+                "org.wildfly.extension.elytron-oidc-client",
                 "org.wildfly.extension.micrometer",
                 "org.wildfly.extension.microprofile.lra-coordinator",
                 "org.wildfly.extension.microprofile.lra-participant",
+                "org.wildfly.extension.opentelemetry",
                 "org.wildfly.extension.microprofile.telemetry"
-        ), true),
-        WILDFLY_29_0("WildFly29.0", WILDFLY_28_0, List.of(), List.of(
+        ), List.of(
+                "org.jboss.as.cmp",
+                "org.jboss.as.jaxr",
+                "org.jboss.as.configadmin",
                 "org.jboss.as.jacorb",
                 "org.jboss.as.messaging",
                 "org.jboss.as.web"
-                ), true),
-        WILDFLY_30_0("WildFly30.0", WILDFLY_29_0, List.of(), List.of(), true),
-        WILDFLY_31_0("WildFly31.0", WILDFLY_30_0, List.of(), List.of(), true),
-        WILDFLY_32_0("WildFly32.0", WILDFLY_31_0, List.of(
-                "org.wildfly.extension.mvc-krazo"
-        ), List.of(), true),
-        WILDFLY_33_0("WildFly33.0", WILDFLY_32_0, List.of(), List.of(), true),
-        WILDFLY_34_0("WildFly34.0", WILDFLY_33_0, List.of(), List.of(), true),
-        WILDFLY_35_0("WildFly35.0", WILDFLY_34_0, List.of("org.wildfly.extension.jakarta.data"), List.of(), true),
-        WILDFLY_36_0("WildFly36.0", WILDFLY_35_0, List.of(), List.of(), true),
-        CURRENT(MAJOR, WILDFLY_36_0, getCurrentAddedExtensions(), getCurrentRemovedExtensions(), true);
-
-        private static List<String> getCurrentAddedExtensions() {
-            // If an extension is added to this list, also check if it is supplied only by wildfly-galleon-pack. If so, add it also
-            // to the internal mpExtensions Set defined on this class.
-            // Don't add here extensions supplied only by the wildfly-preview-feature-pack because we are not tracking different releases
-            // of wildfly preview. In such a case, add them to previewExtensions set defined below.
-            return List.of();
-        }
-
-        private static List<String> getCurrentRemovedExtensions() {
-            // TODO If we decide to remove these modules from WFP, uncomment this.
-            // See https://issues.redhat.com/browse/WFLY-16686
-            /*
-            if (AssumeTestGroupUtil.isWildFlyPreview()) {
-                return Arrays.asList(
-                        "org.jboss.as.jsr77",
-                        "org.wildfly.extension.picketlink",
-                        "org.jboss.as.security"
-                        );
-            }
-            */
-            return List.of();
-        }
+        ), true),
+        EAP81("EAP81", EAP80, true),
+        // If an extension is added to this enum, also check if it is supplied only by wildfly-galleon-pack. If so, add it also
+        // to the internal mpExtensions Set defined on this class.
+        // Don't add here extensions supplied only by the wildfly-preview-feature-pack because we are not tracking different releases
+        // of wildfly preview. In such a case, add them to previewExtensions set defined below.
+        CURRENT(MAJOR, EAP81, true);
 
         private final String name;
         private final ExtensionConf parent;
@@ -254,7 +210,6 @@ public class HostExcludesTestCase extends BuildConfigurationTestBase {
                 "org.wildfly.extension.microprofile.lra-coordinator",
                 "org.wildfly.extension.microprofile.lra-participant",
                 "org.wildfly.extension.microprofile.telemetry",
-                "org.wildfly.extension.mvc-krazo",
                 "org.wildfly.extension.opentelemetry"
         ));
 
@@ -266,7 +221,8 @@ public class HostExcludesTestCase extends BuildConfigurationTestBase {
         // different WildFly Preview releases.
         private final Set<String> previewExtensions = new HashSet<>(Arrays.asList(
                 "org.wildfly.extension.jakarta.data",
-                "org.wildfly.extension.vertx"
+                "org.wildfly.extension.vertx",
+                "org.wildfly.extension.mvc-krazo"
         ));
 
         ExtensionConf(String name, ExtensionConf parent, boolean supported) {
@@ -343,6 +299,11 @@ public class HostExcludesTestCase extends BuildConfigurationTestBase {
         }
     }
 
+    // Extensions that are only available for standalone mode and as a such won't be usable in domain mode
+    private final Set<String> standaloneOnlyExtensions = new HashSet<>(List.of(
+            "org.keycloak.keycloak-adapter-subsystem"
+    ));
+
     @BeforeClass
     public static void setUp() throws IOException {
         primaryConfig = createConfiguration("domain.xml", "host-primary.xml", HostExcludesTestCase.class.getSimpleName());
@@ -361,6 +322,7 @@ public class HostExcludesTestCase extends BuildConfigurationTestBase {
     @Test
     public void testHostExcludes() throws IOException, MgmtOperationException {
         Set<String> availableExtensions = retrieveAvailableExtensions();
+        availableExtensions.removeAll(standaloneOnlyExtensions);
 
         ModelNode op = Util.getEmptyOperation(READ_CHILDREN_RESOURCES_OPERATION, null);
         op.get(CHILD_TYPE).set(EXTENSION);
