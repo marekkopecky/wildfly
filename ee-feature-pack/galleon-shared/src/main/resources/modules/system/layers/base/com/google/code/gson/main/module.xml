@@ -11,7 +11,7 @@
              so it is allowed in WildFly,
              though it may not be supported by product vendors
              (because its APIs could change without prior notice). -->
-        <property name="jboss.api" value="public"/>
+        <property name="jboss.api" value="unsupported"/>
     </properties>
 
     <resources>
