@@ -8,7 +8,7 @@
 <module xmlns="urn:jboss:module:1.9" name="org.wildfly.clustering.server.api">
 
     <resources>
-        <artifact name="${org.wildfly:wildfly-clustering-server-api}"/>
+        <artifact name="${org.jboss.eap:wildfly-clustering-server-api}"/>
         <artifact name="${org.wildfly.clustering:wildfly-clustering-server-api}"/>
     </resources>
 </module>

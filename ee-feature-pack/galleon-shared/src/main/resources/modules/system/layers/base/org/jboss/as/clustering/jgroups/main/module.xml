@@ -16,7 +16,7 @@
     </exports>
 
     <resources>
-        <artifact name="${org.wildfly:wildfly-clustering-jgroups-extension}"/>
+        <artifact name="${org.jboss.eap:wildfly-clustering-jgroups-extension}"/>
     </resources>
 
     <dependencies>

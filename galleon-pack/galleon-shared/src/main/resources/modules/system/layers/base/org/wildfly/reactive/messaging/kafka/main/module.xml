@@ -10,7 +10,7 @@
     </properties>
 
     <resources>
-        <artifact name="${org.wildfly:wildfly-microprofile-reactive-messaging-kafka}"/>
+        <artifact name="${org.jboss.eap:wildfly-microprofile-reactive-messaging-kafka}"/>
     </resources>
 
     <dependencies>

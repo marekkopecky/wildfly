@@ -31,7 +31,7 @@
     <dependencyManagement>
         <dependencies>
             <dependency>
-                <groupId>org.wildfly</groupId>
+                <groupId>org.jboss.eap</groupId>
                 <artifactId>wildfly-standard-ee-bom</artifactId>
                 <version>${ee.maven.version}</version>
                 <type>pom</type>
@@ -42,13 +42,13 @@
 
     <dependencies>
         <dependency>
-            <groupId>org.wildfly</groupId>
+            <groupId>org.jboss.eap</groupId>
             <artifactId>wildfly-ee-galleon-pack</artifactId>
             <version>${ee.maven.version}</version>
             <type>pom</type>
         </dependency>
         <dependency>
-            <groupId>org.wildfly.channels</groupId>
+            <groupId>org.jboss.eap.channels</groupId>
             <artifactId>wildfly-ee</artifactId>
             <version>${ee.maven.version}</version>
             <type>pom</type>
@@ -83,7 +83,7 @@
                             <channels>
                                 <channel>
                                     <manifest>
-                                        <groupId>org.wildfly.channels</groupId>
+                                        <groupId>org.jboss.eap.channels</groupId>
                                         <artifactId>wildfly-ee</artifactId>
                                         <version>${version.boms.channel.ee}</version>
                                     </manifest>

@@ -10,7 +10,7 @@
     </properties>
 
     <resources>
-        <artifact name="${org.wildfly:wildfly-micrometer}"/>
+        <artifact name="${org.jboss.eap:wildfly-micrometer}"/>
     </resources>
 
     <dependencies>

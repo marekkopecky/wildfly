@@ -11,7 +11,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <groupId>org.wildfly</groupId>
+        <groupId>org.jboss.eap</groupId>
         <artifactId>wildfly-feature-pack-parent</artifactId>
         <!--
         Maintain separation between the artifact id and the version to help prevent
@@ -93,10 +93,10 @@
                 </exclusion>
             </exclusions>
         </dependency>
-        <!-- Depends on the org.wildfly.channels:wildfly artifact to ensure
+        <!-- Depends on the org.jboss.eap.channels:wildfly artifact to ensure
              that this channel is built first before the distribution is created -->
         <dependency>
-            <groupId>org.wildfly.channels</groupId>
+            <groupId>org.jboss.eap.channels</groupId>
             <artifactId>wildfly</artifactId>
             <version>${full.maven.version}</version>
             <classifier>manifest</classifier>

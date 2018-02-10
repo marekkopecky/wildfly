@@ -26,7 +26,7 @@
 
     <properties>
         <!-- the client BOMs built's groupId -->
-        <bomGroupId>org.wildfly</bomGroupId>
+        <bomGroupId>org.jboss.eap</bomGroupId>
     </properties>
 
     <modules>

@@ -15,8 +15,8 @@
         skip wildfly-feature-pack-parent and use wildfly-parent to avoid issues
         with dependencies imported with groupId ${project.groupId}
         -->
-        <groupId>org.wildfly</groupId>
-        <artifactId>wildfly-parent</artifactId>
+        <groupId>org.jboss.eap</groupId>
+        <artifactId>jboss-eap-parent</artifactId>
         <!--
         Maintain separation between the artifact id and the version to help prevent
         merge conflicts between commits changing the GA and those changing the V.
@@ -25,7 +25,7 @@
         <relativePath>../../pom.xml</relativePath>
     </parent>
 
-    <groupId>org.wildfly.channels</groupId>
+    <groupId>org.jboss.eap.channels</groupId>
     <artifactId>wildfly-preview</artifactId>
 
     <name>WildFly: Preview Feature-Pack Channel</name>
@@ -35,10 +35,10 @@
 
         <!-- We need the feature-pack built first as that generates the manifest -->
         <dependency>
-            <groupId>org.wildfly</groupId>
+            <groupId>org.jboss.eap</groupId>
             <artifactId>wildfly-preview-feature-pack</artifactId>
             <version>${ee.maven.version}</version>
-            <type>zip</type>
+            <type>pom</type>
             <scope>provided</scope>
         </dependency>
 

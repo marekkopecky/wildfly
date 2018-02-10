@@ -12,7 +12,7 @@
     </properties>
 
     <resources>
-        <artifact name="${org.wildfly:wildfly-clustering-infinispan-client-service}"/>
+        <artifact name="${org.jboss.eap:wildfly-clustering-infinispan-client-service}"/>
     </resources>
 
     <dependencies>

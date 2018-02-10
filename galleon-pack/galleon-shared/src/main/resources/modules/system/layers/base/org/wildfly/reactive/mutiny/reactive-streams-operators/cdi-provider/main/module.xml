@@ -9,7 +9,7 @@
     </properties>
 
     <resources>
-        <artifact name="${org.wildfly:wildfly-microprofile-reactive-streams-operators-cdi-provider}"/>
+        <artifact name="${org.jboss.eap:wildfly-microprofile-reactive-streams-operators-cdi-provider}"/>
     </resources>
 
     <dependencies>

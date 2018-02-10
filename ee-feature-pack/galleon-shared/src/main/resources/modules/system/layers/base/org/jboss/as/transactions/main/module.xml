@@ -16,7 +16,7 @@
     </exports>
 
     <resources>
-        <artifact name="${org.wildfly:wildfly-transactions}"/>
+        <artifact name="${org.jboss.eap:wildfly-transactions}"/>
     </resources>
 
     <dependencies>

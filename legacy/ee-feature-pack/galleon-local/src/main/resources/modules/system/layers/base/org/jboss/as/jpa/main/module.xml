@@ -16,8 +16,8 @@
     </exports>
 
     <resources>
-        <artifact name="${org.wildfly:wildfly-jpa}"/>
-        <artifact name="${org.wildfly:wildfly-jpa-container-31}"/>
+        <artifact name="${org.jboss.eap:wildfly-jpa}"/>
+        <artifact name="${org.jboss.eap:wildfly-jpa-container-31}"/>
     </resources>
 
     <dependencies>

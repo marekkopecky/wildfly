@@ -33,7 +33,7 @@
     </file>
     <file>
       <location>target/${preview.server.output.dir}/modules/system/layers/base/org/jboss/as/product/${preview.dist.product.slot}/module.xml</location>
-      <contains>org.wildfly:wildfly-preview-feature-pack-product-conf</contains>
+      <contains>org.jboss.eap:wildfly-preview-feature-pack-product-conf</contains>
     </file>
     <file>
       <location>target/${preview.server.output.dir}/jboss-modules.jar</location>

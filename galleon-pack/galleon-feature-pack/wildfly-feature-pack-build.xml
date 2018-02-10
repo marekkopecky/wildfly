@@ -3,14 +3,14 @@
   ~ SPDX-License-Identifier: Apache-2.0
   -->
 
-<build xmlns="urn:wildfly:feature-pack-build:3.5" producer="wildfly@maven(org.jboss.universe:community-universe):current">
+<build xmlns="urn:wildfly:feature-pack-build:3.5" producer="org.jboss.eap:wildfly-galleon-pack">
     <family name="wildfly">
       <criteria name="microprofile-7.1+"/>
       <criteria name="microprofile-7.1"/>
     </family>
     <dependencies>
-        <dependency group-id="org.wildfly" artifact-id="wildfly-ee-galleon-pack" allowedFamily="wildfly:jakarta-ee-deployment,jakarta-ee-10+">
-            <name>org.wildfly:wildfly-ee-galleon-pack</name>
+        <dependency group-id="org.jboss.eap" artifact-id="wildfly-ee-galleon-pack" allowedFamily="wildfly:jakarta-ee-deployment,jakarta-ee-10+">
+            <name>org.jboss.eap:wildfly-ee-galleon-pack</name>
             <packages inherit="false">
                 <exclude name="docs.licenses.merge"/>
                 <include name="docs"/>
@@ -54,6 +54,7 @@
       in the feature-pack as part of the 'docs.schema' package it generates.
      -->
     <package-schemas>
+        <group name="org.jboss.eap"/>
         <group name="org.wildfly"/>
     </package-schemas>
 

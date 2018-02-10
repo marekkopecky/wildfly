@@ -15,7 +15,7 @@
     </exports>
 
     <resources>
-        <artifact name="${org.wildfly:wildfly-microprofile-openapi-smallrye-extension}"/>
+        <artifact name="${org.jboss.eap:wildfly-microprofile-openapi-smallrye-extension}"/>
     </resources>
 
     <dependencies>

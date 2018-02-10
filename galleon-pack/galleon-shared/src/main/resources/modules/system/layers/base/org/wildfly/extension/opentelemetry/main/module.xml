@@ -12,7 +12,7 @@
     </properties>
 
     <resources>
-        <artifact name="${org.wildfly:wildfly-opentelemetry}"/>
+        <artifact name="${org.jboss.eap:wildfly-opentelemetry}"/>
     </resources>
 
     <dependencies>

@@ -15,8 +15,8 @@
         skip wildfly-feature-pack-parent and use wildfly-parent to avoid issues
         with dependencies imported with groupId ${project.groupId}
         -->
-        <groupId>org.wildfly</groupId>
-        <artifactId>wildfly-parent</artifactId>
+        <groupId>org.jboss.eap</groupId>
+        <artifactId>jboss-eap-parent</artifactId>
         <!--
         Maintain separation between the artifact id and the version to help prevent
         merge conflicts between commits changing the GA and those changing the V.
@@ -25,7 +25,7 @@
         <relativePath>../../pom.xml</relativePath>
     </parent>
 
-    <groupId>org.wildfly.channels</groupId>
+    <groupId>org.jboss.eap.channels</groupId>
     <artifactId>wildfly</artifactId>
 
     <name>WildFly: Feature-Pack Channel</name>
@@ -35,17 +35,17 @@
 
         <!-- We need the feature-pack built first as that generates the manifest -->
         <dependency>
-            <groupId>org.wildfly</groupId>
+            <groupId>org.jboss.eap</groupId>
             <artifactId>wildfly-galleon-pack</artifactId>
             <version>${ee.maven.version}</version>
             <type>pom</type>
             <scope>provided</scope>
         </dependency>
-        <!-- Depends on the org.wildfly.channels:wildfly-ee artifact to ensure
-             that this channel is built first as it is required by the org.wildfly.channels:wildfly channel
+        <!-- Depends on the org.jboss.eap.channels:wildfly-ee artifact to ensure
+             that this channel is built first as it is required by the org.jboss.eap.channels:wildfly channel
              built by this module -->
         <dependency>
-            <groupId>org.wildfly.channels</groupId>
+            <groupId>org.jboss.eap.channels</groupId>
             <artifactId>wildfly-ee</artifactId>
             <version>${ee.maven.version}</version>
             <classifier>manifest</classifier>

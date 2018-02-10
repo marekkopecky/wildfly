@@ -10,7 +10,7 @@
     </properties>
 
     <resources>
-        <artifact name="${org.wildfly:wildfly-microprofile-opentracing-extension}"/>
+        <artifact name="${org.jboss.eap:wildfly-microprofile-opentracing-extension}"/>
     </resources>
 
     <dependencies>

@@ -16,7 +16,7 @@
     </exports>
 
     <resources>
-        <artifact name="${org.wildfly:wildfly-pojo}"/>
+        <artifact name="${org.jboss.eap:wildfly-pojo}"/>
     </resources>
 
     <dependencies>

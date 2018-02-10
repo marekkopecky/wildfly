@@ -13,7 +13,7 @@
 
     <resources>
         <artifact name="${org.wildfly.clustering:wildfly-clustering-marshalling-protostream}"/>
-        <artifact name="${org.wildfly:wildfly-clustering-marshalling-protostream}"/>
+        <artifact name="${org.jboss.eap:wildfly-clustering-marshalling-protostream}"/>
     </resources>
 
     <dependencies>

@@ -12,7 +12,7 @@
     </properties>
 
     <resources>
-        <artifact name="${org.wildfly:wildfly-clustering-singleton-server}"/>
+        <artifact name="${org.jboss.eap:wildfly-clustering-singleton-server}"/>
     </resources>
 
     <dependencies>

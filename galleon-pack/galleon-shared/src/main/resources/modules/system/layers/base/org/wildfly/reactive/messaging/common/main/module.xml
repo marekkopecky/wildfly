@@ -9,7 +9,7 @@
     </properties>
 
     <resources>
-        <artifact name="${org.wildfly:wildfly-microprofile-reactive-messaging-common}"/>
+        <artifact name="${org.jboss.eap:wildfly-microprofile-reactive-messaging-common}"/>
     </resources>
 
     <dependencies>

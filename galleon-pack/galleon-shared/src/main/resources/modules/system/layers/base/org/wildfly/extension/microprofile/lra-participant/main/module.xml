@@ -10,7 +10,7 @@
   </properties>
 
   <resources>
-    <artifact name="${org.wildfly:wildfly-microprofile-lra-participant}"/>
+    <artifact name="${org.jboss.eap:wildfly-microprofile-lra-participant}"/>
   </resources>
 
   <dependencies>

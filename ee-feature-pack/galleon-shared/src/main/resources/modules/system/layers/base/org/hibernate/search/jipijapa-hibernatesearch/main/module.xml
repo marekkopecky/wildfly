@@ -12,7 +12,7 @@
     </properties>
 
     <resources>
-        <artifact name="${org.wildfly:jipijapa-hibernatesearch}"/>
+        <artifact name="${org.jboss.eap:jipijapa-hibernatesearch}"/>
     </resources>
 
     <dependencies>

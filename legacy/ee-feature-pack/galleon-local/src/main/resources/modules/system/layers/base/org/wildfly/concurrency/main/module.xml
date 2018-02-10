@@ -8,8 +8,8 @@
         <property name="jboss.api" value="private"/>
     </properties>
     <resources>
-        <artifact name="${org.wildfly:wildfly-concurrency-impl-30}"/>
-        <artifact name="${org.wildfly:wildfly-concurrency-spi}"/>
+        <artifact name="${org.jboss.eap:wildfly-concurrency-impl-30}"/>
+        <artifact name="${org.jboss.eap:wildfly-concurrency-spi}"/>
     </resources>
     <dependencies>
         <module name="java.naming"/>

@@ -8,7 +8,7 @@
 <module xmlns="urn:jboss:module:1.9" name="org.jboss.ws.cxf.sts">
     
     <resources>
-        <artifact name="${org.wildfly:wildfly-webservices-opensaml-sysconfig}"/>
+        <artifact name="${org.jboss.eap:wildfly-webservices-opensaml-sysconfig}"/>
     </resources>
     <dependencies>
         <module name="org.apache.cxf.ws-security" services="export" export="true">

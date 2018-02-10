@@ -13,7 +13,7 @@
     </properties>
 
     <resources>
-        <artifact name="${org.wildfly:wildfly-jakarta-data}"/>
+        <artifact name="${org.jboss.eap:wildfly-jakarta-data}"/>
     </resources>
 
     <dependencies>

@@ -17,7 +17,7 @@
     </exports>
 
     <resources>
-        <artifact name="${org.wildfly:wildfly-connector}"/>
+        <artifact name="${org.jboss.eap:wildfly-connector}"/>
     </resources>
 
     <dependencies>

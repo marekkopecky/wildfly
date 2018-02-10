@@ -12,7 +12,7 @@
     </properties>
 
     <resources>
-        <artifact name="${org.wildfly:wildfly-clustering-ejb-extension}"/>
+        <artifact name="${org.jboss.eap:wildfly-clustering-ejb-extension}"/>
     </resources>
 
     <dependencies>

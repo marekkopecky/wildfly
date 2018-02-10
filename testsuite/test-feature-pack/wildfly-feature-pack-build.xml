@@ -3,10 +3,10 @@
   ~ SPDX-License-Identifier: Apache-2.0
   -->
 
-<build xmlns="urn:wildfly:feature-pack-build:3.5" producer="org.wildfly:wildfly-test-feature-pack">
+<build xmlns="urn:wildfly:feature-pack-build:3.5" producer="org.jboss.eap:wildfly-test-feature-pack">
     <dependencies>
-        <dependency group-id="org.wildfly" artifact-id="wildfly-ee-galleon-pack" allowedFamily="wildfly:jakarta-ee-10+">
-            <name>org.wildfly:wildfly-ee-galleon-pack</name>
+        <dependency group-id="org.jboss.eap" artifact-id="wildfly-ee-galleon-pack" allowedFamily="wildfly:jakarta-ee-10+">
+            <name>org.jboss.eap:wildfly-ee-galleon-pack</name>
             <default-configs inherit="false">
                 <include model="standalone" name="standalone.xml"/>
             </default-configs>

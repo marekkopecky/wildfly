@@ -12,7 +12,7 @@
     </properties>
 
     <resources>
-        <artifact name="${org.wildfly:wildfly-clustering-faces-mojarra}"/>
+        <artifact name="${org.jboss.eap:wildfly-clustering-faces-mojarra}"/>
     </resources>
 
     <dependencies>

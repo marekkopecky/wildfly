@@ -11,7 +11,7 @@
     </properties>
 
     <resources>
-        <artifact name="${org.wildfly:wildfly-clustering-singleton-compat}"/>
+        <artifact name="${org.jboss.eap:wildfly-clustering-singleton-compat}"/>
     </resources>
 
     <dependencies>

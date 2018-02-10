@@ -12,7 +12,7 @@
     </properties>
 
     <resources>
-        <artifact name="${org.wildfly:wildfly-clustering-weld-web}"/>
+        <artifact name="${org.jboss.eap:wildfly-clustering-weld-web}"/>
     </resources>
 
     <dependencies>

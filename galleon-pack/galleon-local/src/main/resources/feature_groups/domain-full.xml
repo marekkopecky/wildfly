@@ -6,7 +6,7 @@
 
 <feature-group-spec name="domain-full" xmlns="urn:jboss:galleon:feature-group:1.0">
 
-    <origin name="org.wildfly:wildfly-ee-galleon-pack">
+    <origin name="org.jboss.eap:wildfly-ee-galleon-pack">
         <feature-group name="domain-full"/>
     </origin>
 

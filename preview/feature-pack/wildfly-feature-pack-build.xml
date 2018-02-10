@@ -3,7 +3,7 @@
   ~ SPDX-License-Identifier: Apache-2.0
   -->
 
-<build xmlns="urn:wildfly:feature-pack-build:3.5" producer="wildfly-preview@maven(org.jboss.universe:community-universe):current">
+<build xmlns="urn:wildfly:feature-pack-build:3.5" producer="org.jboss.eap:wildfly-preview-feature-pack">
     <family name="wildfly">
       <criteria name="jakarta-ee-10+"/>
       <criteria name="jakarta-ee-11"/>
@@ -36,6 +36,8 @@
       in the feature-pack as part of the 'docs.schema' package it generates.
      -->
     <package-schemas>
+        <group name="org.jboss.as"/>
+        <group name="org.jboss.eap"/>
         <group name="org.jboss.metadata"/>
         <group name="org.wildfly"/>
         <group name="org.wildfly.core"/>

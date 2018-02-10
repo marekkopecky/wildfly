@@ -12,7 +12,7 @@
     </properties>
 
     <resources>
-        <artifact name="${org.wildfly:wildfly-elytron-oidc-client-subsystem}"/>
+        <artifact name="${org.jboss.eap:wildfly-elytron-oidc-client-subsystem}"/>
     </resources>
 
     <dependencies>

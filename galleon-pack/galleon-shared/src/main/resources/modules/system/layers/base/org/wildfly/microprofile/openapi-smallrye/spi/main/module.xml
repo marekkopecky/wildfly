@@ -11,7 +11,7 @@
     </properties>
 
     <resources>
-        <artifact name="${org.wildfly:wildfly-microprofile-openapi-smallrye-spi}"/>
+        <artifact name="${org.jboss.eap:wildfly-microprofile-openapi-smallrye-spi}"/>
     </resources>
 
     <dependencies>

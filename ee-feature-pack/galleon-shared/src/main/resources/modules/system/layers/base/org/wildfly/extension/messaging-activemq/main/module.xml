@@ -12,7 +12,7 @@
     </properties>
 
     <resources>
-        <artifact name="${org.wildfly:wildfly-messaging-activemq-subsystem}"/>
+        <artifact name="${org.jboss.eap:wildfly-messaging-activemq-subsystem}"/>
         <artifact name="${org.jboss.activemq.artemis.integration:artemis-wildfly-integration}"/>
     </resources>
 

@@ -10,7 +10,7 @@
 
    <parent>
       <!--move back to weld-parent when other weld components moves to jakarta namespace-->
-      <groupId>org.wildfly</groupId>
+      <groupId>org.jboss.eap</groupId>
       <artifactId>wildfly-weld-parent</artifactId>
       <!--
       Maintain separation between the artifact id and the version to help prevent

@@ -16,9 +16,9 @@
     </exports>
 
     <resources>
-        <artifact name="${org.wildfly:wildfly-jpa}"/>
-        <artifact name="${org.wildfly:wildfly-jpa-container-32}"/>
-        <artifact name="${org.wildfly:persistence-cdi-extension}"/>
+        <artifact name="${org.jboss.eap:wildfly-jpa}"/>
+        <artifact name="${org.jboss.eap:wildfly-jpa-container-32}"/>
+        <artifact name="${org.jboss.eap:persistence-cdi-extension}"/>
     </resources>
 
     <dependencies>
