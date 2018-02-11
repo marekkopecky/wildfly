@@ -23,6 +23,9 @@
    13) version.txt exists
    14) Verify that installation manager helper files are provisioned at .installation directory
    15) JBossEULA.txt exists
+   16) copyright.txt does not exist
+   17) README.txt does not exist
+   18) docs/contrib does not exist
 -->
   <files>
     <file>
@@ -165,5 +168,17 @@
       <exists>true</exists>
     </file>
     <!-- end of (#15) -->
+    <file>
+      <location>target/${latest.server.output.dir}/copyright.txt</location>
+      <exists>false</exists>
+    </file>
+    <file>
+      <location>target/${latest.server.output.dir}/README.txt</location>
+      <exists>false</exists>
+    </file>
+    <file>
+      <location>target/${latest.server.output.dir}/docs/contrib/scripts</location>
+      <exists>false</exists>
+    </file>
   </files>
 </verifications>

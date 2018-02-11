@@ -33,5 +33,7 @@
         <package name="org.wildfly.unstable.annotation.api.indexer" optional="true" valid-for-stability="preview" />
         <package name="org.wildfly._internal.unstable-api-annotation-index" optional="true" valid-for-stability="preview" />
         <package name=".installation"/>
+        <!-- cleanup community content -->
+        <package name="cleanup.community.content"/>
     </packages>
 </config>
