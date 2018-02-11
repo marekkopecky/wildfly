@@ -1,5 +1,5 @@
-jboss-client.jar is a combined client jar for WildFly, for use in non-maven environments. This jar should be used
-with standalone clients only, not with deployments that are deployed to a WildFly instance.
+jboss-client.jar is a combined client jar for JBoss EAP 8, for use in non-maven environments. This jar should be used
+with standalone clients only, not with deployments that are deployed to a JBoss EAP 8 instance.
 
 This jar contains the classes required for remote JMS and EJB usage, and consists of the following shaded artifacts:
 
