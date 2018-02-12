@@ -18,6 +18,7 @@
         <package name="appclient"/>
         <package name="bin"/>
         <package name="version.txt"/>
+        <package name="JBossEULA.txt"/>
     </default-packages>
 
     <stability-levels>

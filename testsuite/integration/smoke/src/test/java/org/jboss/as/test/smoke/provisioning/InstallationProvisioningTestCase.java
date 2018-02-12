@@ -22,6 +22,11 @@ public class InstallationProvisioningTestCase {
         checkFileExists("version.txt");
     }
 
+    @Test
+    public void testJBossEULA() {
+        checkFileExists("JBossEULA.txt");
+    }
+
     private void checkFileExists(String... relativePath) {
         String jbossHome = System.getProperty("jboss.home");
         Assertions.assertTrue(jbossHome.contains("smoke"), jbossHome + " is not local to the smoke testsuite");

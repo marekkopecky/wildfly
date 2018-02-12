@@ -23,6 +23,7 @@
    13) the .installation dir exists and contains channel metadata
    14) version.txt exists
    15) Verify that installation manager helper files are provisioned at .installation directory
+   16) JBossEULA.txt exists
 -->
   <files>
     <file>
@@ -171,5 +172,11 @@
       <exists>true</exists>
     </file>
     <!-- end of (#15) -->
+    <!-- start of (#16) -->
+    <file>
+      <location>target/${latest.server.output.dir}/JBossEULA.txt</location>
+      <exists>true</exists>
+    </file>
+    <!-- end of (#16) -->
   </files>
 </verifications>
