@@ -8,6 +8,7 @@
 <package-spec xmlns="urn:jboss:galleon:package:2.0" name="misc.standalone">
     <dependencies>
         <package name="servlet.misc.standalone"/>
+        <package name="bin.standalone"/>
         <package name="misc.common"/>
     </dependencies>
 </package-spec>
