@@ -31,10 +31,10 @@ import org.junit.jupiter.api.extension.ExtendWith;
 @RunAsClient
 public class WelcomePageTestCase {
 
-    public static final String TITLE = "Welcome to WildFly";
-    public static final String HEADER_TEXT = "Welcome to WildFly";
-    public static final String DOCUMENTATION_LINK_TEXT = "Documentation";
-    public static final String QUICKSTARTS_LINK_TEXT = "Quickstarts";
+    public static final String TITLE = "Welcome to JBoss EAP 8";
+    public static final String HEADER_TEXT = "Welcome to JBoss EAP 8";
+    public static final String DOCUMENTATION_LINK_TEXT = "Latest release documentation";
+    public static final String USER_GROUPS_LINK_TEXT = "Online User Groups";
     public static final String ADMINISTRATION_CONSOLE_LINK_TEXT = "Administration Console";
 
     @BeforeAll
@@ -57,7 +57,7 @@ public class WelcomePageTestCase {
 
             DomNodeList<DomNode> links = welcomePage.querySelectorAll("a");
             assertLink(links, DOCUMENTATION_LINK_TEXT);
-            assertLink(links, QUICKSTARTS_LINK_TEXT);
+            assertLink(links, USER_GROUPS_LINK_TEXT);
             assertLink(links, ADMINISTRATION_CONSOLE_LINK_TEXT);
         }
     }
