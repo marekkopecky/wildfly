@@ -60,6 +60,8 @@ import org.junit.BeforeClass;
 import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.wildfly.test.integration.microprofile.metrics.application.resource.ResourceSimple;
+import org.wildfly.test.integration.microprofile.metrics.application.resource.TestApplication;
 
 /**
  * Test application metrics that are provided by a deployment.
@@ -95,6 +97,7 @@ public class MicroProfileMetricsApplicationTestCase {
     public static Archive<?> deploy() {
         WebArchive war = ShrinkWrap.create(WebArchive.class, "MicroProfileMetricsApplicationTestCase.war")
                 .addClasses(TestApplication.class)
+                .addClass(ResourceSimple.class)
                 .addAsWebInfResource(EmptyAsset.INSTANCE, "beans.xml");
         return war;
     }
@@ -199,7 +202,7 @@ public class MicroProfileMetricsApplicationTestCase {
     }
 
     private void checkRequestCount(int expectedCount) throws IOException {
-        // Prometheus conversion of the metric deployment/MicroProfileMetricsApplicationTestCase.war/subsystem/undertow/servlet/org.wildfly.test.integration.microprofile.metrics.application.TestApplication/request-count
+        // Prometheus conversion of the metric deployment/MicroProfileMetricsApplicationTestCase.war/subsystem/undertow/servlet/org.wildfly.test.integration.microprofile.metrics.application.resource.TestApplication/request-count
         String prometheusMetricName = "deployment_micro_profile_metrics_application_test_case_war_subsystem_undertow_servlet_org_wildfly_test_integration_microprofile_metrics_application_test_application_request_count";
 
         String tags = null;
@@ -218,7 +221,7 @@ public class MicroProfileMetricsApplicationTestCase {
 
         assertTrue(tags.contains("subsystem=\"undertow\""));
         assertTrue(tags.contains("deployment=\"MicroProfileMetricsApplicationTestCase.war\""));
-        assertTrue(tags.contains("servlet=\"org.wildfly.test.integration.microprofile.metrics.application.TestApplication\""));
+        assertTrue(tags.contains("servlet=\"org.wildfly.test.integration.microprofile.metrics.application.resource.TestApplication\""));
         assertTrue(tags.contains("attribute=\"request-count\""));
 
         assertEquals(Integer.valueOf(expectedCount).doubleValue(), value, 0);
