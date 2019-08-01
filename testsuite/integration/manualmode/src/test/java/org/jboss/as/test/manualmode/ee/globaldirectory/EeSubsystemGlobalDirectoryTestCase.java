@@ -21,139 +21,259 @@
  */
 package org.jboss.as.test.manualmode.ee.globaldirectory;
 
-import org.jboss.arquillian.container.test.api.ContainerController;
-import org.jboss.arquillian.container.test.api.Deployer;
+import org.apache.commons.io.FileUtils;
+import org.jboss.arquillian.container.spi.client.container.DeploymentException;
+import org.jboss.arquillian.container.test.api.Deployment;
 import org.jboss.arquillian.container.test.api.RunAsClient;
+import org.jboss.arquillian.container.test.api.TargetsContainer;
 import org.jboss.arquillian.junit.Arquillian;
-import org.jboss.arquillian.test.api.ArquillianResource;
-import org.jboss.logging.Logger;
+import org.jboss.as.arquillian.container.ManagementClient;
+import org.jboss.as.test.manualmode.ee.globaldirectory.deployments.GlobalDirectoryDeployment;
+import org.jboss.as.test.manualmode.ee.globaldirectory.deployments.GlobalDirectoryDeployment2;
+import org.jboss.as.test.manualmode.ee.globaldirectory.deployments.GlobalDirectoryDeployment3;
+import org.jboss.as.test.manualmode.ee.globaldirectory.libraries.GlobalDirectoryLibrary;
+import org.jboss.as.test.manualmode.ee.globaldirectory.libraries.GlobalDirectoryLibraryImpl;
+import org.jboss.as.test.manualmode.ee.globaldirectory.libraries.GlobalDirectoryLibraryImpl2;
+import org.jboss.as.test.manualmode.ee.globaldirectory.libraries.GlobalDirectoryLibraryImpl3;
+import org.jboss.as.test.manualmode.ee.globaldirectory.util.MavenUtil;
+import org.jboss.as.test.shared.TestSuiteEnvironment;
+import org.jboss.shrinkwrap.api.ShrinkWrap;
+import org.jboss.shrinkwrap.api.asset.StringAsset;
+import org.jboss.shrinkwrap.api.spec.WebArchive;
+import org.junit.After;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
+import javax.ws.rs.core.Response;
+import java.io.File;
 import java.io.IOException;
+import java.net.URL;
+import java.nio.file.Files;
+import java.util.Arrays;
 
-//import java.net.URL;
+import static org.junit.Assert.fail;
 
 /**
  * @author Vratislav Marek (vmarek@redhat.com)
+ * @author Tomas Terem (tterem@redhat.com)
  **/
 @RunWith(Arquillian.class)
 @RunAsClient
 public class EeSubsystemGlobalDirectoryTestCase extends EESubsystemGlobalDirectory {
 
-    private static Logger LOGGER = Logger.getLogger(EeSubsystemGlobalDirectoryTestCase.class);
-
-    @ArquillianResource
-    private static ContainerController containerController;
-
-    @ArquillianResource
-    Deployer deployer;
-
-//    @ArquillianResource
-//    private URL url;
-
-
     @Before
-    public void setup() {
+    public void setup() throws Exception {
+        initCLI(true);
     }
 
-//        URL url = new URL(this.url.toExternalForm() + "helloworld");
-//        System.out.println(HttpRequest.get(url.toExternalForm(), 10, TimeUnit.SECONDS));
+    @After
+    public void clean() throws IOException {
+        remove(GLOBAL_DIRECTORY_NAME);
+        verifyNonExist(GLOBAL_DIRECTORY_NAME);
+        FileUtils.deleteDirectory(GLOBAL_DIRECTORY_PATH.toFile());
+        FileUtils.deleteDirectory(TEMP_DIR);
+    }
 
-    /*
-        Scenario 1 - major functionality
+    @Deployment(name = DEPLOYMENT, managed = false, testable = false)
+    @TargetsContainer(CONTAINER)
+    public static WebArchive createDeployment() {
+        WebArchive war = ShrinkWrap.create(WebArchive.class, DEPLOYMENT + ".war");
+        war.addClass(GlobalDirectoryDeployment.class);
+        war.addAsWebInfResource(new StringAsset("<?xml version=\"1.0\" encoding=\"UTF-8\"?><web-app><servlet-mapping>\n" +
+                "        <servlet-name>javax.ws.rs.core.Application</servlet-name>\n" +
+                "        <url-pattern>/*</url-pattern>\n" +
+                "    </servlet-mapping></web-app>"),"web.xml");
+        return war;
+    }
 
-        While we pre-check testing this feature, we found instability while restart server.
-        That’s why it is required several restart of server.
-        Purpose of third restart is verify if the feature is stable.
+    @Deployment(name = DEPLOYMENT2, managed = false, testable = false)
+    @TargetsContainer(CONTAINER)
+    public static WebArchive createDeployment2() {
+        WebArchive war = ShrinkWrap.create(WebArchive.class, DEPLOYMENT2 + ".war");
+        war.addClass(GlobalDirectoryDeployment2.class);
+        war.addAsWebInfResource(new StringAsset("<?xml version=\"1.0\" encoding=\"UTF-8\"?><web-app><servlet-mapping>\n" +
+              "        <servlet-name>javax.ws.rs.core.Application</servlet-name>\n" +
+              "        <url-pattern>/*</url-pattern>\n" +
+              "    </servlet-mapping></web-app>"),"web.xml");
+        return war;
+    }
 
-        org.jboss.as.test.manualmode.ee.globaldirectory.EeSubsystemGlobalDirectoryTestCase#testModifyDependencySharedLibs
+    @Deployment(name = DEPLOYMENT3, managed = false, testable = false)
+    @TargetsContainer(CONTAINER)
+    public static WebArchive createDeployment3() {
+        WebArchive war = ShrinkWrap.create(WebArchive.class, DEPLOYMENT3 + ".war");
+        war.addClass(GlobalDirectoryDeployment3.class);
+        war.addAsWebInfResource(new StringAsset("<?xml version=\"1.0\" encoding=\"UTF-8\"?><web-app><servlet-mapping>\n" +
+              "        <servlet-name>javax.ws.rs.core.Application</servlet-name>\n" +
+              "        <url-pattern>/*</url-pattern>\n" +
+              "    </servlet-mapping></web-app>"),"web.xml");
+        return war;
+    }
 
-        Test prerequisites
-            Create temporary directory and include test jars dependency of test deployment application
-        Define global-directory by CLI command
-        Check if global-directory are registered properly and verify his attributes
-        Restart server
-        Deploy test application deployment
-        Call some method from global-directory in deployment and verify method output
-        Change the test jars dependency of test deployment application in temporary directory
-        Restart server
-        Verify in log if application deployment service is loaded correctly
-        Call some method from global-directory in deployment and verify method output
-        Restart server
-        Verify in log if application deployment service is loaded correctly
-        Call some method from global-directory in deployment and verify method output
-    */
-    @Test
+    @Test // works
     public void testModifyDependencySharedLibs() throws IOException, InterruptedException {
-        copyLibraries(null);
-        register(GDN);
-        verifyProperlyRegistered(GDN, getLibraryPath());
+        ManagementClient managementClient = new ManagementClient(TestSuiteEnvironment.getModelControllerClient(),
+              TestSuiteEnvironment.getServerAddress(), TestSuiteEnvironment.getServerPort(), "remote+http");
+        URL url = new URL(managementClient.getWebUri().toURL(), '/' + DEPLOYMENT + "/");
+
+        createLibrary(GlobalDirectoryLibrary.class.getSimpleName(), GlobalDirectoryLibrary.class);
+        createLibrary(GlobalDirectoryLibraryImpl.class.getSimpleName(), GlobalDirectoryLibraryImpl.class);
+
+        copyLibraryToGlobalDirectory(GlobalDirectoryLibrary.class.getSimpleName());
+        copyLibraryToGlobalDirectory(GlobalDirectoryLibraryImpl.class.getSimpleName());
+
+        register(GLOBAL_DIRECTORY_NAME);
+        verifyProperlyRegistered(GLOBAL_DIRECTORY_NAME, GLOBAL_DIRECTORY_PATH.toString());
         restartServer();
-        checkLogs(null);
-        deployApplication(null);
+
+        deployer.deploy(DEPLOYMENT);
+
+        Response response = client.target(url + "global-directory/library").request().get();
+        String result = response.readEntity(String.class);
+        Assert.assertEquals("HELLO WORLD", result);
+
+        deployer.undeploy(DEPLOYMENT);
     }
 
-    /*
-        Scenario 2 - negative reaction to corrupted jar
+    @Test // improve to check if it shows in cli as well
+    public void testJBossModulesFoundCorruptedJarInSharedLibs() throws IOException, InterruptedException {
+        createCorruptedLibrary("corrupted", Arrays.asList("hello world"));
+        copyLibraryToGlobalDirectory("corrupted");
+        register(GLOBAL_DIRECTORY_NAME);
+        verifyProperlyRegistered(GLOBAL_DIRECTORY_NAME, GLOBAL_DIRECTORY_PATH.toString());
+        restartServer();
 
-        org.jboss.as.test.manualmode.ee.globaldirectory.EeSubsystemGlobalDirectoryTestCase#testJBossModulesFoundCorruptedJarInSharedLibs
-
-        Test prerequisites
-            Create temporary directory and include corrupted test jar
-        Define global-directory by CLI command
-        Check if global-directory are registered properly and verify his attributes
-        Restart server
-        Deploy test application deployment
-        Call some method from global-directory in deployment and verify JBoss modules throw correct error message about corrupted file
-    */
-    @Test
-    public void testJBossModulesFoundCorruptedJarInSharedLibs() {
-
+        try {
+            deployer.deploy(DEPLOYMENT);
+            fail("Exception should have been thrown.");
+        } catch (Exception e) {
+            Assert.assertEquals(DeploymentException.class, e.getClass());
+        }
+        logContains("WFLYSRV0276: There is an error in opening zip file " + GLOBAL_DIRECTORY_PATH.toFile().toPath().toAbsolutePath().toString() + "/corrupted.jar");
     }
 
-    /*
-        Scenario 3 - verify load order
+    @Test // doesn't work as expected
+    public void testVerifyLoadingOrderSharedLibs() throws IOException, InterruptedException {
+        ManagementClient managementClient = new ManagementClient(TestSuiteEnvironment.getModelControllerClient(),
+              TestSuiteEnvironment.getServerAddress(), TestSuiteEnvironment.getServerPort(), "remote+http");
+        URL url = new URL(managementClient.getWebUri().toURL(), '/' + DEPLOYMENT3 + "/");
 
-        org.jboss.as.test.manualmode.ee.globaldirectory.EeSubsystemGlobalDirectoryTestCase#testVerifyLoadingOrderSharedLibs
+        MavenUtil mavenUtil;
+        mavenUtil = MavenUtil.create(true);
 
-        Test prerequisites
-            Create temporary directory and include test jars with duplicities dependency of test deployment application
-            Set logging level to DEBUG
-        Define global-directory by CLI command
-        Check if global-directory are registered properly and verify his attributes
-        Restart server
-        Check log file if contains all jars with alphabetical order
-        Check if global-directory is registered properly
-        Deploy test application deployment
-        Call some method from global-directory in deployment
-        Verify result to contains expected output from jar loaded by alphabetical order first
-    */
-    @Test
-    public void testVerifyLoadingOrderSharedLibs() {
+        // File library1;
+        File library2;
+        File dependency;
+        try {
+            // library1 = mavenUtil.createMavenGavFile("org.eclipse.microprofile.config:microprofile-config-api:1.3");
+            library2 = mavenUtil.createMavenGavFile("org.eclipse.microprofile.config:microprofile-config-api:1.2.1");
+            dependency = mavenUtil.createMavenGavFile("org.osgi:org.osgi.annotation.versioning:1.0.0");
+        } catch (Exception e) {
+            throw new RuntimeException("Unable to get artifacts from maven via Aether library", e);
+        }
 
+        // copyLibraryToGlobalDirectory(library1.getName(), library1.toPath().toAbsolutePath());
+        copyLibraryToGlobalDirectory(library2.getName(), library2.toPath().toAbsolutePath());
+        copyLibraryToGlobalDirectory(dependency.getName(), dependency.toPath().toAbsolutePath());
+
+        // FileUtils.deleteDirectory(library1);
+        Files.delete(library2.toPath());
+        Files.delete(dependency.toPath());
+
+        createLibrary(GlobalDirectoryLibrary.class.getSimpleName(), GlobalDirectoryLibrary.class);
+        createLibrary(GlobalDirectoryLibraryImpl.class.getSimpleName(), GlobalDirectoryLibraryImpl.class);
+
+        copyLibraryToGlobalDirectory(GlobalDirectoryLibrary.class.getSimpleName());
+        copyLibraryToGlobalDirectory(GlobalDirectoryLibraryImpl.class.getSimpleName());
+
+
+        register(GLOBAL_DIRECTORY_NAME);
+        verifyProperlyRegistered(GLOBAL_DIRECTORY_NAME, GLOBAL_DIRECTORY_PATH.toString());
+        restartServer();
+
+        deployer.deploy(DEPLOYMENT3);
+
+        Response response = client.target(url + "global-directory/library3").request().get();
+        String result = response.readEntity(String.class);
+        Assert.assertEquals("100", result);
+
+        deployer.undeploy(DEPLOYMENT3);
     }
 
-    /*
-        Scenario 4 - load any resource
+    @Test // test is ok, implementation is going to be fixed
+    public void testVerifyLoadingOrderSharedLibs2() throws Exception {
+        createLibrary(GlobalDirectoryLibrary.class.getSimpleName(), GlobalDirectoryLibrary.class);
+        createLibrary(GlobalDirectoryLibraryImpl.class.getSimpleName(), GlobalDirectoryLibraryImpl.class);
+        createLibrary(GlobalDirectoryLibraryImpl2.class.getSimpleName(), GlobalDirectoryLibraryImpl2.class);
+        createLibrary(GlobalDirectoryLibraryImpl3.class.getSimpleName(), GlobalDirectoryLibraryImpl3.class);
 
-        org.jboss.as.test.manualmode.ee.globaldirectory.EeSubsystemGlobalDirectoryTestCase#testReadPropertyFilesSharedLibs
+        GLOBAL_DIRECTORY_PATH.toFile().mkdirs();
 
-        Test prerequisites
-           Create temporary directory
-           Include test jars with dependency of test deployment application
-        Include test property files expected by test deployment application from library
-        Define global-directory by CLI command
-        Check if global-directory are registered properly and verify his attributes
-        Restart server
-        Deploy test application deployment
-        Call some method from global-directory in deployment
-        Verify result to contains expected output with property variables
-    */
-    @Test
-    public void testReadPropertyFilesSharedLibs() {
+        File subDirectoryA = new File(GLOBAL_DIRECTORY_PATH.toFile(), "a");
+        File subDirectoryAB = new File(GLOBAL_DIRECTORY_PATH.toFile(), "ab");
+        File subDirectoryC = new File(GLOBAL_DIRECTORY_PATH.toFile(), "C");
+        File subDirectoryC_D = new File(subDirectoryC, "D");
+        File subDirectoryC_E = new File(subDirectoryC, "E");
+        File subDirectoryC_D_F = new File(subDirectoryC_D, "F");
 
+        copyLibraryToGlobalDirectory(GlobalDirectoryLibrary.class.getSimpleName());
+        copyLibraryToDirectory(GlobalDirectoryLibrary.class.getSimpleName(), subDirectoryA.toString());
+        copyLibraryToDirectory(GlobalDirectoryLibraryImpl.class.getSimpleName(), subDirectoryA.toString());
+        copyLibraryToDirectory(GlobalDirectoryLibraryImpl.class.getSimpleName(), subDirectoryAB.toString());
+        copyLibraryToDirectory(GlobalDirectoryLibraryImpl2.class.getSimpleName(), subDirectoryC_D_F.toString());
+        copyLibraryToDirectory(GlobalDirectoryLibraryImpl2.class.getSimpleName(), subDirectoryC_E.toString());
+        copyLibraryToDirectory(GlobalDirectoryLibraryImpl3.class.getSimpleName(), subDirectoryC_E.toString());
+
+        register(GLOBAL_DIRECTORY_NAME);
+        verifyProperlyRegistered(GLOBAL_DIRECTORY_NAME, GLOBAL_DIRECTORY_PATH.toString());
+        restartServer();
+
+        initCLI(true);
+        cli.sendLine("/subsystem=logging/logger=org.jboss.as.server.moduleservice:add(level=DEBUG)");
+
+        deployer.deploy(DEPLOYMENT);
+
+        checkDebugLogs(new String[]{
+              "Added " + GLOBAL_DIRECTORY_PATH.toAbsolutePath().toFile().toString() + " directory as resource root",
+              "Added " + GLOBAL_DIRECTORY_PATH.toAbsolutePath().toFile().toString() + "/GlobalDirectoryLibrary.jar jar file",
+              "Added " + subDirectoryA.toString() + "/GlobalDirectoryLibraryImpl.jar jar file",
+              "Added " + subDirectoryC_D_F.toString() + "/GlobalDirectoryLibraryImpl2.jar jar file",
+              "Added " + subDirectoryC_E.toString() + "/GlobalDirectoryLibraryImpl3.jar jar file"
+        });
+
+        deployer.undeploy(DEPLOYMENT);
     }
 
+    @Test // works
+    public void testReadPropertyFilesSharedLibs() throws IOException, InterruptedException {
+        ManagementClient managementClient = new ManagementClient(TestSuiteEnvironment.getModelControllerClient(),
+              TestSuiteEnvironment.getServerAddress(), TestSuiteEnvironment.getServerPort(), "remote+http");
+        URL url = new URL(managementClient.getWebUri().toURL(), '/' + DEPLOYMENT2 + "/");
+
+        createLibrary(GlobalDirectoryLibrary.class.getSimpleName(), GlobalDirectoryLibrary.class);
+        createLibrary(GlobalDirectoryLibraryImpl2.class.getSimpleName(), GlobalDirectoryLibraryImpl2.class);
+
+        String propertyFileName = "properties";
+        String propertyFileString = "PROPERTY FILE";
+
+        createTextFile(propertyFileName, Arrays.asList(propertyFileString ));
+
+        copyLibraryToGlobalDirectory(GlobalDirectoryLibrary.class.getSimpleName());
+        copyLibraryToGlobalDirectory(GlobalDirectoryLibraryImpl2.class.getSimpleName());
+        copyTextFileToGlobalDirectory(propertyFileName);
+
+        register(GLOBAL_DIRECTORY_NAME);
+        verifyProperlyRegistered(GLOBAL_DIRECTORY_NAME, GLOBAL_DIRECTORY_PATH.toString());
+        restartServer();
+
+        deployer.deploy(DEPLOYMENT2);
+
+        Response response = client.target(url + "global-directory/library2").request().get();
+        String result = response.readEntity(String.class);
+        Assert.assertEquals(propertyFileString, result);
+
+        deployer.undeploy(DEPLOYMENT2);
+    }
 }

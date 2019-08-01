@@ -21,23 +21,53 @@
  */
 package org.jboss.as.test.manualmode.ee.globaldirectory;
 
+import org.jboss.arquillian.container.test.api.Deployment;
 import org.jboss.arquillian.container.test.api.RunAsClient;
+import org.jboss.arquillian.container.test.api.TargetsContainer;
 import org.jboss.arquillian.junit.Arquillian;
+import org.jboss.as.arquillian.container.ManagementClient;
+import org.jboss.as.test.manualmode.ee.globaldirectory.deployments.GlobalDirectoryDeployment;
+import org.jboss.as.test.manualmode.ee.globaldirectory.libraries.GlobalDirectoryLibrary;
+import org.jboss.as.test.manualmode.ee.globaldirectory.libraries.GlobalDirectoryLibraryImpl;
+import org.jboss.as.test.shared.TestSuiteEnvironment;
+import org.jboss.logging.Logger;
+import org.jboss.shrinkwrap.api.ShrinkWrap;
+import org.jboss.shrinkwrap.api.asset.StringAsset;
+import org.jboss.shrinkwrap.api.spec.WebArchive;
+import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
-import java.io.IOException;
-//import java.net.URL;
+import javax.ws.rs.core.Response;
+import java.net.URL;
 
 /**
  * @author Vratislav Marek (vmarek@redhat.com)
+ * @author Tomas Terem (tterem@redhat.com)
  **/
 @RunWith(Arquillian.class)
 @RunAsClient
 public class EeSubsystemGlobalDirectoryDomainTestCase extends EESubsystemGlobalDirectory {
 
 
+    private static Logger LOGGER = Logger.getLogger(EeSubsystemGlobalDirectoryTestCase.class);
 
+    @Before
+    public void setup() {
+    }
+
+    @Deployment(name = DEPLOYMENT, managed = false, testable = false)
+    @TargetsContainer(CONTAINER)
+    public static WebArchive createDeployment() {
+        WebArchive war = ShrinkWrap.create(WebArchive.class, DEPLOYMENT + ".war");
+        war.addClass(GlobalDirectoryDeployment.class);
+        war.addAsWebInfResource(new StringAsset("<?xml version=\"1.0\" encoding=\"UTF-8\"?><web-app><servlet-mapping>\n" +
+              "        <servlet-name>javax.ws.rs.core.Application</servlet-name>\n" +
+              "        <url-pattern>/*</url-pattern>\n" +
+              "    </servlet-mapping></web-app>"),"web.xml");
+        return war;
+    }
 /*
     Major functionality
 
@@ -55,7 +85,35 @@ public class EeSubsystemGlobalDirectoryDomainTestCase extends EESubsystemGlobalD
  */
 
     @Test
-    public void testAppSharedLib() throws IOException {
+    public void testAppSharedLib() throws Exception {
+        initCLI(true);
+        // cli.sendLine("/subsystem=logging/logger=org.jboss.as.server.moduleservice:add(level=DEBUG)");
+
+        ManagementClient managementClient = new ManagementClient(TestSuiteEnvironment.getModelControllerClient(),
+              TestSuiteEnvironment.getServerAddress(), TestSuiteEnvironment.getServerPort(), "remote+http");
+        URL url = new URL(managementClient.getWebUri().toURL(), '/' + DEPLOYMENT + "/");
+
+        createLibrary(GlobalDirectoryLibrary.class.getSimpleName(), GlobalDirectoryLibrary.class);
+        createLibrary(GlobalDirectoryLibraryImpl.class.getSimpleName(), GlobalDirectoryLibraryImpl.class);
+
+        copyLibraryToGlobalDirectory(GlobalDirectoryLibrary.class.getSimpleName());
+        copyLibraryToGlobalDirectory(GlobalDirectoryLibraryImpl.class.getSimpleName());
+
+        // register(GLOBAL_DIRECTORY_NAME);
+        cli.sendLine("/profile=default/subsystem=ee/global-directory=my-common-libs:add(path=lib, relative-to=jboss.server.data.dir)");
+        // verifyProperlyRegistered(GLOBAL_DIRECTORY_NAME, GLOBAL_DIRECTORY_PATH.toString());
+        cli.sendLine("shutdown --restart");
+
+        deployer.deploy(DEPLOYMENT);
+
+
+        Response response = client.target(url + "global-directory/library").request().get();
+        String result = response.readEntity(String.class);
+        Assert.assertEquals("HELLO WORLD", result);
+
+        cli.sendLine("shutdown --restart");
+
+        deployer.undeploy(DEPLOYMENT);
 
     }
 

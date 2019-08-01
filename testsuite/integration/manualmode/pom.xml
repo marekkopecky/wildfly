@@ -131,6 +131,11 @@
             <artifactId>jboss-jaxws-api_2.3_spec</artifactId>
             <scope>test</scope>
         </dependency>
+        <dependency>
+            <groupId>org.eclipse.microprofile.config</groupId>
+            <artifactId>microprofile-config-api</artifactId>
+            <scope>provided</scope>
+        </dependency>
     </dependencies>
 
     <profiles>
