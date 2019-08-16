@@ -8,6 +8,6 @@
     <feature spec="subsystem.metrics">
         <param name="security-enabled" value="false"/>
         <param name="exposed-subsystems" value="[*]"/>
-        <param name="prefix" value="${wildfly.metrics.prefix:wildfly}"/>
+        <param name="prefix" value="${wildfly.metrics.prefix:jboss}"/>
     </feature>
 </feature-group-spec>

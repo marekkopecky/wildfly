@@ -139,7 +139,7 @@ public class MetricsFromWildFlyManagementModelTestCase {
     }
 
     private void checkMetricExistence(String label, boolean metricMustExist) throws IOException {
-        String metricName = "wildfly_undertow_request_count_total";
+        String metricName = "jboss_undertow_request_count_total";
         String metrics = getPrometheusMetrics(managementClient, true);
         for (String line : metrics.split("\\R")) {
             if (line.startsWith(metricName)) {
@@ -160,7 +160,7 @@ public class MetricsFromWildFlyManagementModelTestCase {
     }
 
     private void checkRequestCount(int expectedCount, boolean metricForDeployment) throws IOException {
-        String metricName = "wildfly_undertow_request_count_total";
+        String metricName = "jboss_undertow_request_count_total";
         String metrics = getPrometheusMetrics(managementClient, true);
         System.out.println(">>> metrics = " + metrics);
         for (String line : metrics.split("\\R")) {
