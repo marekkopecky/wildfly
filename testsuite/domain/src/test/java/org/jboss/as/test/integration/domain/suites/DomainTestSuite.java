@@ -38,12 +38,13 @@ import org.junit.runners.Suite;
  */
 @RunWith(Suite.class)
 @Suite.SuiteClasses ({
-        DatasourceTestCase.class,
-        DeploymentManagementTestCase.class,
-        DeploymentOverlayTestCase.class,
-        JcaCCMRuntimeOnlyProfileOpsTestCase.class,
-        ModelPersistenceTestCase.class,
-        ReadEnvironmentVariablesTestCase.class,
+//        DatasourceTestCase.class,
+//        DeploymentManagementTestCase.class,
+//        DeploymentOverlayTestCase.class,
+//        JcaCCMRuntimeOnlyProfileOpsTestCase.class,
+//        ModelPersistenceTestCase.class,
+//        ReadEnvironmentVariablesTestCase.class,
+        EeSubsystemGlobalDirectoryDomainTestCase.class
 })
 public class DomainTestSuite {
 
