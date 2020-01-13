@@ -265,10 +265,34 @@
                                 </goals>
                                 <phase>package</phase>
                                 <configuration>
+                                    <output-licenses-file>${project.build.directory}/community-licenses.xml</output-licenses-file>
+                                    <excluded-licenses-versions>.*redhat-.*</excluded-licenses-versions>
                                     <offline>true</offline>
                                     <fpGroupId>${ee.maven.groupId}</fpGroupId>
                                     <fpArtifactId>${legacy.ee.feature.pack.artifactId}</fpArtifactId>
                                     <fpVersion>${ee.maven.version}</fpVersion>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+                    <plugin>
+                        <groupId>org.codehaus.mojo</groupId>
+                        <artifactId>build-helper-maven-plugin</artifactId>
+                        <executions>
+                            <execution>
+                                <id>attach-community-licenses-artifact</id>
+                                <phase>package</phase>
+                                <goals>
+                                    <goal>attach-artifact</goal>
+                                </goals>
+                                <configuration>
+                                    <artifacts>
+                                        <artifact>
+                                            <file>${project.build.directory}/community-licenses.xml</file>
+                                            <type>xml</type>
+                                            <classifier>community-licenses</classifier>
+                                        </artifact>
+                                    </artifacts>
                                 </configuration>
                             </execution>
                         </executions>
