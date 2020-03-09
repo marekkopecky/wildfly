@@ -258,7 +258,7 @@ public class DiscoveryGroupExternalMessagingDeploymentTestCase {
         String destination = sendToQueue ? "queue" : "topic";
         String text = UUID.randomUUID().toString();
         URL url = new URL(this.url.toExternalForm() + "ClientMessagingDeploymentTestCase?destination=" + destination + "&text=" + text);
-        String reply = HttpRequest.get(url.toExternalForm(), TimeoutUtil.adjust(10), TimeUnit.SECONDS);
+        String reply = HttpRequest.get(url.toExternalForm(), TimeoutUtil.adjust(60), TimeUnit.SECONDS);
 
         assertNotNull(reply);
         assertEquals(text, reply);
