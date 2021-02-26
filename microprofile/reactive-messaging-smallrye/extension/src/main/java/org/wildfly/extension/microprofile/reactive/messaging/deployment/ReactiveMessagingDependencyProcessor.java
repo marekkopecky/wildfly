@@ -32,8 +32,8 @@ import org.wildfly.security.manager.WildFlySecurityManager;
  */
 public class ReactiveMessagingDependencyProcessor implements DeploymentUnitProcessor {
 
-    // TODO Set to false for EAP https://issues.redhat.com/browse/JBEAP-20660
-    private final boolean allowExperimental = true;
+    // Set to false for EAP https://issues.redhat.com/browse/JBEAP-20660
+    private final boolean allowExperimental = false;
 
     private static final String EXPERIMENTAL_PROPERTY = "jboss.as.reactive.messaging.experimental";
 
