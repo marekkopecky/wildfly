@@ -55,6 +55,7 @@
         <xslt.scripts.dir>${basedir}/../integration/src/test/xslt</xslt.scripts.dir>
 
         <ts.elytron.cli>../shared/enable-elytron-domain.cli</ts.elytron.cli>
+        <!--suppress UnresolvedMavenProperty -->
         <ts.skipTests>${skipTests}</ts.skipTests>
         <!-- Use the complete build, not just the ee one, for this testsuite -->
         <wildfly.build.output.dir>build/target/${server.output.dir.prefix}-${server.output.dir.version}</wildfly.build.output.dir>
@@ -202,6 +203,12 @@
         <dependency>
             <groupId>org.wildfly.security</groupId>
             <artifactId>wildfly-elytron-ssl</artifactId>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.wildfly.core</groupId>
+            <artifactId>wildfly-patching</artifactId>
             <scope>test</scope>
         </dependency>
 
