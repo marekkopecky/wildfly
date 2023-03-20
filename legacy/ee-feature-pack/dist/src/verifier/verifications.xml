@@ -27,6 +27,8 @@
    17) copyright.txt does not exist
    18) README.txt does not exist
    19) docs/contrib does not exist
+   20) Some verifications around libartemis-native-32.so / libartemis-native-64.so to ensure the server distribution
+       contains the -64 variant and does not contain the -32 one.
 -->
   <files>
     <file>
@@ -193,5 +195,15 @@
       <location>target/${legacy.server.output.dir}/docs/contrib/scripts</location>
       <exists>false</exists>
     </file>
+    <!-- start of (#19) -->
+    <file>
+      <location>target/${legacy.server.output.dir}/modules/system/layers/base/org/apache/activemq/artemis/journal/main/lib/linux-i686/libartemis-native-32.so</location>
+      <exists>false</exists>
+    </file>
+    <file>
+      <location>target/${legacy.server.output.dir}/modules/system/layers/base/org/apache/activemq/artemis/journal/main/lib/linux-x86_64/libartemis-native-64.so</location>
+      <exists>true</exists>
+    </file>
+    <!-- end of (#19) -->
   </files>
 </verifications>

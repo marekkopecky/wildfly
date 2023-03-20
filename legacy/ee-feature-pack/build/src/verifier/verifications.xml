@@ -16,6 +16,8 @@
     6) the module.xml above contains to 'org.wildfly:wildfly-preview-feature-pack-product-conf'
     7) the .galleon dir exists
     8) no .galleon/history dir exists
+   10) Some verifications around libartemis-native-32.so / libartemis-native-64.so to ensure the server distribution
+       contains the -64 variant and does not contain the -32 one.
 -->
   <files>
     <file>
@@ -50,5 +52,15 @@
       <location>target/${legacy.server.output.dir}/.galleon/history</location>
       <exists>false</exists>
     </file>
+    <!-- start of (#10) -->
+    <file>
+      <location>target/${legacy.server.output.dir}/modules/system/layers/base/org/apache/activemq/artemis/journal/main/lib/linux-i686/libartemis-native-32.so</location>
+      <exists>false</exists>
+    </file>
+    <file>
+      <location>target/${legacy.server.output.dir}/modules/system/layers/base/org/apache/activemq/artemis/journal/main/lib/linux-x86_64/libartemis-native-64.so</location>
+      <exists>true</exists>
+    </file>
+    <!-- end of (#10) -->
   </files>
 </verifications>

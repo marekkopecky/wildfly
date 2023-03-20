@@ -7,7 +7,8 @@
 
 <tasks xmlns="urn:wildfly:wildfly-feature-pack-tasks:2.0">
     <copy-artifact artifact="org.apache.activemq:activemq-artemis-native" to-location="modules/system/layers/base/org/apache/activemq/artemis/journal/main" extract="true" >
-        <filter pattern="lib/*" include="true" />
+        <filter pattern="lib/" include="true" />
+        <filter pattern="lib/linux*x86*" include="true" />
         <filter pattern="*" include="false"/>
     </copy-artifact>
 </tasks>
