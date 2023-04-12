@@ -251,6 +251,9 @@
                                  Note that package dependencies that are only valid for
                                  a minimum stability level are ignored. -->
                             <forbid-lower-stability-level-package-reference>true</forbid-lower-stability-level-package-reference>
+                            <!-- In order to require that the feature-pack and artifacts are to be resolved from channel if channels
+                                 are configured in the provisioning tooling -->
+                            <wildfly-channel-resolution-mode>REQUIRED</wildfly-channel-resolution-mode>
                             <release-name>${legacy.dist.product.release.name}</release-name>
                             <fork-embedded>${galleon.fork.embedded}</fork-embedded>
                             <generate-channel-manifest>true</generate-channel-manifest>
