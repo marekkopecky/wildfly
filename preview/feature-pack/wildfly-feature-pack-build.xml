@@ -20,6 +20,7 @@
         <package name="bin"/>
         <package name="version.txt"/>
         <package name="layers.conf"/>
+        <package name="expansion.pack"/>
     </default-packages>
 
     <stability-levels>

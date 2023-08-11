@@ -308,6 +308,11 @@
                             <deploy-channel-manifest>false</deploy-channel-manifest>
                             <generate-complete-model>true</generate-complete-model>
                             <copyright>${wildfly.copyright.simple}</copyright>
+                            <task-properties>
+                                <product.release.version>${preview.dist.product.release.version}</product.release.version>
+                                <expansion.pack.release.name>${expansion.pack.release.name}</expansion.pack.release.name>
+                                <expansion.pack.release.version>${expansion.pack.release.version}</expansion.pack.release.version>
+                            </task-properties>
                         </configuration>
                     </execution>
                 </executions>

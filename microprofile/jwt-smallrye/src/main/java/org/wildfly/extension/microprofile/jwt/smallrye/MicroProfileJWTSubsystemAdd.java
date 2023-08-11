@@ -12,6 +12,7 @@ import org.jboss.as.server.AbstractDeploymentChainStep;
 import org.jboss.as.server.DeploymentProcessorTarget;
 import org.jboss.as.server.deployment.Phase;
 import org.jboss.dmr.ModelNode;
+import org.jboss.eap.expansion.pack.ExpansionPackDependencyVerifier;
 import org.wildfly.extension.microprofile.jwt.smallrye._private.MicroProfileJWTLogger;
 
 /**
@@ -29,6 +30,7 @@ class MicroProfileJWTSubsystemAdd extends AbstractBoottimeAddStepHandler {
         MicroProfileJWTLogger.ROOT_LOGGER.activatingSubsystem();
 
         if (context.isNormalServer()) {
+            ExpansionPackDependencyVerifier.installVerifier(context.getServiceTarget());
             context.addStep(new AbstractDeploymentChainStep() {
 
                 @Override

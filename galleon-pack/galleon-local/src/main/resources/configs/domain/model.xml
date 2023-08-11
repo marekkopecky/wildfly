@@ -14,5 +14,6 @@
         <package name="JBossEULA.txt"/>
         <package name="cleanup.community.content"/>
         <package name="layers.conf" optional="true"/>
+        <package name="expansion.pack"/>
     </packages>
 </config>

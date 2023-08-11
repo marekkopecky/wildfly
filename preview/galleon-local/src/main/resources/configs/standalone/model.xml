@@ -51,5 +51,6 @@
         <package name="org.wildfly.deployment.transformation"/>
         <package name=".installation" />
         <package name="layers.conf" optional="true"/>
+        <package name="expansion.pack"/>
     </packages>
 </config>

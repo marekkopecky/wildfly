@@ -33,6 +33,17 @@
             <artifactId>wildfly-feature-pack-product-conf</artifactId>
         </dependency>
 
+        <!-- Expansion pack verifier Galleon dependency -->
+        <dependency>
+            <groupId>${full.maven.groupId}</groupId>
+            <artifactId>eap-expansion-pack</artifactId>
+            <exclusions>
+                <exclusion>
+                    <groupId>*</groupId>
+                    <artifactId>*</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
     </dependencies>
 
     <build>
@@ -77,4 +88,5 @@
             </plugin>
         </plugins>
     </build>
+
 </project>
