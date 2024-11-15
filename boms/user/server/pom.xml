@@ -9,7 +9,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <groupId>org.wildfly.bom.builder</groupId>
+        <groupId>org.jboss.bom.builder</groupId>
         <artifactId>wildfly</artifactId>
         <!--
         Maintain separation between the artifact id and the version to help prevent
@@ -28,7 +28,7 @@
 
     <properties>
         <!-- the server BOMs built's groupId -->
-        <bomGroupId>org.wildfly.bom</bomGroupId>
+        <bomGroupId>org.jboss.bom</bomGroupId>
     </properties>
 
     <build>

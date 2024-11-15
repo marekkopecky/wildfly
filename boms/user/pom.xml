@@ -17,7 +17,7 @@
         <relativePath/>
     </parent>
 
-    <groupId>org.wildfly.bom.builder</groupId>
+    <groupId>org.jboss.bom.builder</groupId>
     <artifactId>wildfly</artifactId>
 
     <packaging>pom</packaging>
@@ -27,7 +27,11 @@
     <properties>
         <full.dist.product.release.name>JBoss EAP</full.dist.product.release.name>
         <!-- the BOMs built's artifactId prefix-->
-        <bomArtifactIdPrefix>wildfly</bomArtifactIdPrefix>
+        <bomArtifactIdPrefix>jboss-eap</bomArtifactIdPrefix>
+        <!-- server and plugin versions -->
+        <ee.maven.version>8.2.0.Alpha-SNAPSHOT</ee.maven.version>
+        <full.maven.version>${ee.maven.version}</full.maven.version>
+        <version.org.wildfly.bom-builder-plugin>2.0.10.Final</version.org.wildfly.bom-builder-plugin>
         <!-- overridable channel versions -->
         <version.boms.channel.ee>${ee.maven.version}</version.boms.channel.ee>
         <version.boms.channel.full>${ee.maven.version}</version.boms.channel.full>
@@ -60,6 +64,7 @@
                         <!-- configuration common to all user BOMs -->
                         <generateLicenses>true</generateLicenses>
                         <includeRepositories>
+                            <id>jboss-enterprise-maven-repository</id>
                             <id>jboss-public-repository-group</id>
                         </includeRepositories>
                     </configuration>

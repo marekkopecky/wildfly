@@ -9,7 +9,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <groupId>org.wildfly.bom.builder</groupId>
+        <groupId>org.jboss.bom.builder</groupId>
         <artifactId>wildfly</artifactId>
         <!--
         Maintain separation between the artifact id and the version to help prevent
@@ -29,7 +29,7 @@
         <dependencies>
             <dependency>
                 <groupId>org.jboss.eap</groupId>
-                <artifactId>wildfly-standard-ee-bom</artifactId>
+                <artifactId>wildfly-legacy-ee-bom</artifactId>
                 <version>${ee.maven.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
@@ -62,7 +62,7 @@
                                 <artifactId>jboss-parent</artifactId>
                                 <relativePath/>
                             </parent>
-                            <bomGroupId>org.wildfly.bom</bomGroupId>
+                            <bomGroupId>org.jboss.bom</bomGroupId>
                             <bomArtifactId>${bomArtifactIdPrefix}-tools</bomArtifactId>
                             <bomVersion>${project.version}</bomVersion>
                             <bomName>${full.dist.product.release.name} BOMs: Tools</bomName>

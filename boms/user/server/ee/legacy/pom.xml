@@ -9,7 +9,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <groupId>org.wildfly.bom.builder</groupId>
+        <groupId>org.jboss.bom.builder</groupId>
         <artifactId>wildfly-server-ee</artifactId>
         <!--
         Maintain separation between the artifact id and the version to help prevent
@@ -39,19 +39,19 @@
             <dependency>
                 <groupId>org.jboss.eap</groupId>
                 <artifactId>wildfly-ejb-client-bom</artifactId>
-                <version>${ee.maven.version}</version>
+                <version>${project.version}</version>
                 <type>pom</type>
             </dependency>
             <dependency>
                 <groupId>org.jboss.eap</groupId>
                 <artifactId>wildfly-jaxws-client-bom</artifactId>
-                <version>${ee.maven.version}</version>
+                <version>${project.version}</version>
                 <type>pom</type>
             </dependency>
             <dependency>
                 <groupId>org.jboss.eap</groupId>
                 <artifactId>wildfly-jms-client-bom</artifactId>
-                <version>${ee.maven.version}</version>
+                <version>${project.version}</version>
                 <type>pom</type>
             </dependency>
         </dependencies>
@@ -76,10 +76,10 @@
                                 <relativePath/>
                             </bomParent>
                             <bomGroupId>${bomGroupId}</bomGroupId>
-                            <bomArtifactId>${bomArtifactIdPrefix}-ee-10</bomArtifactId>
+                            <bomArtifactId>${bomArtifactIdPrefix}-ee</bomArtifactId>
                             <bomVersion>${project.version}</bomVersion>
-                            <bomName>${full.dist.product.release.name} BOMs: EE 10</bomName>
-                            <bomDescription>${full.dist.product.release.name}: EE 10 Dependency Management</bomDescription>
+                            <bomName>${full.dist.product.release.name} BOMs: EE</bomName>
+                            <bomDescription>${full.dist.product.release.name}: EE Dependency Management</bomDescription>
                             <channels>
                                 <channel>
                                     <manifest>
@@ -90,6 +90,25 @@
                                 </channel>
                             </channels>
                             <includeDependencies combine.children="append">
+                                <!-- include client BOMs -->
+                                <dependency>
+                                    <groupId>org.jboss.eap</groupId>
+                                    <artifactId>wildfly-ejb-client-bom</artifactId>
+                                    <type>pom</type>
+                                    <transitive>false</transitive>
+                                </dependency>
+                                <dependency>
+                                    <groupId>org.jboss.eap</groupId>
+                                    <artifactId>wildfly-jaxws-client-bom</artifactId>
+                                    <type>pom</type>
+                                    <transitive>false</transitive>
+                                </dependency>
+                                <dependency>
+                                    <groupId>org.jboss.eap</groupId>
+                                    <artifactId>wildfly-jms-client-bom</artifactId>
+                                    <type>pom</type>
+                                    <transitive>false</transitive>
+                                </dependency>
                                 <!-- include here any <dependency /> exclusive to this BOM -->
                                 <dependency>
                                     <groupId>org.jboss.spec.jakarta.el</groupId>
