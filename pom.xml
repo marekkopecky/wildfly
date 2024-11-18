@@ -1608,9 +1608,7 @@
                     <artifactId>wildfly-channel-maven-plugin</artifactId>
                     <version>${version.org.wildfly.wildfly-channel-plugin}</version>
                     <configuration>
-                        <doNotDowngrade>true</doNotDowngrade>
                         <ignoreStreams>org.apache.maven:*,org.apache.maven.resolver:*,org.codehaus.plexus:*</ignoreStreams>
-                        <injectRepositories>false</injectRepositories>
                         <ignorePropertiesPrefixedWith>test.legacy.</ignorePropertiesPrefixedWith>
                     </configuration>
                 </plugin>

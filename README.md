@@ -25,6 +25,29 @@ Building
 * On *nix systems, make sure that the maximum number of open files for the user running the build is at least 4096
   (check `ulimit -n`) or more, depending on what other i/o intensive processes the user is running.
 
+### Updating Dependency Versions (Optional)
+
+The release process of JBoss EAP 8 has changed in a way that dependency versions in the pom.xml files are not always kept
+up-to-date with the latest release. The dependency versions are instead resolved during an EAP instance provisioning
+according to a WildFly Channel manifest. These manifests are distributed as Maven artifacts in the Red Hat Maven
+repository.
+
+To synchronize dependency versions according to latest available Manifest, run the `align-dependencies.sh` script 
+without parameters. Alternatively, you can invoke the wildfly-channel-maven-plugin directly:
+
+    mvn org.wildfly:wildfly-channel-maven-plugin:upgrade \
+      -DmanifestGAV=org.jboss.eap.channels:eap-8.2,org.jboss.eap.channels:eap-xp-7.0
+
+To synchronize dependency versions according to a specific manifest file, download the manifest file locally and run:
+
+    ./align-dependencies.sh path/to/manifest.yaml[,...]
+
+Alternatively, you can invoke the wildfly-channel-maven-plugin directly:
+
+    mvn org.wildfly:wildfly-channel-maven-plugin:upgrade -DmanifestFile=path/to/manifest.yaml[,...]
+
+(Multiple manifests can be given, separated by comma.)
+
 ### Building
 
 To build with your own Maven installation:
