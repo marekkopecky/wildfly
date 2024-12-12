@@ -1678,7 +1678,7 @@
                 <module>boms/standard-preview-ee</module>
                 <module>boms/standard-ee</module>
                 <module>boms/standard-test</module>
-                <module>boms/user</module>
+<!--                <module>boms/user</module>-->
                 <module>client/properties</module>
                 <module>client/shade</module>
                 <module>clustering</module>
