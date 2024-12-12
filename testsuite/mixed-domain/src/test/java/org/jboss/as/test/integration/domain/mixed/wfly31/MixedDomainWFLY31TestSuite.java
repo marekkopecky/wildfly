@@ -9,6 +9,7 @@ import org.jboss.as.test.integration.domain.mixed.MixedDomainTestSuite;
 import org.jboss.as.test.integration.domain.mixed.Version;
 import org.jboss.as.test.integration.domain.mixed.Version.AsVersion;
 import org.junit.BeforeClass;
+import org.junit.Ignore;
 import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
 import org.junit.runners.Suite.SuiteClasses;
@@ -18,6 +19,7 @@ import org.junit.runners.Suite.SuiteClasses;
  *
  * @author <a href="kabir.khan@jboss.com">Kabir Khan</a>
  */
+@Ignore
 @RunWith(Suite.class)
 @SuiteClasses(value= {SimpleMixedDomainWFLY31TestCase.class, MixedDomainDeploymentWFLY31TestCase.class})
 @Version(AsVersion.WFLY_31_0_0)

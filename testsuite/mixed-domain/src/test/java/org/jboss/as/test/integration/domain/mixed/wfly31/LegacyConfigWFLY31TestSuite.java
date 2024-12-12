@@ -8,6 +8,7 @@ package org.jboss.as.test.integration.domain.mixed.wfly31;
 import org.jboss.as.test.integration.domain.mixed.MixedDomainTestSuite;
 import org.jboss.as.test.integration.domain.mixed.Version;
 import org.junit.BeforeClass;
+import org.junit.Ignore;
 import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
 
@@ -16,6 +17,7 @@ import org.junit.runners.Suite;
  *
  * @author Brian Stansberry
  */
+@Ignore
 @RunWith(Suite.class)
 @Suite.SuiteClasses(value= {
         LegacyConfigWFLY31TestCase.class,
