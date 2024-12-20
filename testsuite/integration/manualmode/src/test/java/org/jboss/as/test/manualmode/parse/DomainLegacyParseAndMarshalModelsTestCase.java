@@ -9,7 +9,6 @@ import java.nio.file.Path;
 import java.util.List;
 
 import org.jboss.logging.Logger;
-import org.junit.Assume;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
@@ -32,13 +31,13 @@ public class DomainLegacyParseAndMarshalModelsTestCase extends AbstractParseAndM
     @Test
     public void configFiles() throws Exception {
         LOGGER.infof("Testing config file %s", configFile);
-        Assume.assumeFalse(altDistTest);
         domainXmlTest(configFile.toFile());
     }
 
     private static boolean isBaseServerConfig(Path configFilePath) {
         String fileName = configFilePath.getFileName().toString();
         return fileName.endsWith(".xml")
-                && (fileName.startsWith("eap-") || fileName.endsWith("-ee.xml"));
+                && (fileName.startsWith("eap-") || fileName.endsWith("-ee.xml"))
+                && (!fileName.startsWith("wildfly-"));
     }
 }

@@ -9,7 +9,6 @@ import java.nio.file.Path;
 import java.util.List;
 
 import org.jboss.logging.Logger;
-import org.junit.Assume;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
@@ -23,7 +22,10 @@ public class HostLegacyParseAndMarshalModelsTestCase extends AbstractParseAndMar
 
     @Parameterized.Parameters
     public static List<Path> data() {
-        return resolveLegacyConfigFiles("host");
+        return resolveLegacyConfigFiles("host")
+                .stream()
+                .filter(p -> !p.getFileName().toString().contains("wildfly-"))
+                .toList();
     }
 
     @Parameterized.Parameter
@@ -32,7 +34,6 @@ public class HostLegacyParseAndMarshalModelsTestCase extends AbstractParseAndMar
     @Test
     public void configFiles() throws Exception {
         LOGGER.infof("Testing config file %s", configFile);
-        Assume.assumeFalse(altDistTest);
         hostXmlTest(configFile.toFile());
     }
 }
