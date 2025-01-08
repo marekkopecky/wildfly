@@ -58,12 +58,6 @@
                  Keep sorted!
              -->
 
-            <dependency>
-                <groupId>${full.maven.groupId}</groupId>
-                <artifactId>wildfly-feature-pack-product-conf</artifactId>
-                <version>${full.maven.version}</version>
-            </dependency>
-
         </dependencies>
     </dependencyManagement>
 

@@ -28,10 +28,6 @@
     <packaging>pom</packaging>
 
     <dependencies>
-        <dependency>
-            <groupId>${full.maven.groupId}</groupId>
-            <artifactId>wildfly-feature-pack-product-conf</artifactId>
-        </dependency>
 
         <!-- Expansion pack verifier Galleon dependency -->
         <dependency>

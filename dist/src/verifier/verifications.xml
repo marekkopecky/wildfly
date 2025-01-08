@@ -12,7 +12,7 @@
        'full.dist.product.slot' property
     3) jboss-modules.jar must exist
     4) standalone/configuration/standalone.xml must exist
-    5) modules/system/layers/base/org/jboss/as/product/${full.dist.product.slot}/wildfly-feature-pack-product-conf-${full.maven.version}.jar exists
+    5) modules/system/layers/base/org/jboss/as/product/${full.dist.product.slot}/wildfly-ee-feature-pack-product-conf-${full.maven.version}.jar exists
     6) Various modules provided by the feature-pack that provides the complete MicroProfile feature set are present
     7) Schemas coming from a module distributed directly by the galleon-pack are copied to docs/schema
     8) Schemas coming from a module distributed by the transitive ee-galleon-pack are copied to docs/schema
@@ -42,7 +42,7 @@
       <contains>slot=${full.dist.product.slot}</contains>
     </file>
     <file>
-      <location>target/${latest.server.output.dir}/modules/system/layers/base/org/jboss/as/product/${full.dist.product.slot}/wildfly-feature-pack-product-conf-${full.maven.version}.jar</location>
+      <location>target/${latest.server.output.dir}/modules/system/layers/base/org/jboss/as/product/${full.dist.product.slot}/wildfly-ee-feature-pack-product-conf-${full.maven.version}.jar</location>
       <exists>true</exists>
     </file>
     <file>

@@ -12,8 +12,8 @@
        'full.dist.product.slot' property
     3) jboss-modules.jar must exist
     4) standalone/configuration/standalone.xml must exist
-    5) modules/system/layers/base/org/jboss/as/product/${preview.dist.product.slot}/module.xml exists
-    6) the module.xml above contains to 'org.wildfly:wildfly-preview-feature-pack-product-conf'
+    5) modules/system/layers/base/org/jboss/as/product/${full.dist.product.slot}/module.xml exists
+    6) the module.xml above contains to 'org.jboss.eap:wildfly-ee-feature-pack-product-conf'
     7) the .galleon dir exists
     8) no .galleon/history dir exists
    10) Some verifications around libartemis-native-32.so / libartemis-native-64.so to ensure the server distribution
@@ -35,7 +35,7 @@
     </file>
     <file>
       <location>target/${latest.server.output.dir}/modules/system/layers/base/org/jboss/as/product/${full.dist.product.slot}/module.xml</location>
-      <contains>org.jboss.eap:wildfly-feature-pack-product-conf</contains>
+      <contains>org.jboss.eap:wildfly-ee-feature-pack-product-conf</contains>
     </file>
     <file>
       <location>target/${latest.server.output.dir}/jboss-modules.jar</location>

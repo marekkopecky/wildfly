@@ -30,12 +30,12 @@
       <contains>slot=${full.dist.product.slot}</contains>
     </file>
     <file>
-      <location>target/${legacy.server.output.dir}/modules/system/layers/base/org/jboss/as/product/${full.dist.product.slot}/module.xml</location>
+      <location>target/${legacy.server.output.dir}/modules/system/layers/base/org/jboss/as/product/${ee.dist.product.slot}/module.xml</location>
       <exists>true</exists>
     </file>
     <file>
-      <location>target/${legacy.server.output.dir}/modules/system/layers/base/org/jboss/as/product/${full.dist.product.slot}/module.xml</location>
-      <contains>org.jboss.eap:wildfly-feature-pack-product-conf</contains>
+      <location>target/${legacy.server.output.dir}/modules/system/layers/base/org/jboss/as/product/${ee.dist.product.slot}/module.xml</location>
+      <contains>org.jboss.eap:wildfly-legacy-ee-feature-pack-product-conf</contains>
     </file>
     <file>
       <location>target/${legacy.server.output.dir}/jboss-modules.jar</location>
