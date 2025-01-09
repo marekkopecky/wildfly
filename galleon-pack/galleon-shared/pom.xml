@@ -518,7 +518,7 @@
         </dependency>
 
         <dependency>
-            <groupId>${full.maven.groupId}</groupId>
+            <groupId>${ee.maven.groupId}</groupId>
             <artifactId>wildfly-microprofile-config-smallrye</artifactId>
             <exclusions>
                 <exclusion>
@@ -529,7 +529,7 @@
         </dependency>
 
         <dependency>
-            <groupId>${full.maven.groupId}</groupId>
+            <groupId>${ee.maven.groupId}</groupId>
             <artifactId>wildfly-microprofile-metrics-smallrye</artifactId>
             <exclusions>
                 <exclusion>
@@ -539,98 +539,98 @@
             </exclusions>
         </dependency>
 
-        <dependency><groupId>${full.maven.groupId}</groupId><artifactId>wildfly-micrometer</artifactId></dependency>
-        <dependency><groupId>${full.maven.groupId}</groupId><artifactId>wildfly-micrometer-deployment</artifactId></dependency>
+        <dependency><groupId>${ee.maven.groupId}</groupId><artifactId>wildfly-micrometer</artifactId></dependency>
+        <dependency><groupId>${ee.maven.groupId}</groupId><artifactId>wildfly-micrometer-deployment</artifactId></dependency>
 
         <dependency>
-            <groupId>${full.maven.groupId}</groupId>
+            <groupId>${ee.maven.groupId}</groupId>
             <artifactId>wildfly-microprofile-fault-tolerance-smallrye-deployment</artifactId>
         </dependency>
         <dependency>
-            <groupId>${full.maven.groupId}</groupId>
+            <groupId>${ee.maven.groupId}</groupId>
             <artifactId>wildfly-microprofile-fault-tolerance-smallrye-extension</artifactId>
         </dependency>
 
         <dependency>
-            <groupId>${full.maven.groupId}</groupId>
+            <groupId>${ee.maven.groupId}</groupId>
             <artifactId>wildfly-microprofile-health-smallrye</artifactId>
         </dependency>
 
         <dependency>
-            <groupId>${full.maven.groupId}</groupId>
+            <groupId>${ee.maven.groupId}</groupId>
             <artifactId>wildfly-microprofile-jwt-smallrye</artifactId>
         </dependency>
 
         <dependency>
-            <groupId>${full.maven.groupId}</groupId>
+            <groupId>${ee.maven.groupId}</groupId>
             <artifactId>wildfly-microprofile-lra-coordinator</artifactId>
         </dependency>
         <dependency>
-            <groupId>${full.maven.groupId}</groupId>
+            <groupId>${ee.maven.groupId}</groupId>
             <artifactId>wildfly-microprofile-lra-participant</artifactId>
         </dependency>
 
         <dependency>
-            <groupId>${full.maven.groupId}</groupId>
+            <groupId>${ee.maven.groupId}</groupId>
             <artifactId>wildfly-microprofile-openapi-smallrye-extension</artifactId>
         </dependency>
         <dependency>
-            <groupId>${full.maven.groupId}</groupId>
+            <groupId>${ee.maven.groupId}</groupId>
             <artifactId>wildfly-microprofile-openapi-smallrye-host</artifactId>
         </dependency>
         <dependency>
-            <groupId>${full.maven.groupId}</groupId>
+            <groupId>${ee.maven.groupId}</groupId>
             <artifactId>wildfly-microprofile-openapi-smallrye-spi</artifactId>
         </dependency>
 
-        <dependency><groupId>${full.maven.groupId}</groupId><artifactId>wildfly-opentelemetry</artifactId></dependency>
-        <dependency><groupId>${full.maven.groupId}</groupId><artifactId>wildfly-opentelemetry-api</artifactId></dependency>
+        <dependency><groupId>${ee.maven.groupId}</groupId><artifactId>wildfly-opentelemetry</artifactId></dependency>
+        <dependency><groupId>${ee.maven.groupId}</groupId><artifactId>wildfly-opentelemetry-api</artifactId></dependency>
 
         <dependency>
-            <groupId>${full.maven.groupId}</groupId>
+            <groupId>${ee.maven.groupId}</groupId>
             <artifactId>wildfly-microprofile-opentracing-extension</artifactId>
         </dependency>
 
         <dependency>
-            <groupId>${full.maven.groupId}</groupId>
+            <groupId>${ee.maven.groupId}</groupId>
             <artifactId>wildfly-microprofile-reactive-messaging</artifactId>
         </dependency>
 
         <dependency>
-            <groupId>${full.maven.groupId}</groupId>
+            <groupId>${ee.maven.groupId}</groupId>
             <artifactId>wildfly-microprofile-reactive-messaging-amqp</artifactId>
         </dependency>
 
         <dependency>
-            <groupId>${full.maven.groupId}</groupId>
+            <groupId>${ee.maven.groupId}</groupId>
             <artifactId>wildfly-microprofile-reactive-messaging-common</artifactId>
         </dependency>
 
         <dependency>
-            <groupId>${full.maven.groupId}</groupId>
+            <groupId>${ee.maven.groupId}</groupId>
             <artifactId>wildfly-microprofile-reactive-messaging-config</artifactId>
         </dependency>
 
         <dependency>
-            <groupId>${full.maven.groupId}</groupId>
+            <groupId>${ee.maven.groupId}</groupId>
             <artifactId>wildfly-microprofile-reactive-messaging-kafka</artifactId>
         </dependency>
 
         <dependency>
-            <groupId>${full.maven.groupId}</groupId>
+            <groupId>${ee.maven.groupId}</groupId>
             <artifactId>wildfly-microprofile-reactive-streams-operators</artifactId>
         </dependency>
         <dependency>
-            <groupId>${full.maven.groupId}</groupId>
+            <groupId>${ee.maven.groupId}</groupId>
             <artifactId>wildfly-microprofile-reactive-streams-operators-cdi-provider</artifactId>
         </dependency>
 
         <dependency>
-            <groupId>${full.maven.groupId}</groupId>
+            <groupId>${ee.maven.groupId}</groupId>
             <artifactId>wildfly-microprofile-telemetry</artifactId>
         </dependency>
         <dependency>
-            <groupId>${full.maven.groupId}</groupId>
+            <groupId>${ee.maven.groupId}</groupId>
             <artifactId>wildfly-microprofile-telemetry-cdi-provider</artifactId>
         </dependency>
     </dependencies>

@@ -42,7 +42,7 @@
       <contains>slot=${full.dist.product.slot}</contains>
     </file>
     <file>
-      <location>target/${latest.server.output.dir}/modules/system/layers/base/org/jboss/as/product/${full.dist.product.slot}/wildfly-ee-feature-pack-product-conf-${full.maven.version}.jar</location>
+      <location>target/${latest.server.output.dir}/modules/system/layers/base/org/jboss/as/product/${full.dist.product.slot}/wildfly-ee-feature-pack-product-conf-${ee.maven.version}.jar</location>
       <exists>true</exists>
     </file>
     <file>

@@ -348,7 +348,7 @@
             <scope>test</scope>
         </dependency>
         <dependency>
-            <groupId>${full.maven.groupId}</groupId>
+            <groupId>${ee.maven.groupId}</groupId>
             <artifactId>wildfly-opentelemetry-api</artifactId>
             <scope>test</scope>
         </dependency>

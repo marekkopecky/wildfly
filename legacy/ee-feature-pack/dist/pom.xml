@@ -59,9 +59,9 @@
     <dependencyManagement>
         <dependencies>
             <dependency>
-                <groupId>${full.maven.groupId}</groupId>
+                <groupId>${ee.maven.groupId}</groupId>
                 <artifactId>wildfly-standard-expansion-bom</artifactId>
-                <version>${full.maven.version}</version>
+                <version>${ee.maven.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
@@ -98,7 +98,7 @@
         <dependency>
             <groupId>${channels.maven.groupId}</groupId>
             <artifactId>wildfly-compat-${legacy.ee.artifactid.segment}</artifactId>
-            <version>${full.maven.version}</version>
+            <version>${ee.maven.version}</version>
             <classifier>manifest</classifier>
             <type>yaml</type>
             <scope>provided</scope>
@@ -181,7 +181,7 @@
                                     <manifest>
                                         <groupId>${channels.maven.groupId}</groupId>
                                         <artifactId>wildfly-compat-${legacy.ee.artifactid.segment}</artifactId>
-                                        <version>${full.maven.version}</version>
+                                        <version>${ee.maven.version}</version>
                                     </manifest>
                                 </channel>
                             </channels>
@@ -196,9 +196,9 @@
                                     </included-packages>
                                 </feature-pack>
                                 <feature-pack>
-                                    <groupId>${full.maven.groupId}</groupId>
+                                    <groupId>${ee.maven.groupId}</groupId>
                                     <artifactId>wildfly-galleon-pack</artifactId>
-                                    <version>${full.maven.version}</version>
+                                    <version>${ee.maven.version}</version>
                                     <included-packages>
                                         <name>docs.examples.configs</name>
                                     </included-packages>
@@ -296,9 +296,9 @@
                                     <output-licenses-file>${project.build.directory}/community-licenses.xml</output-licenses-file>
                                     <excluded-licenses-versions>.*redhat-.*</excluded-licenses-versions>
                                     <offline>true</offline>
-                                    <fpGroupId>${full.maven.groupId}</fpGroupId>
+                                    <fpGroupId>${ee.maven.groupId}</fpGroupId>
                                     <fpArtifactId>wildfly-galleon-pack</fpArtifactId>
-                                    <fpVersion>${full.maven.version}</fpVersion>
+                                    <fpVersion>${ee.maven.version}</fpVersion>
                                 </configuration>
                             </execution>
                         </executions>
@@ -436,7 +436,7 @@
             <id>external.channel.profile</id>
             <activation><property><name>external.wildfly.channels</name></property></activation>
             <properties>
-                <wildfly.channels>${channels.maven.groupId}:wildfly-compat-${legacy.ee.artifactid.segment}:${full.maven.version}</wildfly.channels>
+                <wildfly.channels>${channels.maven.groupId}:wildfly-compat-${legacy.ee.artifactid.segment}:${ee.maven.version}</wildfly.channels>
             </properties>
         </profile>
     </profiles>

@@ -42,15 +42,15 @@
             <!-- Keep these sorted -->
 
             <dependency>
-                <groupId>${full.maven.groupId}</groupId>
+                <groupId>${ee.maven.groupId}</groupId>
                 <artifactId>eap-expansion-pack</artifactId>
-                <version>${full.maven.version}</version>
+                <version>${ee.maven.version}</version>
             </dependency>
 
             <dependency>
-                <groupId>${full.maven.groupId}</groupId>
+                <groupId>${ee.maven.groupId}</groupId>
                 <artifactId>wildfly-micrometer</artifactId>
-                <version>${full.maven.version}</version>
+                <version>${ee.maven.version}</version>
                 <exclusions>
                     <exclusion>
                         <groupId>*</groupId>
@@ -59,9 +59,9 @@
                 </exclusions>
             </dependency>
             <dependency>
-                <groupId>${full.maven.groupId}</groupId>
+                <groupId>${ee.maven.groupId}</groupId>
                 <artifactId>wildfly-micrometer-deployment</artifactId>
-                <version>${full.maven.version}</version>
+                <version>${ee.maven.version}</version>
                 <exclusions>
                     <exclusion>
                         <groupId>*</groupId>
@@ -71,15 +71,15 @@
             </dependency>
 
             <dependency>
-                <groupId>${full.maven.groupId}</groupId>
+                <groupId>${ee.maven.groupId}</groupId>
                 <artifactId>wildfly-microprofile-config-smallrye</artifactId>
-                <version>${full.maven.version}</version>
+                <version>${ee.maven.version}</version>
             </dependency>
 
             <dependency>
-                <groupId>${full.maven.groupId}</groupId>
+                <groupId>${ee.maven.groupId}</groupId>
                 <artifactId>wildfly-microprofile-fault-tolerance-smallrye-deployment</artifactId>
-                <version>${full.maven.version}</version>
+                <version>${ee.maven.version}</version>
                 <exclusions>
                     <exclusion>
                         <groupId>*</groupId>
@@ -88,9 +88,9 @@
                 </exclusions>
             </dependency>
             <dependency>
-                <groupId>${full.maven.groupId}</groupId>
+                <groupId>${ee.maven.groupId}</groupId>
                 <artifactId>wildfly-microprofile-fault-tolerance-smallrye-extension</artifactId>
-                <version>${full.maven.version}</version>
+                <version>${ee.maven.version}</version>
                 <exclusions>
                     <exclusion>
                         <groupId>*</groupId>
@@ -99,9 +99,9 @@
                 </exclusions>
             </dependency>
             <dependency>
-                <groupId>${full.maven.groupId}</groupId>
+                <groupId>${ee.maven.groupId}</groupId>
                 <artifactId>wildfly-microprofile-fault-tolerance-smallrye</artifactId>
-                <version>${full.maven.version}</version>
+                <version>${ee.maven.version}</version>
                 <exclusions>
                     <exclusion>
                         <groupId>*</groupId>
@@ -110,9 +110,9 @@
                 </exclusions>
             </dependency>
             <dependency>
-                <groupId>${full.maven.groupId}</groupId>
+                <groupId>${ee.maven.groupId}</groupId>
                 <artifactId>wildfly-microprofile-health-smallrye</artifactId>
-                <version>${full.maven.version}</version>
+                <version>${ee.maven.version}</version>
                 <exclusions>
                     <exclusion>
                         <groupId>*</groupId>
@@ -121,9 +121,9 @@
                 </exclusions>
             </dependency>
             <dependency>
-                <groupId>${full.maven.groupId}</groupId>
+                <groupId>${ee.maven.groupId}</groupId>
                 <artifactId>wildfly-microprofile-jwt-smallrye</artifactId>
-                <version>${full.maven.version}</version>
+                <version>${ee.maven.version}</version>
                 <exclusions>
                     <exclusion>
                         <groupId>*</groupId>
@@ -132,9 +132,9 @@
                 </exclusions>
             </dependency>
             <dependency>
-                <groupId>${full.maven.groupId}</groupId>
+                <groupId>${ee.maven.groupId}</groupId>
                 <artifactId>wildfly-microprofile-lra-coordinator</artifactId>
-                <version>${full.maven.version}</version>
+                <version>${ee.maven.version}</version>
                 <exclusions>
                     <exclusion>
                         <groupId>*</groupId>
@@ -143,9 +143,9 @@
                 </exclusions>
             </dependency>
             <dependency>
-                <groupId>${full.maven.groupId}</groupId>
+                <groupId>${ee.maven.groupId}</groupId>
                 <artifactId>wildfly-microprofile-lra-participant</artifactId>
-                <version>${full.maven.version}</version>
+                <version>${ee.maven.version}</version>
                 <exclusions>
                     <exclusion>
                         <groupId>*</groupId>
@@ -154,14 +154,14 @@
                 </exclusions>
             </dependency>
             <dependency>
-                <groupId>${full.maven.groupId}</groupId>
+                <groupId>${ee.maven.groupId}</groupId>
                 <artifactId>wildfly-microprofile-metrics-smallrye</artifactId>
-                <version>${full.maven.version}</version>
+                <version>${ee.maven.version}</version>
             </dependency>
             <dependency>
-                <groupId>${full.maven.groupId}</groupId>
+                <groupId>${ee.maven.groupId}</groupId>
                 <artifactId>wildfly-microprofile-openapi-smallrye-extension</artifactId>
-                <version>${full.maven.version}</version>
+                <version>${ee.maven.version}</version>
                 <exclusions>
                     <exclusion>
                         <groupId>*</groupId>
@@ -170,9 +170,9 @@
                 </exclusions>
             </dependency>
             <dependency>
-                <groupId>${full.maven.groupId}</groupId>
+                <groupId>${ee.maven.groupId}</groupId>
                 <artifactId>wildfly-microprofile-openapi-smallrye-host</artifactId>
-                <version>${full.maven.version}</version>
+                <version>${ee.maven.version}</version>
                 <exclusions>
                     <exclusion>
                         <groupId>*</groupId>
@@ -181,9 +181,9 @@
                 </exclusions>
             </dependency>
             <dependency>
-                <groupId>${full.maven.groupId}</groupId>
+                <groupId>${ee.maven.groupId}</groupId>
                 <artifactId>wildfly-microprofile-openapi-smallrye-spi</artifactId>
-                <version>${full.maven.version}</version>
+                <version>${ee.maven.version}</version>
                 <exclusions>
                     <exclusion>
                         <groupId>*</groupId>
@@ -192,9 +192,9 @@
                 </exclusions>
             </dependency>
             <dependency>
-                <groupId>${full.maven.groupId}</groupId>
+                <groupId>${ee.maven.groupId}</groupId>
                 <artifactId>wildfly-microprofile-opentracing-extension</artifactId>
-                <version>${full.maven.version}</version>
+                <version>${ee.maven.version}</version>
                 <exclusions>
                     <exclusion>
                         <groupId>*</groupId>
@@ -203,9 +203,9 @@
                 </exclusions>
             </dependency>
             <dependency>
-                <groupId>${full.maven.groupId}</groupId>
+                <groupId>${ee.maven.groupId}</groupId>
                 <artifactId>wildfly-microprofile-reactive-messaging</artifactId>
-                <version>${full.maven.version}</version>
+                <version>${ee.maven.version}</version>
                 <exclusions>
                     <exclusion>
                         <groupId>*</groupId>
@@ -214,9 +214,9 @@
                 </exclusions>
             </dependency>
             <dependency>
-                <groupId>${full.maven.groupId}</groupId>
+                <groupId>${ee.maven.groupId}</groupId>
                 <artifactId>wildfly-microprofile-reactive-messaging-amqp</artifactId>
-                <version>${full.maven.version}</version>
+                <version>${ee.maven.version}</version>
                 <exclusions>
                     <exclusion>
                         <groupId>*</groupId>
@@ -226,9 +226,9 @@
             </dependency>
 
             <dependency>
-                <groupId>${full.maven.groupId}</groupId>
+                <groupId>${ee.maven.groupId}</groupId>
                 <artifactId>wildfly-microprofile-reactive-messaging-common</artifactId>
-                <version>${full.maven.version}</version>
+                <version>${ee.maven.version}</version>
                 <exclusions>
                     <exclusion>
                         <groupId>*</groupId>
@@ -237,9 +237,9 @@
                 </exclusions>
             </dependency>
             <dependency>
-                <groupId>${full.maven.groupId}</groupId>
+                <groupId>${ee.maven.groupId}</groupId>
                 <artifactId>wildfly-microprofile-reactive-messaging-config</artifactId>
-                <version>${full.maven.version}</version>
+                <version>${ee.maven.version}</version>
                 <exclusions>
                     <exclusion>
                         <groupId>*</groupId>
@@ -248,9 +248,9 @@
                 </exclusions>
             </dependency>
             <dependency>
-                <groupId>${full.maven.groupId}</groupId>
+                <groupId>${ee.maven.groupId}</groupId>
                 <artifactId>wildfly-microprofile-reactive-messaging-kafka</artifactId>
-                <version>${full.maven.version}</version>
+                <version>${ee.maven.version}</version>
                 <exclusions>
                     <exclusion>
                         <groupId>*</groupId>
@@ -259,9 +259,9 @@
                 </exclusions>
             </dependency>
             <dependency>
-                <groupId>${full.maven.groupId}</groupId>
+                <groupId>${ee.maven.groupId}</groupId>
                 <artifactId>wildfly-microprofile-reactive-streams-operators</artifactId>
-                <version>${full.maven.version}</version>
+                <version>${ee.maven.version}</version>
                 <exclusions>
                     <exclusion>
                         <groupId>*</groupId>
@@ -270,9 +270,9 @@
                 </exclusions>
             </dependency>
             <dependency>
-                <groupId>${full.maven.groupId}</groupId>
+                <groupId>${ee.maven.groupId}</groupId>
                 <artifactId>wildfly-microprofile-reactive-streams-operators-cdi-provider</artifactId>
-                <version>${full.maven.version}</version>
+                <version>${ee.maven.version}</version>
                 <exclusions>
                     <exclusion>
                         <groupId>*</groupId>
@@ -281,9 +281,9 @@
                 </exclusions>
             </dependency>
             <dependency>
-                <groupId>${full.maven.groupId}</groupId>
+                <groupId>${ee.maven.groupId}</groupId>
                 <artifactId>wildfly-microprofile-telemetry</artifactId>
-                <version>${full.maven.version}</version>
+                <version>${ee.maven.version}</version>
                 <exclusions>
                     <exclusion>
                         <groupId>*</groupId>
@@ -293,9 +293,9 @@
             </dependency>
 
             <dependency>
-                <groupId>${full.maven.groupId}</groupId>
+                <groupId>${ee.maven.groupId}</groupId>
                 <artifactId>wildfly-microprofile-telemetry-cdi-provider</artifactId>
-                <version>${full.maven.version}</version>
+                <version>${ee.maven.version}</version>
                 <exclusions>
                     <exclusion>
                         <groupId>*</groupId>
@@ -305,9 +305,9 @@
             </dependency>
 
             <dependency>
-                <groupId>${full.maven.groupId}</groupId>
+                <groupId>${ee.maven.groupId}</groupId>
                 <artifactId>wildfly-opentelemetry</artifactId>
-                <version>${full.maven.version}</version>
+                <version>${ee.maven.version}</version>
                 <exclusions>
                     <exclusion>
                         <groupId>*</groupId>
@@ -317,9 +317,9 @@
             </dependency>
 
             <dependency>
-                <groupId>${full.maven.groupId}</groupId>
+                <groupId>${ee.maven.groupId}</groupId>
                 <artifactId>wildfly-opentelemetry-api</artifactId>
-                <version>${full.maven.version}</version>
+                <version>${ee.maven.version}</version>
                 <exclusions>
                     <exclusion>
                         <groupId>*</groupId>

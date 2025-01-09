@@ -31,7 +31,7 @@
             <dependency>
                 <groupId>org.jboss.eap</groupId>
                 <artifactId>wildfly-preview-expansion-bom</artifactId>
-                <version>${full.maven.version}</version>
+                <version>${ee.maven.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
@@ -43,13 +43,13 @@
         <dependency>
             <groupId>org.jboss.eap</groupId>
             <artifactId>wildfly-preview-feature-pack</artifactId>
-            <version>${full.maven.version}</version>
+            <version>${ee.maven.version}</version>
             <type>pom</type>
         </dependency>
         <dependency>
             <groupId>org.jboss.eap.channels</groupId>
             <artifactId>wildfly-preview</artifactId>
-            <version>${full.maven.version}</version>
+            <version>${ee.maven.version}</version>
             <type>pom</type>
         </dependency>
     </dependencies>

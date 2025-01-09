@@ -39,7 +39,7 @@
 
         <!-- We need the feature-pack built first as that generates the manifest -->
         <dependency>
-            <groupId>${full.maven.groupId}</groupId>
+            <groupId>${ee.maven.groupId}</groupId>
             <artifactId>wildfly-galleon-pack</artifactId>
             <type>pom</type>
             <scope>provided</scope>

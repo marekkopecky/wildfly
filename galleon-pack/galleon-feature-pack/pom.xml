@@ -69,9 +69,9 @@
                         <configuration>
                             <artifactItems>
                                 <artifactItem>
-                                    <groupId>${project.groupId}</groupId>
+                                    <groupId>${ee.maven.groupId}</groupId>
                                     <artifactId>wildfly-ee-galleon-pack</artifactId>
-                                    <version>${project.version}</version>
+                                    <version>${ee.maven.version}</version>
                                     <classifier>artifact-list</classifier>
                                     <type>txt</type>
                                     <overWrite>true</overWrite>
@@ -263,14 +263,14 @@
         <!-- module and copy artifact dependencies -->
 
         <dependency>
-            <groupId>${full.maven.groupId}</groupId>
+            <groupId>${ee.maven.groupId}</groupId>
             <artifactId>wildfly-feature-pack-galleon-local</artifactId>
             <type>pom</type>
             <scope>provided</scope>
         </dependency>
 
         <dependency>
-            <groupId>${full.maven.groupId}</groupId>
+            <groupId>${ee.maven.groupId}</groupId>
             <artifactId>wildfly-feature-pack-galleon-shared</artifactId>
             <type>pom</type>
             <scope>provided</scope>
@@ -336,8 +336,8 @@
                                             <excludes>
                                                 <!-- Ignore the shared resource poms as those we want their
                                                      transitives. Those poms ban transitives at their level -->
-                                                <exclude>${full.maven.groupId}:wildfly-feature-pack-galleon-shared</exclude>
-                                                <exclude>${full.maven.groupId}:wildfly-feature-pack-galleon-local</exclude>
+                                                <exclude>${ee.maven.groupId}:wildfly-feature-pack-galleon-shared</exclude>
+                                                <exclude>${ee.maven.groupId}:wildfly-feature-pack-galleon-local</exclude>
                                                 <exclude>org.wildfly:mvc-krazo-galleon-shared</exclude>
                                             </excludes>
                                         </banTransitiveDependencies>

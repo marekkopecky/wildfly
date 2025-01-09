@@ -32,7 +32,7 @@
         <bomArtifactIdPrefix>wildfly</bomArtifactIdPrefix>
         <!-- overridable channel versions -->
         <version.boms.channel.ee>${ee.maven.version}</version.boms.channel.ee>
-        <version.boms.channel.full>${full.maven.version}</version.boms.channel.full>
+        <version.boms.channel.full>${ee.maven.version}</version.boms.channel.full>
     </properties>
 
     <licenses>

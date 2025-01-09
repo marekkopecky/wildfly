@@ -46,10 +46,10 @@
              (so testsuites can depend on it / ensure it's built)
              We use properties so profiles can override these default values.
         -->
-        <testsuite.default.full.build.groupId>${full.maven.groupId}</testsuite.default.full.build.groupId>
+        <testsuite.default.full.build.groupId>${ee.maven.groupId}</testsuite.default.full.build.groupId>
         <testsuite.default.full.build.artifactId>wildfly-build</testsuite.default.full.build.artifactId>
         <testsuite.default.full.dist.artifactId>wildfly-dist</testsuite.default.full.dist.artifactId>
-        <testsuite.default.full.build.version>${full.maven.version}</testsuite.default.full.build.version>
+        <testsuite.default.full.build.version>${ee.maven.version}</testsuite.default.full.build.version>
 
         <!-- Don't try to deploy the module -->
         <maven.deploy.skip>true</maven.deploy.skip>
@@ -65,7 +65,7 @@
             <type>pom</type>
         </dependency>
         <dependency>
-            <groupId>${full.maven.groupId}</groupId>
+            <groupId>${ee.maven.groupId}</groupId>
             <artifactId>wildfly-standard-test-expansion-bom</artifactId>
             <type>pom</type>
         </dependency>

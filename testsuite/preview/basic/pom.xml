@@ -251,9 +251,9 @@
                             <provisioning-dir>${project.build.directory}/wildfly</provisioning-dir>
                             <feature-packs>
                                 <feature-pack>
-                                    <groupId>${full.maven.groupId}</groupId>
+                                    <groupId>${ee.maven.groupId}</groupId>
                                     <artifactId>wildfly-preview-feature-pack</artifactId>
-                                    <version>${full.maven.version}</version>
+                                    <version>${ee.maven.version}</version>
                                 </feature-pack>
                             </feature-packs>
                         </configuration>

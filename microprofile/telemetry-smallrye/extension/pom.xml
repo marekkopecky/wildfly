@@ -109,7 +109,7 @@
             <artifactId>wildfly-weld-common</artifactId>
         </dependency>
         <dependency>
-            <groupId>${full.maven.groupId}</groupId>
+            <groupId>${ee.maven.groupId}</groupId>
             <artifactId>wildfly-opentelemetry-api</artifactId>
         </dependency>
 

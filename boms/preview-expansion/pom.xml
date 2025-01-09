@@ -41,7 +41,7 @@
             <dependency>
                 <groupId>${ee.maven.groupId}</groupId>
                 <artifactId>wildfly-preview-ee-bom</artifactId>
-                <version>${full.maven.version}</version>
+                <version>${ee.maven.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
@@ -50,9 +50,9 @@
                 Re-expose the common-expansion deps.
              -->
             <dependency>
-                <groupId>${full.maven.groupId}</groupId>
+                <groupId>${ee.maven.groupId}</groupId>
                 <artifactId>wildfly-common-expansion-dependency-management</artifactId>
-                <version>${full.maven.version}</version>
+                <version>${ee.maven.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>

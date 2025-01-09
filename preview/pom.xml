@@ -37,7 +37,7 @@
             <dependency>
                 <groupId>${project.groupId}</groupId>
                 <artifactId>wildfly-preview-ee-bom</artifactId>
-                <version>${full.maven.version}</version>
+                <version>${ee.maven.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
@@ -45,7 +45,7 @@
             <dependency>
                 <groupId>${project.groupId}</groupId>
                 <artifactId>wildfly-preview-expansion-bom</artifactId>
-                <version>${full.maven.version}</version>
+                <version>${ee.maven.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
@@ -62,7 +62,7 @@
             <type>pom</type>
         </dependency>
         <dependency>
-            <groupId>${full.maven.groupId}</groupId>
+            <groupId>${ee.maven.groupId}</groupId>
             <artifactId>wildfly-common-expansion-dependency-management</artifactId>
             <type>pom</type>
         </dependency>
@@ -72,7 +72,7 @@
             <type>pom</type>
         </dependency>
         <dependency>
-            <groupId>${full.maven.groupId}</groupId>
+            <groupId>${ee.maven.groupId}</groupId>
             <artifactId>wildfly-standard-expansion-bom</artifactId>
             <type>pom</type>
         </dependency>
@@ -82,7 +82,7 @@
             <type>pom</type>
         </dependency>
         <dependency>
-            <groupId>${full.maven.groupId}</groupId>
+            <groupId>${ee.maven.groupId}</groupId>
             <artifactId>wildfly-preview-expansion-bom</artifactId>
             <type>pom</type>
         </dependency>

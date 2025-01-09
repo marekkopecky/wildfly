@@ -608,7 +608,7 @@
             <dependency>
                 <groupId>${channels.maven.groupId}</groupId>
                 <artifactId>wildfly</artifactId>
-                <version>${full.maven.version}</version>
+                <version>${ee.maven.version}</version>
                 <type>yaml</type>
                 <classifier>manifest</classifier>
             </dependency>
@@ -621,9 +621,9 @@
             </dependency>
 
             <dependency>
-                <groupId>${full.maven.groupId}</groupId>
+                <groupId>${ee.maven.groupId}</groupId>
                 <artifactId>wildfly-common-expansion-dependency-management</artifactId>
-                <version>${full.maven.version}</version>
+                <version>${ee.maven.version}</version>
                 <type>pom</type>
             </dependency>
 
@@ -834,9 +834,9 @@
             </dependency>
 
             <dependency>
-                <groupId>${full.maven.groupId}</groupId>
+                <groupId>${ee.maven.groupId}</groupId>
                 <artifactId>wildfly-standard-expansion-bom</artifactId>
-                <version>${full.maven.version}</version>
+                <version>${ee.maven.version}</version>
                 <type>pom</type>
             </dependency>
 
@@ -862,93 +862,72 @@
             </dependency>
 
             <dependency>
-                <groupId>${full.maven.groupId}</groupId>
+                <groupId>${ee.maven.groupId}</groupId>
                 <artifactId>${latest.full.build.artifactId}</artifactId>
-                <version>${full.maven.version}</version>
+                <version>${ee.maven.version}</version>
                 <type>pom</type>
             </dependency>
 
             <dependency>
-                <groupId>${full.maven.groupId}</groupId>
+                <groupId>${ee.maven.groupId}</groupId>
                 <artifactId>${latest.full.dist.artifactId}</artifactId>
-                <version>${full.maven.version}</version>
+                <version>${ee.maven.version}</version>
                 <type>pom</type>
             </dependency>
 
             <dependency>
-                <groupId>${full.maven.groupId}</groupId>
+                <groupId>${ee.maven.groupId}</groupId>
                 <artifactId>wildfly-feature-pack-galleon-local</artifactId>
-                <version>${full.maven.version}</version>
+                <version>${ee.maven.version}</version>
                 <type>pom</type>
             </dependency>
 
             <dependency>
-                <groupId>${full.maven.groupId}</groupId>
+                <groupId>${ee.maven.groupId}</groupId>
                 <artifactId>wildfly-feature-pack-galleon-shared</artifactId>
-                <version>${full.maven.version}</version>
+                <version>${ee.maven.version}</version>
                 <type>pom</type>
             </dependency>
 
             <dependency>
-                <groupId>${full.maven.groupId}</groupId>
+                <groupId>${ee.maven.groupId}</groupId>
                 <artifactId>wildfly-galleon-pack</artifactId>
-                <version>${full.maven.version}</version>
+                <version>${ee.maven.version}</version>
                 <type>pom</type>
             </dependency>
 
             <dependency>
-                <groupId>${full.maven.groupId}</groupId>
+                <groupId>${ee.maven.groupId}</groupId>
                 <artifactId>wildfly-galleon-pack</artifactId>
-                <version>${full.maven.version}</version>
+                <version>${ee.maven.version}</version>
                 <type>zip</type>
             </dependency>
 
             <dependency>
-                <groupId>${full.maven.groupId}</groupId>
+                <groupId>${ee.maven.groupId}</groupId>
                 <artifactId>${legacy.full.build.artifactId}</artifactId>
-                <version>${full.maven.version}</version>
+                <version>${ee.maven.version}</version>
                 <type>pom</type>
             </dependency>
 
             <dependency>
-                <groupId>${full.maven.groupId}</groupId>
+                <groupId>${ee.maven.groupId}</groupId>
                 <artifactId>${legacy.full.dist.artifactId}</artifactId>
-                <version>${full.maven.version}</version>
-                <type>pom</type>
-            </dependency>
-
-            <dependency>
-                <groupId>${ee.maven.groupId}</groupId>
-                <artifactId>${legacy.ee.build.artifactId}</artifactId>
                 <version>${ee.maven.version}</version>
                 <type>pom</type>
             </dependency>
 
             <dependency>
                 <groupId>${ee.maven.groupId}</groupId>
-                <artifactId>${legacy.ee.dist.artifactId}</artifactId>
-                <version>${ee.maven.version}</version>
-                <type>pom</type>
-            </dependency>
-
-            <dependency>
-                <groupId>${full.maven.groupId}</groupId>
-                <artifactId>wildfly-legacy-expansion-bom</artifactId>
-                <version>${full.maven.version}</version>
-                <type>pom</type>
-            </dependency>
-
-            <dependency>
-                <groupId>${full.maven.groupId}</groupId>
                 <artifactId>wildfly-release</artifactId>
-                <version>${full.maven.version}</version>
+                <version>${ee.maven.version}</version>
                 <type>pom</type>
             </dependency>
 
             <dependency>
-                <groupId>${full.maven.groupId}</groupId>
+                <groupId>${ee.maven.groupId}</groupId>
                 <artifactId>wildfly-standard-test-expansion-bom</artifactId>
-                <version>${full.maven.version}</version>
+                <version>${ee.maven.version}</version>
                 <type>pom</type>
             </dependency>
 

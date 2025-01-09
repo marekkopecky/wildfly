@@ -70,15 +70,15 @@
             <activation><property><name>!testsuite.only</name></property></activation>
             <dependencies>
                 <dependency>
-                    <groupId>${full.maven.groupId}</groupId>
+                    <groupId>${ee.maven.groupId}</groupId>
                     <artifactId>wildfly-preview-build</artifactId>
-                    <version>${full.maven.version}</version>
+                    <version>${ee.maven.version}</version>
                     <type>pom</type>
                 </dependency>
                 <dependency>
-                    <groupId>${full.maven.groupId}</groupId>
+                    <groupId>${ee.maven.groupId}</groupId>
                     <artifactId>wildfly-preview-dist</artifactId>
-                    <version>${full.maven.version}</version>
+                    <version>${ee.maven.version}</version>
                     <type>pom</type>
                 </dependency>
             </dependencies>

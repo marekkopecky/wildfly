@@ -108,16 +108,16 @@
              that *could* be obtained solely from the wildfly-ee-galleon-pack.
              Note: It's valid to use an FP here that provides the EE content via its dependencies.
         -->
-        <testsuite.ee.feature.pack.groupId>${full.maven.groupId}</testsuite.ee.feature.pack.groupId>
+        <testsuite.ee.feature.pack.groupId>${ee.maven.groupId}</testsuite.ee.feature.pack.groupId>
         <testsuite.ee.feature.pack.artifactId>wildfly-galleon-pack</testsuite.ee.feature.pack.artifactId>
-        <testsuite.ee.feature.pack.version>${full.maven.version}</testsuite.ee.feature.pack.version>
+        <testsuite.ee.feature.pack.version>${ee.maven.version}</testsuite.ee.feature.pack.version>
         <!-- Galleon feature-pack to use in testsuite provisioning executions that provide content
              that *cannot* be obtained solely from the wildfly-ee-galleon-pack or its dependencies.
              Test jobs can override this using -D to test using a different feature-pack.
         -->
-        <testsuite.full.feature.pack.groupId>${full.maven.groupId}</testsuite.full.feature.pack.groupId>
+        <testsuite.full.feature.pack.groupId>${ee.maven.groupId}</testsuite.full.feature.pack.groupId>
         <testsuite.full.feature.pack.artifactId>wildfly-galleon-pack</testsuite.full.feature.pack.artifactId>
-        <testsuite.full.feature.pack.version>${full.maven.version}</testsuite.full.feature.pack.version>
+        <testsuite.full.feature.pack.version>${ee.maven.version}</testsuite.full.feature.pack.version>
         <!-- Galleon feature-pack to use in testsuite provisioning executions that install test-specific content.
              Profiles can set this to wildfly-test-feature-pack-preview when testing wildfly-preview.
         -->
@@ -548,9 +548,9 @@
                      of items in the 'modules' element doesn't ensure earlier modules are
                      built before later ones. So use a dependency make sure it is executed. -->
                 <dependency>
-                    <groupId>${full.maven.groupId}</groupId>
+                    <groupId>${ee.maven.groupId}</groupId>
                     <artifactId>wildfly-ts-build-demander-expansion</artifactId>
-                    <version>${full.maven.version}</version>
+                    <version>${ee.maven.version}</version>
                     <type>pom</type>
                 </dependency>
             </dependencies>

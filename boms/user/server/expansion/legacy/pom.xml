@@ -31,7 +31,7 @@
             <dependency>
                 <groupId>org.jboss.eap</groupId>
                 <artifactId>wildfly-standard-expansion-bom</artifactId>
-                <version>${full.maven.version}</version>
+                <version>${ee.maven.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
@@ -74,13 +74,13 @@
         <dependency>
             <groupId>org.jboss.eap</groupId>
             <artifactId>wildfly-galleon-pack</artifactId>
-            <version>${full.maven.version}</version>
+            <version>${ee.maven.version}</version>
             <type>pom</type>
         </dependency>
         <dependency>
             <groupId>${channels.maven.groupId}</groupId>
             <artifactId>wildfly-compat-ee-10</artifactId>
-            <version>${full.maven.version}</version>
+            <version>${ee.maven.version}</version>
             <type>pom</type>
         </dependency>
     </dependencies>
