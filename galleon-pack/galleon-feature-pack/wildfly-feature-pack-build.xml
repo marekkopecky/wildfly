@@ -38,7 +38,6 @@
         <package name="modules.all"/>
         <package name="docs.licenses.merge"/>
         <package name="docs.examples"/>
-        <package name="expansion.pack"/>
         <package name="layers.conf"/>
     </default-packages>
 

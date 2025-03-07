@@ -31,17 +31,16 @@ import org.jboss.logging.annotations.MessageLogger;
 public interface ExpansionPackLogger extends BasicLogger {
 
     ExpansionPackLogger LOGGER = Logger.getMessageLogger(ExpansionPackLogger.class, "org.jboss.eap.expansion.pack");
-    ExpansionPackLogger VERIFY_LOGGER = Logger.getMessageLogger(ExpansionPackLogger.class, "org.jboss.eap.expansion.pack.verifier");
 
-    @LogMessage(level = Level.WARN)
-    @Message(id = 1, value = "Incorrect base version for JBoss EAP expansion pack. %s %s requires %s %s but %s is installed. " +
-            "Unexpected results may occur. Please update this installation to the compatible base EAP version.")
-    void incorrectBaseVersion(String xpName, String xpVersion, String baseName, String requiredBaseVersion, String actualBaseVersion);
-
-    // This is DEBUG but leave it here as we check for the message id in some tests
-    @LogMessage(level = Level.DEBUG)
-    @Message(id = 2, value = "Expansion pack's base dependency is compatible; required %s and found %s")
-    void correctBaseVersion(String requiredBaseVersion, String actualBaseVersion);
+//    @LogMessage(level = Level.WARN)
+//    @Message(id = 1, value = "Incorrect base version for JBoss EAP expansion pack. %s %s requires %s %s but %s is installed. " +
+//            "Unexpected results may occur. Please update this installation to the compatible base EAP version.")
+//    void incorrectBaseVersion(String xpName, String xpVersion, String baseName, String requiredBaseVersion, String actualBaseVersion);
+//
+//    // This is DEBUG but leave it here as we check for the message id in some tests
+//    @LogMessage(level = Level.DEBUG)
+//    @Message(id = 2, value = "Expansion pack's base dependency is compatible; required %s and found %s")
+//    void correctBaseVersion(String requiredBaseVersion, String actualBaseVersion);
 
     @LogMessage(level = Level.INFO)
     @Message(id = 3, value = "Starting server with %s installed.")

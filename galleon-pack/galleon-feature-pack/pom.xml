@@ -220,7 +220,6 @@
                             <!-- In order to require that the feature-pack and artifacts are to be resolved from channel if channels
                                  are configured in the provisioning tooling -->
                             <wildfly-channel-resolution-mode>REQUIRED</wildfly-channel-resolution-mode>
-                            <release-name>${full.dist.product.release.name}</release-name>
                             <fork-embedded>${galleon.fork.embedded}</fork-embedded>
                             <generate-channel-manifest>true</generate-channel-manifest>
                             <deploy-channel-manifest>false</deploy-channel-manifest>
@@ -228,8 +227,6 @@
                             <copyright>${wildfly.copyright.simple}</copyright>
                             <task-properties>
                                 <product.release.version>${full.dist.product.release.version}</product.release.version>
-                                <expansion.pack.release.name>${expansion.pack.release.name}</expansion.pack.release.name>
-                                <expansion.pack.release.version>${expansion.pack.release.version}</expansion.pack.release.version>
                             </task-properties>
                         </configuration>
                     </execution>

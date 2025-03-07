@@ -129,9 +129,6 @@
         <expansion.module.layer>microprofile</expansion.module.layer>
         <!-- The Galleon channel for the minor version with which this branch is associated.  -->
         <galleon.minor.channel>${product.docs.server.version}.0</galleon.minor.channel>
-        <!-- Expansion Pack -->
-        <expansion.pack.release.name>JBoss EAP XP</expansion.pack.release.name>
-        <expansion.pack.release.version>${full.maven.version}</expansion.pack.release.version>
 
         <!-- The artifactId of the BOMs to use as an import scope dependency.
              The use of a property makes it easy to create a branch that uses a different value,

@@ -38,23 +38,22 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 
 /**
- * Smoke test that the DEBUG log message from ExpansionPackDependencyVerifier is found in the log
+ * Smoke test that the INFO log message from ExpansionPackInitialization is found in the log
  */
 @RunWith(Arquillian.class)
-@ServerSetup(ExpansionPackDependencyVerifierTestCase.TestLogHandlerSetup.class)
+@ServerSetup(ExpansionPackLoggingTestCase.TestLogHandlerSetup.class)
 @RunAsClient
-public class ExpansionPackDependencyVerifierTestCase {
+public class ExpansionPackLoggingTestCase {
 
-    private static final String TEST_HANDLER_NAME = "test-" + ExpansionPackDependencyVerifierTestCase.class.getSimpleName();
+    private static final String TEST_HANDLER_NAME = "test-" + ExpansionPackLoggingTestCase.class.getSimpleName();
     private static final String TEST_LOG_FILE_NAME = TEST_HANDLER_NAME + ".log";
-    private static final String LOG_WARN_TAG = "JBEAPXP0001";
-    private static final String LOG_DEBUG_TAG = "JBEAPXP0002";
+    private static final String LOG_INFO_TAG = "JBEAPXP0003";
 
     public static class TestLogHandlerSetup extends TestLogHandlerSetupTask {
 
         @Override
         public Collection<String> getCategories() {
-            return Collections.singletonList("org.jboss.eap.expansion.pack.verifier");
+            return Collections.singletonList("org.jboss.eap.expansion.pack");
         }
 
         @Override
@@ -82,9 +81,8 @@ public class ExpansionPackDependencyVerifierTestCase {
 
     @Test
     public void testVerifierMessage() throws Exception {
-        Assert.assertFalse("ExpansionPackDependencyVerifier WARN incorrectly found", LoggingUtil.hasLogMessage(managementClient, TEST_HANDLER_NAME, LOG_WARN_TAG));
+        Assert.assertFalse("ExpansionPackInitialization INFO incorrectly found", LoggingUtil.hasLogMessage(managementClient, TEST_HANDLER_NAME, LOG_INFO_TAG));
         ServerReload.executeReloadAndWaitForCompletion(managementClient);
-        Assert.assertFalse("ExpansionPackDependencyVerifier WARN incorrectly found", LoggingUtil.hasLogMessage(managementClient, TEST_HANDLER_NAME, LOG_WARN_TAG));
-        Assert.assertTrue("ExpansionPackDependencyVerifier status not found", LoggingUtil.hasLogMessage(managementClient, TEST_HANDLER_NAME, LOG_DEBUG_TAG, line -> line.contains("DEBUG")));
+        Assert.assertTrue("ExpansionPackInitialization INFO not found", LoggingUtil.hasLogMessage(managementClient, TEST_HANDLER_NAME, LOG_INFO_TAG));
     }
 }
