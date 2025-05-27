@@ -25,7 +25,7 @@ public class KafkaClientCustomizer implements ClientCustomizer<Map<String, Objec
     private static final Set<String> COMPRESSION_TYPES = Set.of(SNAPPY_COMPRESSION, ZSTD_COMPRESSION);
 
     // Whether to disable Snappy and zstd-jni on Windows and Mac
-    public static final boolean DISABLE_NATIVE_COMPRESSION_ON_WINDOWS_AND_MAC = false;
+    public static final boolean DISABLE_NATIVE_COMPRESSION_ON_WINDOWS_AND_MAC = true;
 
     @Override
     public Map<String, Object> customize(String channel, Config channelConfig, Map<String, Object> config) {
