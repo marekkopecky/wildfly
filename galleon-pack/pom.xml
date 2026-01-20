@@ -22,6 +22,7 @@
 
     <groupId>org.jboss.eap.xp</groupId>
     <artifactId>wildfly-feature-pack-parent</artifactId>
+    <version>7.0.0.Alpha-SNAPSHOT</version>
 
     <description>WildFly ${project.version} Galleon pack</description>
     <packaging>pom</packaging>

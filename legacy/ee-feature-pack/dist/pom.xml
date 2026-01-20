@@ -22,6 +22,7 @@
     </parent>
 
     <groupId>org.jboss.eap.xp</groupId>
+    <version>7.0.0.Alpha-SNAPSHOT</version>
     <artifactId>wildfly-ee-10-expansion-dist</artifactId>
     <packaging>jar</packaging>
 
