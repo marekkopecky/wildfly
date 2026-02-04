@@ -5,7 +5,7 @@
 
 <build xmlns="urn:wildfly:feature-pack-build:3.5" producer="org.jboss.eap:wildfly-ee-10-feature-pack">
 
-    <family name="wildfly">
+    <family name="jboss-eap">
       <criteria name="jakarta-ee-10+"/>
       <criteria name="jakarta-ee-10"/>
       <criteria name="jakarta-ee-deployment"/>

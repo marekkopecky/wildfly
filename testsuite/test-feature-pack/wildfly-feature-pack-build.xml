@@ -5,7 +5,7 @@
 
 <build xmlns="urn:wildfly:feature-pack-build:3.5" producer="org.jboss.eap:wildfly-test-feature-pack">
     <dependencies>
-        <dependency group-id="org.jboss.eap" artifact-id="wildfly-ee-galleon-pack" allowedFamily="wildfly:jakarta-ee-10+">
+        <dependency group-id="org.jboss.eap" artifact-id="wildfly-ee-galleon-pack" allowedFamily="jboss-eap:jakarta-ee-10+">
             <name>org.jboss.eap:wildfly-ee-galleon-pack</name>
             <default-configs inherit="false">
                 <include model="standalone" name="standalone.xml"/>
