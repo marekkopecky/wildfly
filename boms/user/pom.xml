@@ -10,14 +10,11 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <groupId>org.jboss.eap</groupId>
-        <artifactId>jboss-eap-parent</artifactId>
-        <!--
-        Maintain separation between the artifact id and the version to help prevent
-        merge conflicts between commits changing the GA and those changing the V.
-        -->
-        <version>41.0.0.Beta1</version>
-        <relativePath>../../pom.xml</relativePath>
+        <groupId>org.jboss</groupId>
+        <artifactId>jboss-parent</artifactId>
+        <version>51</version>
+        <!-- The empty relativePath makes Maven lookup it in the repository. Missing tag default is ../pom.xml. -->
+        <relativePath/>
     </parent>
 
     <groupId>org.wildfly.bom.builder</groupId>
@@ -28,11 +25,20 @@
     <name>WildFly BOM Builders</name>
 
     <properties>
+        <full.dist.product.release.name>JBoss EAP</full.dist.product.release.name>
         <!-- the BOMs built's artifactId prefix-->
         <bomArtifactIdPrefix>wildfly</bomArtifactIdPrefix>
         <!-- overridable channel versions -->
         <version.boms.channel.ee>${ee.maven.version}</version.boms.channel.ee>
         <version.boms.channel.full>${ee.maven.version}</version.boms.channel.full>
+        <!-- other properties ported from server project -->
+        <channels.maven.groupId>org.jboss.eap.channels</channels.maven.groupId>
+        <full.maven.groupId>org.jboss.eap.xp</full.maven.groupId>
+        <latest.jakarta.version>11</latest.jakarta.version> <!-- for downstream use -->
+        <latest.ee.artifactid.segment>ee-${latest.jakarta.version}</latest.ee.artifactid.segment>
+        <latest.ee.channel.artifactId>wildfly-${latest.ee.artifactid.segment}</latest.ee.channel.artifactId>
+        <legacy.ee.artifactid.segment>ee</legacy.ee.artifactid.segment>
+        <legacy.ee.channel.artifactId>wildfly-${legacy.ee.artifactid.segment}</legacy.ee.channel.artifactId>
     </properties>
 
     <licenses>
@@ -220,5 +226,60 @@
             </build>
         </profile>
     </profiles>
+
+    <repositories>
+        <repository>
+            <id>redhat-ga-maven-repository</id>
+            <name>Red Hat GA Maven Repository</name>
+            <url>https://maven.repository.redhat.com/ga/</url>
+            <releases>
+                <enabled>true</enabled>
+                <updatePolicy>never</updatePolicy>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+                <updatePolicy>never</updatePolicy>
+            </snapshots>
+            <layout>default</layout>
+        </repository>
+        <repository>
+            <id>jboss-public-maven-repository</id>
+            <name>JBoss Public Maven Repository</name>
+            <url>https://repository.jboss.org/nexus/content/groups/public/</url>
+            <releases>
+                <enabled>true</enabled>
+                <updatePolicy>never</updatePolicy>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+                <updatePolicy>never</updatePolicy>
+            </snapshots>
+            <layout>default</layout>
+        </repository>
+    </repositories>
+    <pluginRepositories>
+        <pluginRepository>
+            <id>redhat-ga-maven-repository</id>
+            <name>Red Hat GA Maven Repository</name>
+            <url>https://maven.repository.redhat.com/ga/</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </pluginRepository>
+        <pluginRepository>
+            <id>jboss-public-maven-repository</id>
+            <name>JBoss Public Maven Repository</name>
+            <url>https://repository.jboss.org/nexus/content/groups/public/</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </pluginRepository>
+    </pluginRepositories>
 
 </project>

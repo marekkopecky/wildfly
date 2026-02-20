@@ -45,15 +45,6 @@
         </dependencies>
     </dependencyManagement>
 
-    <dependencies>
-        <dependency>
-            <groupId>org.jboss.eap.channels</groupId>
-            <artifactId>wildfly-ee</artifactId>
-            <version>${ee.maven.version}</version>
-            <type>pom</type>
-        </dependency>
-    </dependencies>
-
     <build>
         <plugins>
             <plugin>

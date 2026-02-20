@@ -57,22 +57,6 @@
         </dependencies>
     </dependencyManagement>
 
-    <!-- enforces all BOM artifacts are available -->
-    <dependencies>
-        <dependency>
-            <groupId>${full.maven.groupId}</groupId>
-            <artifactId>wildfly-galleon-pack</artifactId>
-            <version>${full.maven.version}</version>
-            <type>pom</type>
-        </dependency>
-        <dependency>
-            <groupId>org.jboss.eap.channels</groupId>
-            <artifactId>wildfly</artifactId>
-            <version>${ee.maven.version}</version>
-            <type>pom</type>
-        </dependency>
-    </dependencies>
-
     <build>
         <plugins>
             <plugin>
