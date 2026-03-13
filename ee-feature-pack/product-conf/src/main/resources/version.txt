@@ -1,1 +1,1 @@
-WildFly - Version ${release.majorVersion}.${release.minorVersion}.${release.incrementalVersion}.${release.qualifier}
+Red Hat JBoss Enterprise Application Platform - Version ${release.majorVersion}.${release.minorVersion} Update ${release.incrementalVersion}.0
