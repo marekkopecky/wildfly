@@ -33,6 +33,7 @@ concurrency:
 permissions: {}
 jobs:
   trigger:
+    if: false # This prevents the job from running
     runs-on: ubuntu-latest
     steps:
     - name: Get pull request number

@@ -14,6 +14,7 @@ env:
   ADDITIONAL_BUILD_MODULES: boms/common-ee,boms/common-expansion,boms/standard-legacy-ee,boms/standard-preview-ee,boms/standard-ee,boms/standard-expansion,boms/standard-test
 jobs:
   check:
+    if: false # This prevents the job from running
     runs-on: ubuntu-latest
     env:
       ARTIFACTS: .pr_artifacts

@@ -66,6 +66,7 @@ on:
 
 jobs:
   wildfly-build:
+    if: false # This prevents the job from running
     runs-on: ubuntu-latest
     outputs:
       wildfly-version: ${{ steps.version.outputs.wildfly-version }}

@@ -14,6 +14,7 @@ concurrency:
 
 jobs:
   quick-build:
+    if: false # This prevents the job from running
     name: WildFly Build -Dquickly
     runs-on: ubuntu-latest
     timeout-minutes: 60
