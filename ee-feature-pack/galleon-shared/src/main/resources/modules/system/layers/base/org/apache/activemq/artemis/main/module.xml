@@ -81,8 +81,6 @@
              WildFly server [AS7-6549] -->
         <module name="org.wildfly.naming-client" optional="true"  services="import"/>
         <!-- supported protocols (in addition to the CORE protocol) -->
-        <module name="org.apache.activemq.artemis.protocol.amqp" services="import" optional="true"/>
         <module name="org.apache.activemq.artemis.protocol.hornetq" services="import" optional="true"/>
-        <module name="org.apache.activemq.artemis.protocol.stomp" services="import" optional="true"/>
     </dependencies>
 </module>

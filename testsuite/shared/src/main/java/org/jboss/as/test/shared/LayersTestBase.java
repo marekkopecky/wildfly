@@ -111,9 +111,11 @@ public abstract class LayersTestBase {
     public static final String[] NO_LAYER_COMMON = {
             // Alternative messaging protocols besides the std Artemis core protocol
             // Use of these depends on an attribute value setting
-            "org.apache.activemq.artemis.protocol.amqp",
+//            Removed in EAP
+//            "org.apache.activemq.artemis.protocol.amqp",
             "org.apache.activemq.artemis.protocol.hornetq",
-            "org.apache.activemq.artemis.protocol.stomp",
+//            Removed in EAP
+//            "org.apache.activemq.artemis.protocol.stomp",
             // Legacy client not associated with any layer
             "org.hornetq.client",
             // TODO we need to add an xts layer
@@ -149,7 +151,8 @@ public abstract class LayersTestBase {
     public static final String[] NO_LAYER_WILDFLY_EE = {
             // In 'wildfly-ee' this is only a dep of org.apache.activemq.artemis.protocol.amqp,
             // which is not part of test-all-layers. It is used in a layer in 'wildfly' and 'wildfly-preview'
-            "org.apache.qpid.proton",
+            // Removed in EAP wildfly-ee feature pack
+//            "org.apache.qpid.proton",
     };
 
     /**

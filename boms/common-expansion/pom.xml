@@ -1176,6 +1176,19 @@
             </dependency>
 
             <dependency>
+                <groupId>org.apache.artemis</groupId>
+                <artifactId>artemis-amqp-protocol</artifactId>
+                <version>${version.org.apache.activemq.artemis}</version>
+                <scope>test</scope>
+                <exclusions>
+                    <exclusion>
+                        <groupId>*</groupId>
+                        <artifactId>*</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+
+            <dependency>
                 <groupId>org.apache.kafka</groupId>
                 <artifactId>kafka-clients</artifactId>
                 <version>${version.org.apache.kafka}</version>
@@ -1183,6 +1196,18 @@
                     <exclusion>
                         <groupId>*</groupId>
                         <artifactId>*</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+
+            <dependency>
+                <groupId>org.apache.qpid</groupId>
+                <artifactId>proton-j</artifactId>
+                <version>${version.org.apache.qpid.proton}</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>org.bouncycastle</groupId>
+                        <artifactId>bcpkix-jdk15on</artifactId>
                     </exclusion>
                 </exclusions>
             </dependency>

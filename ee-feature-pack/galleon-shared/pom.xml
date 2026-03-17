@@ -749,17 +749,6 @@
 
         <dependency>
             <groupId>org.apache.artemis</groupId>
-            <artifactId>artemis-amqp-protocol</artifactId>
-            <exclusions>
-                <exclusion>
-                    <groupId>*</groupId>
-                    <artifactId>*</artifactId>
-                </exclusion>
-            </exclusions>
-        </dependency>
-
-        <dependency>
-            <groupId>org.apache.artemis</groupId>
             <artifactId>artemis-cli</artifactId>
             <exclusions>
                 <exclusion>
@@ -914,17 +903,6 @@
         <dependency>
             <groupId>org.apache.artemis</groupId>
             <artifactId>artemis-server</artifactId>
-            <exclusions>
-                <exclusion>
-                    <groupId>*</groupId>
-                    <artifactId>*</artifactId>
-                </exclusion>
-            </exclusions>
-        </dependency>
-
-        <dependency>
-            <groupId>org.apache.artemis</groupId>
-            <artifactId>artemis-stomp-protocol</artifactId>
             <exclusions>
                 <exclusion>
                     <groupId>*</groupId>
@@ -1226,11 +1204,6 @@
                     <artifactId>*</artifactId>
                 </exclusion>
             </exclusions>
-        </dependency>
-
-        <dependency>
-            <groupId>org.apache.qpid</groupId>
-            <artifactId>proton-j</artifactId>
         </dependency>
 
         <dependency>
