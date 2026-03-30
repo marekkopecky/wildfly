@@ -63,6 +63,8 @@ public class CommandDispatcherTestCase extends AbstractClusteringTestCase {
 
     public void test(Class<? extends ClusterTopologyRetriever> beanClass) throws Exception {
         try (EJBDirectory directory = new RemoteEJBDirectory(MODULE_NAME)) {
+            Thread.sleep(VIEW_CHANGE_WAIT);
+
             ClusterTopologyRetriever bean = directory.lookupStateless(beanClass, ClusterTopologyRetriever.class);
 
             ClusterTopology topology = bean.getClusterTopology();
