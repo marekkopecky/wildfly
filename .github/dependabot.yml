@@ -57,7 +57,7 @@ updates:
       - dependency-name: 'org.opensaml*'
       - dependency-name: 'wsdl4j*'
     rebase-strategy: "disabled"
-    open-pull-requests-limit: 10
+    open-pull-requests-limit: 0
     registries:
       - maven-central
       - jboss-public-repository-group
