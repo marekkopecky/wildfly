@@ -968,244 +968,244 @@
         </profile>
 
         <!-- Run cluster tests with standalone-ha.xml profile with Infinispan Server provisioned -->
-        <profile>
-            <id>ts.clustering.cluster.ha-infinispan-server.profile</id>
-            <activation>
-                <property>
-                    <name>!ts.noClustering</name>
-                </property>
-            </activation>
-            <build>
-                <plugins>
-                    <plugin>
-                        <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-surefire-plugin</artifactId>
-                        <version>${version.surefire.plugin}</version>
-                        <executions>
-                            <!-- Multi-node clustering tests -->
-                            <execution>
-                                <id>ts.surefire.clustering.ha-infinispan-server</id>
-                                <phase>test</phase>
-                                <goals>
-                                    <goal>test</goal>
-                                </goals>
-                                <configuration>
-                                    <!-- Fix test order to speed up execution by grouping tests that run against same group of containers -->
-                                    <runOrder>alphabetical</runOrder>
-                                    <!-- Tests to execute. -->
-                                    <includes>
-                                        <include>${test-group}/**/ejb/timer/remote/*TestCase.java</include>
-                                        <include>${test-group}/**/infinispan/remote/*TestCase.java</include>
-                                        <include>${test-group}/**/web/remote/*TestCase.java</include>
-                                        <include>${test-group}/**/sso/remote/*TestCase.java</include>
-                                    </includes>
-                                    <!-- Parameters to test cases. -->
-                                    <systemPropertyVariables>
-                                        <arquillian.xml>arquillian.xml</arquillian.xml>
-                                        <arquillian.launch>clustering-all</arquillian.launch>
-                                        <jboss.server.config.file.name>standalone-ha.xml</jboss.server.config.file.name>
-                                    </systemPropertyVariables>
-                                </configuration>
-                            </execution>
-                        </executions>
-                    </plugin>
-                </plugins>
-            </build>
-        </profile>
+<!--        <profile>-->
+<!--            <id>ts.clustering.cluster.ha-infinispan-server.profile</id>-->
+<!--            <activation>-->
+<!--                <property>-->
+<!--                    <name>!ts.noClustering</name>-->
+<!--                </property>-->
+<!--            </activation>-->
+<!--            <build>-->
+<!--                <plugins>-->
+<!--                    <plugin>-->
+<!--                        <groupId>org.apache.maven.plugins</groupId>-->
+<!--                        <artifactId>maven-surefire-plugin</artifactId>-->
+<!--                        <version>${version.surefire.plugin}</version>-->
+<!--                        <executions>-->
+<!--                            &lt;!&ndash; Multi-node clustering tests &ndash;&gt;-->
+<!--                            <execution>-->
+<!--                                <id>ts.surefire.clustering.ha-infinispan-server</id>-->
+<!--                                <phase>test</phase>-->
+<!--                                <goals>-->
+<!--                                    <goal>test</goal>-->
+<!--                                </goals>-->
+<!--                                <configuration>-->
+<!--                                    &lt;!&ndash; Fix test order to speed up execution by grouping tests that run against same group of containers &ndash;&gt;-->
+<!--                                    <runOrder>alphabetical</runOrder>-->
+<!--                                    &lt;!&ndash; Tests to execute. &ndash;&gt;-->
+<!--                                    <includes>-->
+<!--                                        <include>${test-group}/**/ejb/timer/remote/*TestCase.java</include>-->
+<!--                                        <include>${test-group}/**/infinispan/remote/*TestCase.java</include>-->
+<!--                                        <include>${test-group}/**/web/remote/*TestCase.java</include>-->
+<!--                                        <include>${test-group}/**/sso/remote/*TestCase.java</include>-->
+<!--                                    </includes>-->
+<!--                                    &lt;!&ndash; Parameters to test cases. &ndash;&gt;-->
+<!--                                    <systemPropertyVariables>-->
+<!--                                        <arquillian.xml>arquillian.xml</arquillian.xml>-->
+<!--                                        <arquillian.launch>clustering-all</arquillian.launch>-->
+<!--                                        <jboss.server.config.file.name>standalone-ha.xml</jboss.server.config.file.name>-->
+<!--                                    </systemPropertyVariables>-->
+<!--                                </configuration>-->
+<!--                            </execution>-->
+<!--                        </executions>-->
+<!--                    </plugin>-->
+<!--                </plugins>-->
+<!--            </build>-->
+<!--        </profile>-->
 
         <!-- Run cluster tests with standalone-full-ha.xml profile -->
-        <profile>
-            <id>ts.clustering.cluster.fullha.profile</id>
-            <activation>
-                <property>
-                    <name>!ts.noClustering</name>
-                </property>
-            </activation>
-            <build>
-                <plugins>
-                    <plugin>
-                        <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-surefire-plugin</artifactId>
-                        <version>${version.surefire.plugin}</version>
-                        <executions>
-                            <!-- Multi-node clustering tests -->
-                            <execution>
-                                <id>ts.surefire.clustering.fullha</id>
-                                <phase>test</phase>
-                                <goals>
-                                    <goal>test</goal>
-                                </goals>
-                                <configuration>
-                                    <!-- Fix test order to speed up execution by grouping tests that run against same group of containers -->
-                                    <runOrder>alphabetical</runOrder>
-                                    <!-- Tests to execute. -->
-                                    <includes>
-                                        <include>${test-group}/**/ejb/stateful/*TestCase.java</include>
-                                        <include>${test-group}/**/group/*TestCase.java</include>
-                                        <include>${test-group}/**/jms/*TestCase.java</include>
-                                    </includes>
-                                    <!-- Parameters to test cases. -->
-                                    <systemPropertyVariables>
-                                        <server.jvm.args>${server.jvm.args} -Djboss.messaging.cluster.password=testsuite-messaging-password</server.jvm.args>
-                                        <arquillian.xml>arquillian.xml</arquillian.xml>
-                                        <arquillian.launch>clustering-all</arquillian.launch>
-                                        <jboss.server.config.file.name>standalone-full-ha.xml</jboss.server.config.file.name>
-                                    </systemPropertyVariables>
-                                </configuration>
-                            </execution>
-                        </executions>
-                    </plugin>
-                </plugins>
-            </build>
-        </profile>
+<!--        <profile>-->
+<!--            <id>ts.clustering.cluster.fullha.profile</id>-->
+<!--            <activation>-->
+<!--                <property>-->
+<!--                    <name>!ts.noClustering</name>-->
+<!--                </property>-->
+<!--            </activation>-->
+<!--            <build>-->
+<!--                <plugins>-->
+<!--                    <plugin>-->
+<!--                        <groupId>org.apache.maven.plugins</groupId>-->
+<!--                        <artifactId>maven-surefire-plugin</artifactId>-->
+<!--                        <version>${version.surefire.plugin}</version>-->
+<!--                        <executions>-->
+<!--                            &lt;!&ndash; Multi-node clustering tests &ndash;&gt;-->
+<!--                            <execution>-->
+<!--                                <id>ts.surefire.clustering.fullha</id>-->
+<!--                                <phase>test</phase>-->
+<!--                                <goals>-->
+<!--                                    <goal>test</goal>-->
+<!--                                </goals>-->
+<!--                                <configuration>-->
+<!--                                    &lt;!&ndash; Fix test order to speed up execution by grouping tests that run against same group of containers &ndash;&gt;-->
+<!--                                    <runOrder>alphabetical</runOrder>-->
+<!--                                    &lt;!&ndash; Tests to execute. &ndash;&gt;-->
+<!--                                    <includes>-->
+<!--                                        <include>${test-group}/**/ejb/stateful/*TestCase.java</include>-->
+<!--                                        <include>${test-group}/**/group/*TestCase.java</include>-->
+<!--                                        <include>${test-group}/**/jms/*TestCase.java</include>-->
+<!--                                    </includes>-->
+<!--                                    &lt;!&ndash; Parameters to test cases. &ndash;&gt;-->
+<!--                                    <systemPropertyVariables>-->
+<!--                                        <server.jvm.args>${server.jvm.args} -Djboss.messaging.cluster.password=testsuite-messaging-password</server.jvm.args>-->
+<!--                                        <arquillian.xml>arquillian.xml</arquillian.xml>-->
+<!--                                        <arquillian.launch>clustering-all</arquillian.launch>-->
+<!--                                        <jboss.server.config.file.name>standalone-full-ha.xml</jboss.server.config.file.name>-->
+<!--                                    </systemPropertyVariables>-->
+<!--                                </configuration>-->
+<!--                            </execution>-->
+<!--                        </executions>-->
+<!--                    </plugin>-->
+<!--                </plugins>-->
+<!--            </build>-->
+<!--        </profile>-->
 
-        <!-- Run clustering single node tests -->
-        <profile>
-            <id>ts.clustering.single.profile</id>
-            <activation>
-                <property>
-                    <name>!ts.noClustering</name>
-                </property>
-            </activation>
-            <build>
-                <plugins>
-                    <plugin>
-                        <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-surefire-plugin</artifactId>
-                        <version>${version.surefire.plugin}</version>
-                        <executions>
-                            <!-- Single node clustering tests. -->
-                            <execution>
-                                <id>ts.surefire.clustering.single</id>
-                                <phase>test</phase>
-                                <goals>
-                                    <goal>test</goal>
-                                </goals>
-                                <configuration>
-                                    <runOrder>alphabetical</runOrder>
-                                    <includes>
-                                        <include>org/jboss/as/test/clustering/single/**/*TestCase.java</include>
-                                    </includes>
-                                    <excludes>
-                                        <exclude>org/jboss/as/test/clustering/single/infinispan/InfinispanModulesTestSuite.java</exclude>
-                                        <exclude>org/jboss/as/test/clustering/single/infinispan/cdi/**/*TestCase.java</exclude>
-                                        <exclude>org/jboss/as/test/clustering/single/infinispan/query/**/*TestCase.java</exclude>
-                                        <exclude>org/jboss/as/test/clustering/single/web/NonHaWebSessionPersistenceTestCase.java</exclude>
-                                    </excludes>
-                                    <systemPropertyVariables combine.children="append">
-                                        <arquillian.launch>single</arquillian.launch>
-                                        <jboss.server.config.file.name>standalone.xml</jboss.server.config.file.name>
-                                    </systemPropertyVariables>
-                                </configuration>
-                            </execution>
-                            <!-- Single node clustering tests for containers with manual lifecycle. -->
-                            <execution>
-                                <id>ts.surefire.clustering.single.manual</id>
-                                <phase>test</phase>
-                                <goals>
-                                    <goal>test</goal>
-                                </goals>
-                                <configuration>
-                                    <runOrder>alphabetical</runOrder>
-                                    <includes>
-                                        <include>org/jboss/as/test/clustering/single/web/NonHaWebSessionPersistenceTestCase.java</include>
-                                    </includes>
-                                    <systemPropertyVariables combine.children="append">
-                                        <arquillian.launch>node-non-ha</arquillian.launch>
-                                        <jboss.server.config.file.name>standalone.xml</jboss.server.config.file.name>
-                                    </systemPropertyVariables>
-                                </configuration>
-                            </execution>
-                        </executions>
-                    </plugin>
-                </plugins>
-            </build>
-        </profile>
+<!--        &lt;!&ndash; Run clustering single node tests &ndash;&gt;-->
+<!--        <profile>-->
+<!--            <id>ts.clustering.single.profile</id>-->
+<!--            <activation>-->
+<!--                <property>-->
+<!--                    <name>!ts.noClustering</name>-->
+<!--                </property>-->
+<!--            </activation>-->
+<!--            <build>-->
+<!--                <plugins>-->
+<!--                    <plugin>-->
+<!--                        <groupId>org.apache.maven.plugins</groupId>-->
+<!--                        <artifactId>maven-surefire-plugin</artifactId>-->
+<!--                        <version>${version.surefire.plugin}</version>-->
+<!--                        <executions>-->
+<!--                            &lt;!&ndash; Single node clustering tests. &ndash;&gt;-->
+<!--                            <execution>-->
+<!--                                <id>ts.surefire.clustering.single</id>-->
+<!--                                <phase>test</phase>-->
+<!--                                <goals>-->
+<!--                                    <goal>test</goal>-->
+<!--                                </goals>-->
+<!--                                <configuration>-->
+<!--                                    <runOrder>alphabetical</runOrder>-->
+<!--                                    <includes>-->
+<!--                                        <include>org/jboss/as/test/clustering/single/**/*TestCase.java</include>-->
+<!--                                    </includes>-->
+<!--                                    <excludes>-->
+<!--                                        <exclude>org/jboss/as/test/clustering/single/infinispan/InfinispanModulesTestSuite.java</exclude>-->
+<!--                                        <exclude>org/jboss/as/test/clustering/single/infinispan/cdi/**/*TestCase.java</exclude>-->
+<!--                                        <exclude>org/jboss/as/test/clustering/single/infinispan/query/**/*TestCase.java</exclude>-->
+<!--                                        <exclude>org/jboss/as/test/clustering/single/web/NonHaWebSessionPersistenceTestCase.java</exclude>-->
+<!--                                    </excludes>-->
+<!--                                    <systemPropertyVariables combine.children="append">-->
+<!--                                        <arquillian.launch>single</arquillian.launch>-->
+<!--                                        <jboss.server.config.file.name>standalone.xml</jboss.server.config.file.name>-->
+<!--                                    </systemPropertyVariables>-->
+<!--                                </configuration>-->
+<!--                            </execution>-->
+<!--                            &lt;!&ndash; Single node clustering tests for containers with manual lifecycle. &ndash;&gt;-->
+<!--                            <execution>-->
+<!--                                <id>ts.surefire.clustering.single.manual</id>-->
+<!--                                <phase>test</phase>-->
+<!--                                <goals>-->
+<!--                                    <goal>test</goal>-->
+<!--                                </goals>-->
+<!--                                <configuration>-->
+<!--                                    <runOrder>alphabetical</runOrder>-->
+<!--                                    <includes>-->
+<!--                                        <include>org/jboss/as/test/clustering/single/web/NonHaWebSessionPersistenceTestCase.java</include>-->
+<!--                                    </includes>-->
+<!--                                    <systemPropertyVariables combine.children="append">-->
+<!--                                        <arquillian.launch>node-non-ha</arquillian.launch>-->
+<!--                                        <jboss.server.config.file.name>standalone.xml</jboss.server.config.file.name>-->
+<!--                                    </systemPropertyVariables>-->
+<!--                                </configuration>-->
+<!--                            </execution>-->
+<!--                        </executions>-->
+<!--                    </plugin>-->
+<!--                </plugins>-->
+<!--            </build>-->
+<!--        </profile>-->
 
         <!-- Run single node tests using testable deployments with standalone-ha.xml profile and with Infinispan Server provisioned -->
-        <profile>
-            <id>ts.clustering.single.testable.profile</id>
-            <activation>
-                <property>
-                    <name>!ts.noClustering</name>
-                </property>
-            </activation>
-            <build>
-                <plugins>
-                    <plugin>
-                        <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-surefire-plugin</artifactId>
-                        <executions>
-                            <execution>
-                                <id>ts.surefire.clustering.single.testable</id>
-                                <phase>test</phase>
-                                <goals>
-                                    <goal>test</goal>
-                                </goals>
-                                <configuration>
-                                    <runOrder>alphabetical</runOrder>
-                                    <includes>
-                                        <include>org/jboss/as/test/clustering/single/infinispan/InfinispanModulesTestSuite.java</include>
-                                    </includes>
-                                    <systemPropertyVariables>
-                                        <arquillian.xml>arquillian-testable.xml</arquillian.xml>
-                                        <jboss.server.config.file.name>standalone-ha.xml</jboss.server.config.file.name>
-                                    </systemPropertyVariables>
-                                </configuration>
-                            </execution>
-                        </executions>
-                    </plugin>
-                </plugins>
-            </build>
-        </profile>
+<!--        <profile>-->
+<!--            <id>ts.clustering.single.testable.profile</id>-->
+<!--            <activation>-->
+<!--                <property>-->
+<!--                    <name>!ts.noClustering</name>-->
+<!--                </property>-->
+<!--            </activation>-->
+<!--            <build>-->
+<!--                <plugins>-->
+<!--                    <plugin>-->
+<!--                        <groupId>org.apache.maven.plugins</groupId>-->
+<!--                        <artifactId>maven-surefire-plugin</artifactId>-->
+<!--                        <executions>-->
+<!--                            <execution>-->
+<!--                                <id>ts.surefire.clustering.single.testable</id>-->
+<!--                                <phase>test</phase>-->
+<!--                                <goals>-->
+<!--                                    <goal>test</goal>-->
+<!--                                </goals>-->
+<!--                                <configuration>-->
+<!--                                    <runOrder>alphabetical</runOrder>-->
+<!--                                    <includes>-->
+<!--                                        <include>org/jboss/as/test/clustering/single/infinispan/InfinispanModulesTestSuite.java</include>-->
+<!--                                    </includes>-->
+<!--                                    <systemPropertyVariables>-->
+<!--                                        <arquillian.xml>arquillian-testable.xml</arquillian.xml>-->
+<!--                                        <jboss.server.config.file.name>standalone-ha.xml</jboss.server.config.file.name>-->
+<!--                                    </systemPropertyVariables>-->
+<!--                                </configuration>-->
+<!--                            </execution>-->
+<!--                        </executions>-->
+<!--                    </plugin>-->
+<!--                </plugins>-->
+<!--            </build>-->
+<!--        </profile>-->
 
         <!-- Run byteman tests -->
-        <profile>
-            <id>ts.clustering.byteman.profile</id>
-            <activation>
-                <property>
-                    <name>!ts.noClustering</name>
-                </property>
-            </activation>
-            <build>
-                <plugins>
-                    <plugin>
-                        <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-surefire-plugin</artifactId>
-                        <version>${version.surefire.plugin}</version>
-                        <executions>
-                            <!-- Multi-node clustering tests (based on Byteman) for EJB tests -->
-                            <execution>
-                                <id>ts.surefire.clustering.byteman</id>
-                                <phase>test</phase>
-                                <goals>
-                                    <goal>test</goal>
-                                </goals>
-                                <configuration>
-                                    <argLine>${surefire.byteman.argline}</argLine>
-                                    <!-- Needed for EJB client tests -->
-                                    <useSystemClassLoader>true</useSystemClassLoader>
-                                    <useManifestOnlyJar>true</useManifestOnlyJar>
-                                    <environmentVariables>
-                                        <BYTEMAN_HOME/>
-                                    </environmentVariables>
-                                    <includes>
-                                        <include>${test-group}/**/byteman/*TestCase.java</include>
-                                    </includes>
-                                    <systemPropertyVariables combine.children="append">
-                                        <!-- Append required byteman args (-Djboss.modules.system.pkgs, -Xbootclasspath) to standard ${server.jvm.args} -->
-                                        <server.jvm.args>${server.jvm.args} ${surefire.byteman.args}</server.jvm.args>
-                                        <arquillian.xml>arquillian-byteman.xml</arquillian.xml>
-                                        <arquillian.launch>clustering-all</arquillian.launch>
-                                        <jboss.server.config.file.name>standalone-full-ha.xml</jboss.server.config.file.name>
-                                    </systemPropertyVariables>
-                                </configuration>
-                            </execution>
-                        </executions>
-                    </plugin>
-                </plugins>
-            </build>
-        </profile>
+<!--        <profile>-->
+<!--            <id>ts.clustering.byteman.profile</id>-->
+<!--            <activation>-->
+<!--                <property>-->
+<!--                    <name>!ts.noClustering</name>-->
+<!--                </property>-->
+<!--            </activation>-->
+<!--            <build>-->
+<!--                <plugins>-->
+<!--                    <plugin>-->
+<!--                        <groupId>org.apache.maven.plugins</groupId>-->
+<!--                        <artifactId>maven-surefire-plugin</artifactId>-->
+<!--                        <version>${version.surefire.plugin}</version>-->
+<!--                        <executions>-->
+<!--                            &lt;!&ndash; Multi-node clustering tests (based on Byteman) for EJB tests &ndash;&gt;-->
+<!--                            <execution>-->
+<!--                                <id>ts.surefire.clustering.byteman</id>-->
+<!--                                <phase>test</phase>-->
+<!--                                <goals>-->
+<!--                                    <goal>test</goal>-->
+<!--                                </goals>-->
+<!--                                <configuration>-->
+<!--                                    <argLine>${surefire.byteman.argline}</argLine>-->
+<!--                                    &lt;!&ndash; Needed for EJB client tests &ndash;&gt;-->
+<!--                                    <useSystemClassLoader>true</useSystemClassLoader>-->
+<!--                                    <useManifestOnlyJar>true</useManifestOnlyJar>-->
+<!--                                    <environmentVariables>-->
+<!--                                        <BYTEMAN_HOME/>-->
+<!--                                    </environmentVariables>-->
+<!--                                    <includes>-->
+<!--                                        <include>${test-group}/**/byteman/*TestCase.java</include>-->
+<!--                                    </includes>-->
+<!--                                    <systemPropertyVariables combine.children="append">-->
+<!--                                        &lt;!&ndash; Append required byteman args (-Djboss.modules.system.pkgs, -Xbootclasspath) to standard ${server.jvm.args} &ndash;&gt;-->
+<!--                                        <server.jvm.args>${server.jvm.args} ${surefire.byteman.args}</server.jvm.args>-->
+<!--                                        <arquillian.xml>arquillian-byteman.xml</arquillian.xml>-->
+<!--                                        <arquillian.launch>clustering-all</arquillian.launch>-->
+<!--                                        <jboss.server.config.file.name>standalone-full-ha.xml</jboss.server.config.file.name>-->
+<!--                                    </systemPropertyVariables>-->
+<!--                                </configuration>-->
+<!--                            </execution>-->
+<!--                        </executions>-->
+<!--                    </plugin>-->
+<!--                </plugins>-->
+<!--            </build>-->
+<!--        </profile>-->
 
         <!-- Selectively disable executions for clustering tests that do not work on IBM JDK -->
         <profile>

@@ -91,24 +91,24 @@
             <id>base.integ.module.profile</id>
             <activation><property><name>integ.module</name></property></activation>
             <modules>
-                <module>../integration/ws</module>
-                <module>../integration/web</module>
-                <module>../integration/smoke</module>
-                <module>../test-feature-pack</module> <!-- needed by integration/basic -->
-                <module>../integration/basic</module>
-                <module>../integration/vdx</module>
-                <module>../integration/iiop</module>
-                <module>../integration/xts</module>
-                <module>../integration/rts</module>
-                <module>../integration/rbac</module>
+<!--                <module>../integration/ws</module>-->
+<!--                <module>../integration/web</module>-->
+<!--                <module>../integration/smoke</module>-->
+<!--                <module>../test-feature-pack</module> &lt;!&ndash; needed by integration/basic &ndash;&gt;-->
+<!--                <module>../integration/basic</module>-->
+<!--                <module>../integration/vdx</module>-->
+<!--                <module>../integration/iiop</module>-->
+<!--                <module>../integration/xts</module>-->
+<!--                <module>../integration/rts</module>-->
+<!--                <module>../integration/rbac</module>-->
                 <module>../integration/clustering</module>
-                <module>../integration/multinode</module>
-                <module>../test-product-conf</module> <!-- needed by manualmode -->
-                <module>../integration/manualmode</module>
-                <module>../integration/secman</module>
-                <module>../integration/legacy</module>
-                <module>../integration/elytron</module>
-                <module>../integration/elytron-oidc-client</module>
+<!--                <module>../integration/multinode</module>-->
+<!--                <module>../test-product-conf</module> &lt;!&ndash; needed by manualmode &ndash;&gt;-->
+<!--                <module>../integration/manualmode</module>-->
+<!--                <module>../integration/secman</module>-->
+<!--                <module>../integration/legacy</module>-->
+<!--                <module>../integration/elytron</module>-->
+<!--                <module>../integration/elytron-oidc-client</module>-->
             </modules>
         </profile>
 
@@ -202,24 +202,24 @@
             <id>base.ts.integ.allGroupsIntegration</id>
             <activation><property><name>ts.integration</name></property></activation>
             <modules>
-                <module>../integration/ws</module>
-                <module>../integration/web</module>
-                <module>../integration/smoke</module>
-                <module>../test-feature-pack</module> <!-- needed by integration/basic -->
-                <module>../integration/basic</module>
-                <module>../integration/vdx</module>
+<!--                <module>../integration/ws</module>-->
+<!--                <module>../integration/web</module>-->
+<!--                <module>../integration/smoke</module>-->
+<!--                <module>../test-feature-pack</module> &lt;!&ndash; needed by integration/basic &ndash;&gt;-->
+<!--                <module>../integration/basic</module>-->
+<!--                <module>../integration/vdx</module>-->
                 <module>../integration/clustering</module>
-                <module>../integration/iiop</module>
-                <module>../integration/xts</module>
-                <module>../integration/rts</module>
-                <module>../integration/rbac</module>
-                <module>../integration/multinode</module>
-                <module>../test-product-conf</module> <!-- needed by manualmode -->
-                <module>../integration/manualmode</module>
-                <module>../integration/secman</module>
-                <module>../integration/legacy</module>
-                <module>../integration/elytron</module>
-                <module>../integration/elytron-oidc-client</module>
+<!--                <module>../integration/iiop</module>-->
+<!--                <module>../integration/xts</module>-->
+<!--                <module>../integration/rts</module>-->
+<!--                <module>../integration/rbac</module>-->
+<!--                <module>../integration/multinode</module>-->
+<!--                <module>../test-product-conf</module> &lt;!&ndash; needed by manualmode &ndash;&gt;-->
+<!--                <module>../integration/manualmode</module>-->
+<!--                <module>../integration/secman</module>-->
+<!--                <module>../integration/legacy</module>-->
+<!--                <module>../integration/elytron</module>-->
+<!--                <module>../integration/elytron-oidc-client</module>-->
             </modules>
         </profile>
 

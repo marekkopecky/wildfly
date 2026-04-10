@@ -265,4 +265,17 @@ public interface TLSServerSetupTasks {
             super(NODE_1_2_3, TCP.class.getSimpleName(), true);
         }
     }
+
+    /**
+     * Three nodes.
+     *
+     * Each node uses shared private key in key-store and shared public key in trust-store.
+     *
+     * TCP transport.
+     */
+    class SharedStoreSecureJGroupsTransportServerSetupTask_NODE_1_2 extends SecureJGroupsTransportServerSetupTask {
+        public SharedStoreSecureJGroupsTransportServerSetupTask_NODE_1_2() {
+            super(NODE_1_2, TCP.class.getSimpleName(), true);
+        }
+    }
 }
