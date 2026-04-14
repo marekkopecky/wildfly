@@ -19,6 +19,7 @@
         <package name="appclient"/>
         <package name="bin"/>
         <package name="version.txt"/>
+        <package name="layers.conf"/>
     </default-packages>
 
     <stability-levels>

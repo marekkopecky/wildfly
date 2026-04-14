@@ -18,6 +18,7 @@
     8) no .galleon/history dir exists
    10) Some verifications around libartemis-native-32.so / libartemis-native-64.so to ensure the server distribution
        contains the -64 variant and does not contain the -32 one.
+   11) bin/layers.conf contains layers=microprofile
 -->
   <files>
     <file>
@@ -62,5 +63,11 @@
       <exists>true</exists>
     </file>
     <!-- end of (#10) -->
+    <!-- start of (#11) -->
+    <file>
+      <location>target/${latest.server.output.dir}/modules/layers.conf</location>
+      <contains>layers=microprofile</contains>
+    </file>
+    <!-- end of (#11) -->
   </files>
 </verifications>

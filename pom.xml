@@ -126,7 +126,7 @@
         <!-- <channels.maven.groupId>${project.groupId}.channels</channels.maven.groupId> -->
         <channels.maven.groupId>org.jboss.eap.channels</channels.maven.groupId>
         <!-- JBoss Modules layer used for modules that provide expansion functionality -->
-        <expansion.module.layer>base</expansion.module.layer>
+        <expansion.module.layer>microprofile</expansion.module.layer>
         <!-- The Galleon channel for the minor version with which this branch is associated.  -->
         <galleon.minor.channel>${product.docs.server.version}.0</galleon.minor.channel>
 

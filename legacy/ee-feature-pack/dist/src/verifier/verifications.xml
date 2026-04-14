@@ -29,6 +29,7 @@
    19) docs/contrib does not exist
    20) Some verifications around libartemis-native-32.so / libartemis-native-64.so to ensure the server distribution
        contains the -64 variant and does not contain the -32 one.
+   20) bin/layers.conf contains layers=microprofile
 -->
   <files>
     <file>
@@ -205,5 +206,11 @@
       <exists>true</exists>
     </file>
     <!-- end of (#19) -->
+    <!-- start of (#20) -->
+    <file>
+      <location>target/${legacy.server.output.dir}/modules/layers.conf</location>
+      <contains>layers=microprofile</contains>
+    </file>
+    <!-- end of (#20) -->
   </files>
 </verifications>

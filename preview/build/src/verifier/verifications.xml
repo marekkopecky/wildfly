@@ -80,6 +80,10 @@
       <exists>true</exists>
     </file>
     <file>
+      <!--
+      jose4j is not a pure Microprofile dependency, since it is being used by elytron-oidc-client which belongs to
+      standard distribution for this reason it is not moved to the microprofile module layer.
+       -->
       <location>target/${preview.server.output.dir}/modules/system/layers/base/org/bitbucket/jose4j/main</location>
       <exists>true</exists>
     </file>

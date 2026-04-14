@@ -16,5 +16,6 @@
         <package name="unstable-api-annotation-index.wildfly-galleon-pack" optional="true" valid-for-stability="preview"/>
         <package name="JBossEULA.txt"/>
         <package name="cleanup.community.content"/>
+        <package name="layers.conf" optional="true"/>
     </packages>
 </config>
