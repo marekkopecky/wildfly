@@ -883,7 +883,7 @@
                                         <jboss-maven-dist/>
                                         <jboss-fork-embedded>${galleon.fork.embedded}</jboss-fork-embedded>
                                         <optional-packages>passive+</optional-packages>
-                                        <stability-level>preview</stability-level>
+                                        <stability-level>default</stability-level>
                                     </galleon-options>
                                     <provisioning-file>target/glow-scan/jakarta-data-layers.surefire/provisioning.xml</provisioning-file>
                                 </configuration>

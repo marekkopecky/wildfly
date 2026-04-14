@@ -48,7 +48,7 @@
 
         <maven.local.repo>${settings.localRepository}</maven.local.repo>
         <modular.jdk.testsuite.args>${modular.jdk.args} --add-opens=java.base/sun.security.x509=ALL-UNNAMED --add-opens=java.base/sun.security.util=ALL-UNNAMED</modular.jdk.testsuite.args>
-        <embedded.server.stability>community</embedded.server.stability>
+        <embedded.server.stability>default</embedded.server.stability>
 
         <!-- Allow profile-driven control over whether we reuse forks when running tests -->
         <surefire.reuse.forks>true</surefire.reuse.forks>

@@ -276,10 +276,10 @@
                                 <galleon-options>
                                     <!--
                                         Server used as the DC for the Mixed Domain tests. It is built under default
-                                        stability level and can be reloaded to a lower stability level
+                                        stability level
                                     -->
                                     <config-stability-level>default</config-stability-level>
-                                    <package-stability-level>experimental</package-stability-level>
+                                    <package-stability-level>default</package-stability-level>
                                     <jboss-fork-embedded>${galleon.fork.embedded}</jboss-fork-embedded>
                                 </galleon-options>
                             </configuration>
