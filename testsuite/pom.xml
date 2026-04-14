@@ -579,30 +579,6 @@
                 </dependency>
             </dependencies>
         </profile>
-        <!-- These execute in all feature-pack contexts, so declare them here instead
-             of repeating this in the aggregator modules -->
-        <profile>
-            <id>galleon.module.profile</id>
-            <activation>
-                <property>
-                    <name>galleon.module</name>
-                </property>
-            </activation>
-            <modules>
-                <module>galleon</module>
-            </modules>
-        </profile>
-        <profile>
-            <id>galleon_.module.profile</id>
-            <activation>
-                <property>
-                    <name>ts.galleon</name>
-                </property>
-            </activation>
-            <modules>
-                <module>galleon</module>
-            </modules>
-        </profile>
 
 
         <!--
