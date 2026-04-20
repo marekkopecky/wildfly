@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ Copyright The WildFly Authors
+  ~ SPDX-License-Identifier: Apache-2.0
+  -->
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>org.jboss.eap</groupId>
+        <artifactId>jboss-eap-parent</artifactId>
+        <relativePath>../pom.xml</relativePath>
+        <!--
+        Maintain separation between the artifact id and the version to help prevent
+        merge conflicts between commits changing the GA and those changing the V.
+        -->
+        <version>41.0.0.Beta1-SNAPSHOT</version>
+    </parent>
+
+    <artifactId>wildfly-management-model-reference</artifactId>
+
+    <name>JBoss EAP: management model reference documentation</name>
+    <packaging>pom</packaging>
+
+    <properties>
+        <enforcer.skip>true</enforcer.skip>
+        <buildMetaData.skip>true</buildMetaData.skip>
+        <project.src.skip>true</project.src.skip>
+        <checkstyle.skip>true</checkstyle.skip>
+        <jboss.home>${project.build.directory}/${server.output.dir.prefix}-${legacy.ee.output.qualifier}${server.output.dir.version}</jboss.home>
+        <version.org.jboss.wildscribe>3.1.0.Final</version.org.jboss.wildscribe>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>${project.groupId}</groupId>
+            <artifactId>wildfly-ee-dist</artifactId>
+            <version>${project.version}</version>
+            <type>zip</type>
+            <exclusions>
+                <exclusion>
+                    <groupId>*</groupId>
+                    <artifactId>*</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+    </dependencies>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-dependency-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>download-and-unzip-server-distribution</id>
+                        <phase>pre-integration-test</phase>
+                        <goals>
+                            <goal>unpack</goal>
+                        </goals>
+                        <configuration>
+                            <artifactItems>
+                                <artifactItem>
+                                    <groupId>${project.groupId}</groupId>
+                                    <artifactId>wildfly-ee-10-dist</artifactId>
+                                    <version>${project.version}</version>
+                                    <type>zip</type>
+                                    <overWrite>true</overWrite>
+                                    <outputDirectory>${project.build.directory}</outputDirectory>
+                                </artifactItem>
+                            </artifactItems>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.jboss.wildscribe</groupId>
+                <artifactId>wildscribe-maven-plugin</artifactId>
+                <version>${version.org.jboss.wildscribe}</version>
+                <configuration>
+                    <jboss-home>${jboss.home}</jboss-home>
+                    <display-name>${ee.dist.product.release.name}</display-name>
+                    <display-version>${ee.dist.product.release.version}</display-version>
+                    <site-dir>${project.build.directory}/management-model-documentation</site-dir>
+                    <required-extensions>
+                        <required-extension>org.wildfly.extension.rts</required-extension>
+                        <required-extension>org.jboss.as.xts</required-extension>
+                    </required-extensions>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>generate-site</id>
+                        <goals>
+                            <goal>generate-site</goal>
+                        </goals>
+                        <phase>integration-test</phase>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-assembly-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>zip-management-model-documentation</id>
+                        <phase>post-integration-test</phase>
+                        <goals>
+                            <goal>single</goal>
+                        </goals>
+                        <configuration>
+                            <descriptors>
+                                <descriptor>src/assembly/management-model-documentation.xml</descriptor>
+                            </descriptors>
+                            <attach>true</attach>
+                            <appendAssemblyId>true</appendAssemblyId>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+</project>
