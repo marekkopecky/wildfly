@@ -15,7 +15,6 @@
         <module name="io.netty.netty-buffer"/>
         <module name="io.netty.netty-transport"/>
         <module name="io.netty.netty-transport-native-epoll"/>
-        <module name="io.netty.netty-transport-native-kqueue"/>
         <module name="io.vertx.core"/>
         <module name="org.apache.qpid.proton"/>
         <module name="java.security.sasl"/>

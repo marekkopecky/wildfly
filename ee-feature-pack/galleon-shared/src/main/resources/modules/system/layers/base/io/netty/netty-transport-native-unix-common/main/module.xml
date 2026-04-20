@@ -12,9 +12,6 @@
 
     <resources>
         <artifact name="${io.netty:netty-transport-native-unix-common::linux-x86_64}"/>
-        <artifact name="${io.netty:netty-transport-native-unix-common::linux-aarch_64}"/>
-        <artifact name="${io.netty:netty-transport-native-unix-common::osx-x86_64}"/>
-        <artifact name="${io.netty:netty-transport-native-unix-common::osx-aarch_64}"/>
     </resources>
 
     <dependencies>

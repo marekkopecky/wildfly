@@ -30,6 +30,7 @@
    20) Some verifications around libartemis-native-32.so / libartemis-native-64.so to ensure the server distribution
        contains the -64 variant and does not contain the -32 one.
    21) modules/layers.conf contains layers=microprofile
+   22) Some Netty Linux native dependency verifications
 -->
   <files>
     <file>
@@ -212,5 +213,31 @@
       <contains>layers=microprofile</contains>
     </file>
     <!-- end of (#21) -->
+    <!-- start of (#22) -->
+    <file>
+      <location>target/${latest.server.output.dir}/modules/system/layers/base/io/netty/netty-transport-native-unix-common/main/netty-transport-native-unix-common-${version.io.netty}-linux-aarch_64.jar</location>
+      <exists>false</exists>
+    </file>
+    <file>
+      <location>target/${latest.server.output.dir}/modules/system/layers/base/io/netty/netty-transport-native-unix-common/main/netty-transport-native-unix-common-${version.io.netty}-osx-aarch_64.jar</location>
+      <exists>false</exists>
+    </file>
+    <file>
+      <location>target/${latest.server.output.dir}/modules/system/layers/base/io/netty/netty-transport-native-unix-common/main/netty-transport-native-unix-common-${version.io.netty}-osx-x86_64.jar</location>
+      <exists>false</exists>
+    </file>
+    <file>
+      <location>target/${latest.server.output.dir}/modules/system/layers/base/io/netty/netty-transport-native-unix-common/main/netty-transport-native-unix-common-${version.io.netty}-linux-x86_64.jar</location>
+      <exists>true</exists>
+    </file>
+    <file>
+      <location>target/${latest.server.output.dir}/modules/system/layers/base/io/netty/netty-transport-native-epoll/main/lib/META-INF/native/libnetty_transport_native_epoll_x86_64.so</location>
+      <exists>true</exists>
+    </file>
+    <file>
+      <location>target/${latest.server.output.dir}/modules/system/layers/base/io/netty/netty-transport-native-kqueue</location>
+      <exists>false</exists>
+    </file>
+    <!-- end of (#22) -->
   </files>
 </verifications>

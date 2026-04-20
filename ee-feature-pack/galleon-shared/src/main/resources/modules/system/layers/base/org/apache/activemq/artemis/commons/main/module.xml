@@ -26,7 +26,6 @@
         <module name="io.netty.netty-common"/>
         <module name="io.netty.netty-resolver"/>
         <module name="io.netty.netty-transport-native-epoll"/>
-        <module name="io.netty.netty-transport-native-kqueue"/>
         <module name="io.netty.netty-codec-http"/>
         <!-- WFLY-6301 This module can be used to load user-created classes that are
              used by Artemis resources (e.g. connector-service, transformers, etc.)

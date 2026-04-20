@@ -291,6 +291,12 @@
             <groupId>org.infinispan</groupId>
             <artifactId>infinispan-client-hotrod</artifactId>
             <scope>test</scope>
+            <exclusions>
+                <exclusion>
+                    <groupId>io.netty</groupId>
+                    <artifactId>netty-transport-native-epoll</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
         <dependency>
             <groupId>org.infinispan</groupId>
@@ -325,6 +331,10 @@
                 <exclusion>
                     <groupId>org.infinispan</groupId>
                     <artifactId>infinispan-client-hotrod</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>io.netty</groupId>
+                    <artifactId>netty-transport-native-epoll</artifactId>
                 </exclusion>
             </exclusions>
         </dependency>

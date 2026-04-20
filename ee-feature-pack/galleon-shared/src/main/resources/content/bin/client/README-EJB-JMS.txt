@@ -22,11 +22,8 @@ io.netty:netty-codec-socks
 io.netty:netty-common
 io.netty:netty-transport-native-unix-common
 io.netty:netty-transport-native-unix-common:linux-x86_64
-io.netty:netty-transport-native-unix-common:linux-aarch_64
 io.netty:netty-transport-classes-epoll
 io.netty:netty-transport-native-epoll:linux-x86_64
-io.netty:netty-transport-native-epoll:linux-aarch_64
-io.netty:netty-transport-classes-kqueue
 io.netty:netty-codec-http
 io.undertow:undertow-core
 org.apache.activemq:artemis-commons

@@ -24,7 +24,6 @@
         <module name="io.netty.netty-resolver-dns"/>
         <module name="io.netty.netty-transport"/>
         <module name="io.netty.netty-transport-native-epoll"/>
-        <module name="io.netty.netty-transport-native-kqueue"/>
         <module name="io.reactivex.rxjava3.rxjava"/>
         <module name="org.infinispan.api"/>
         <module name="org.infinispan.commons"/>
