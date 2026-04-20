@@ -26,10 +26,6 @@
     <name>WildFly: Thin Server Build</name>
     <packaging>pom</packaging>
 
-    <properties>
-        <server.output.dir.version>${ee.maven.version}</server.output.dir.version>
-    </properties>
-
     <dependencies>
         <dependency>
             <groupId>${full.maven.groupId}</groupId>

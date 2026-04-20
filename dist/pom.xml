@@ -24,10 +24,6 @@
     <artifactId>wildfly-dist</artifactId>
     <packaging>jar</packaging>
 
-    <properties>
-        <server.output.dir.version>${ee.maven.version}</server.output.dir.version>
-    </properties>
-
     <name>WildFly: Distribution</name>
     <description>WildFly: Distribution</description>
     <url>https://wildfly.org</url>
