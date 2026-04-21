@@ -20,6 +20,7 @@
         <package name="org.jboss.as.domain-management"/>
         <package name="version.txt"/>
         <package name="JBossEULA.txt"/>
+        <package name="com.redhat.insights"/>
         <!-- is not required but useful even if elytron subsystem is not installed -->
         <package name="org.wildfly.security.elytron"/>
         <!-- cleanup runtime dirs -->

@@ -66,5 +66,34 @@
                 </license>
             </licenses>
         </dependency>
+
+        <!-- Red Hat Insights -->
+        <dependency>
+            <groupId>com.redhat.insights</groupId>
+            <artifactId>runtimes-java-api</artifactId>
+            <licenses>
+                <license>
+                    <name>Apache License 2.0</name>
+                </license>
+            </licenses>
+        </dependency>
+        <dependency>
+            <groupId>com.redhat.insights</groupId>
+            <artifactId>runtimes-java-core-runtime</artifactId>
+            <licenses>
+                <license>
+                    <name>Apache License 2.0</name>
+                </license>
+            </licenses>
+        </dependency>
+        <dependency>
+            <groupId>${ee.maven.groupId}</groupId>
+            <artifactId>jboss-insights</artifactId>
+            <licenses>
+                <license>
+                    <name>GNU Lesser General Public License v2.1 or later</name>
+                </license>
+            </licenses>
+        </dependency>
     </dependencies>
 </licenseSummary>

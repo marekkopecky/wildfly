@@ -3572,6 +3572,39 @@
             </exclusions>
         </dependency>
 
+        <!-- Red Hat Insights -->
+        <dependency>
+            <groupId>${ee.maven.groupId}</groupId>
+            <artifactId>jboss-insights</artifactId>
+            <exclusions>
+                <exclusion>
+                    <groupId>*</groupId>
+                    <artifactId>*</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+
+        <dependency>
+            <groupId>com.redhat.insights</groupId>
+            <artifactId>runtimes-java-api</artifactId>
+            <exclusions>
+                <exclusion>
+                    <groupId>*</groupId>
+                    <artifactId>*</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+
+        <dependency>
+            <groupId>com.redhat.insights</groupId>
+            <artifactId>runtimes-java-core-runtime</artifactId>
+            <exclusions>
+                <exclusion>
+                    <groupId>*</groupId>
+                    <artifactId>*</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
     </dependencies>
 
     <build>

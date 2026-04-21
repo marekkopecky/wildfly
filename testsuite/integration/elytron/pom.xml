@@ -39,8 +39,6 @@
              Remove pinning with WFLY-15867 upgrading org.xipki.pki tests
              and change to org.bouncycastle:*-jdk18on -->
         <version.org.bouncycastle>1.69</version.org.bouncycastle>
-        <version.org.mock-server.mockserver>5.6.1</version.org.mock-server.mockserver>
-        <version.org.mock-server.mockserver-netty>5.6.1</version.org.mock-server.mockserver-netty>
         <version.org.xipki.pki.ocsp-server>3.0.0</version.org.xipki.pki.ocsp-server>
         <version.javax.xml.bind.jaxb-api>2.4.0-b180830.0359</version.javax.xml.bind.jaxb-api>
         <version.org.glassfish.jaxb.jaxb-runtime>2.4.0-b180830.0438</version.org.glassfish.jaxb.jaxb-runtime>
@@ -352,14 +350,12 @@
         <dependency>
             <groupId>org.mock-server</groupId>
             <artifactId>mockserver-netty</artifactId>
-            <version>${version.org.mock-server.mockserver-netty}</version>
             <scope>test</scope>
         </dependency>
 
         <dependency>
             <groupId>org.mock-server</groupId>
             <artifactId>mockserver</artifactId>
-            <version>${version.org.mock-server.mockserver}</version>
             <type>pom</type>
             <scope>test</scope>
         </dependency>
@@ -401,6 +397,14 @@
         <dependency>
             <groupId>org.wildfly</groupId>
             <artifactId>wildfly-naming-client</artifactId>
+            <scope>test</scope>
+        </dependency>
+
+        <!-- Needed by org.xipki.pki.ocsp-server, can be removed once ocsp-server is upgraded from 3.0.0 to newer version -->
+        <dependency>
+            <groupId>javax.xml.bind</groupId>
+            <artifactId>jaxb-api</artifactId>
+            <version>${version.javax.xml.bind.jaxb-api}</version>
             <scope>test</scope>
         </dependency>
     </dependencies>
