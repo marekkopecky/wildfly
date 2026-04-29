@@ -72,8 +72,8 @@
                 </configuration>
             </plugin>
             <plugin>
-                <groupId>org.wildfly.plugins</groupId>
-                <artifactId>wildfly-maven-plugin</artifactId>
+                <groupId>org.jboss.eap.plugins</groupId>
+                <artifactId>eap-maven-plugin</artifactId>
                 <configuration>
                     <overwrite-provisioned-server>true</overwrite-provisioned-server>
                 </configuration>
@@ -142,8 +142,8 @@
             <build>
                 <plugins>
                     <plugin>
-                        <groupId>org.wildfly.plugins</groupId>
-                        <artifactId>wildfly-maven-plugin</artifactId>
+                        <groupId>org.jboss.eap.plugins</groupId>
+                        <artifactId>eap-maven-plugin</artifactId>
                         <executions>
                             <execution>
                                 <id>server-provisioning</id>

@@ -500,6 +500,12 @@
                             <goal>execute-commands</goal>
                         </goals>
                     </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.jboss.eap.plugins</groupId>
+                <artifactId>eap-maven-plugin</artifactId>
+                <executions>
                     <!-- Provision a cloud server including all the MicroProfile specs layers -->
                     <execution>
                         <id>bootable-jar-packaging</id>
@@ -631,6 +637,15 @@
                                     <goal>execute-commands</goal>
                                 </goals>
                             </execution>
+                        </executions>
+                    </plugin>
+                    <plugin>
+                        <groupId>org.jboss.eap.plugins</groupId>
+                        <artifactId>eap-maven-plugin</artifactId>
+                        <configuration>
+                            <overwrite-provisioned-server>true</overwrite-provisioned-server>
+                        </configuration>
+                        <executions>
                             <execution>
                                 <id>expansion-provisioning</id>
                                 <goals>
@@ -748,6 +763,15 @@
                                     <goal>execute-commands</goal>
                                 </goals>
                             </execution>
+                        </executions>
+                    </plugin>
+                    <plugin>
+                        <groupId>org.jboss.eap.plugins</groupId>
+                        <artifactId>eap-maven-plugin</artifactId>
+                        <configuration>
+                            <overwrite-provisioned-server>true</overwrite-provisioned-server>
+                        </configuration>
+                        <executions>
                             <execution>
                                 <id>expansion-provisioning</id>
                                 <goals>
@@ -928,6 +952,12 @@
                                 </goals>
                                 <phase>none</phase>
                             </execution>
+                        </executions>
+                    </plugin>
+                    <plugin>
+                        <groupId>org.jboss.eap.plugins</groupId>
+                        <artifactId>eap-maven-plugin</artifactId>
+                        <executions>
                             <!-- Disable the default provisioning -->
                             <execution>
                                 <id>server-provisioning</id>
@@ -1019,6 +1049,12 @@
                                 </goals>
                                 <phase>none</phase>
                             </execution>
+                        </executions>
+                    </plugin>
+                    <plugin>
+                        <groupId>org.jboss.eap.plugins</groupId>
+                        <artifactId>eap-maven-plugin</artifactId>
+                        <executions>
                             <!-- Disable the default provisioning -->
                             <execution>
                                 <id>server-provisioning</id>

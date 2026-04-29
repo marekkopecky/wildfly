@@ -131,6 +131,12 @@
                             </commands>
                         </configuration>
                     </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.jboss.eap.plugins</groupId>
+                <artifactId>eap-maven-plugin</artifactId>
+                <executions>
                     <execution>
                         <id>bootable-jar-packaging</id>
                         <configuration>

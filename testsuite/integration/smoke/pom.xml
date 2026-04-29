@@ -567,6 +567,21 @@
                             <optional-packages>passive+</optional-packages>
                         </galleon-options>
                     </configuration>
+                </plugin>
+                <plugin>
+                    <groupId>org.jboss.eap.plugins</groupId>
+                    <artifactId>eap-maven-plugin</artifactId>
+                    <configuration>
+                        <overwrite-provisioned-server>true</overwrite-provisioned-server>
+                        <record-provisioning-state>false</record-provisioning-state>
+                        <log-provisioning-time>${galleon.log.time}</log-provisioning-time>
+                        <offline-provisioning>${galleon.offline}</offline-provisioning>
+                        <galleon-options>
+                            <jboss-maven-dist/>
+                            <jboss-fork-embedded>${galleon.fork.embedded}</jboss-fork-embedded>
+                            <optional-packages>passive+</optional-packages>
+                        </galleon-options>
+                    </configuration>
                     <executions>
                         <execution>
                             <id>server-provisioning</id>
@@ -694,8 +709,8 @@
                 <plugins>
                     <plugin>
                         <!-- Turn off the standard galleon provisioning (doesn't work with mvnd) -->
-                        <groupId>org.wildfly.plugins</groupId>
-                        <artifactId>wildfly-maven-plugin</artifactId>
+                        <groupId>org.jboss.eap.plugins</groupId>
+                        <artifactId>eap-maven-plugin</artifactId>
                         <executions>
                             <execution>
                                 <id>server-provisioning</id>
@@ -746,8 +761,8 @@
                         </executions>
                     </plugin>
                     <plugin>
-                        <groupId>org.wildfly.plugins</groupId>
-                        <artifactId>wildfly-maven-plugin</artifactId>
+                        <groupId>org.jboss.eap.plugins</groupId>
+                        <artifactId>eap-maven-plugin</artifactId>
                     </plugin>
                 </plugins>
             </build>
@@ -814,8 +829,8 @@
                         </executions>
                     </plugin>
                     <plugin>
-                        <groupId>org.wildfly.plugins</groupId>
-                        <artifactId>wildfly-maven-plugin</artifactId>
+                        <groupId>org.jboss.eap.plugins</groupId>
+                        <artifactId>eap-maven-plugin</artifactId>
                         <configuration>
                             <overwrite-provisioned-server>true</overwrite-provisioned-server>
                         </configuration>
@@ -1011,8 +1026,8 @@
                         </executions>
                     </plugin>
                     <plugin>
-                        <groupId>org.wildfly.plugins</groupId>
-                        <artifactId>wildfly-maven-plugin</artifactId>
+                        <groupId>org.jboss.eap.plugins</groupId>
+                        <artifactId>eap-maven-plugin</artifactId>
                     </plugin>
                     <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
@@ -1089,8 +1104,8 @@
                         </executions>
                     </plugin>
                     <plugin>
-                        <groupId>org.wildfly.plugins</groupId>
-                        <artifactId>wildfly-maven-plugin</artifactId>
+                        <groupId>org.jboss.eap.plugins</groupId>
+                        <artifactId>eap-maven-plugin</artifactId>
                     </plugin>
 
                     <plugin>
@@ -1172,8 +1187,8 @@
             <build>
                 <plugins>
                     <plugin>
-                        <groupId>org.wildfly.plugins</groupId>
-                        <artifactId>wildfly-maven-plugin</artifactId>
+                        <groupId>org.jboss.eap.plugins</groupId>
+                        <artifactId>eap-maven-plugin</artifactId>
                         <executions>
                             <execution>
                                 <id>server-provisioning</id>
@@ -1232,8 +1247,8 @@
             <build>
                 <plugins>
                     <plugin>
-                        <groupId>org.wildfly.plugins</groupId>
-                        <artifactId>wildfly-maven-plugin</artifactId>
+                        <groupId>org.jboss.eap.plugins</groupId>
+                        <artifactId>eap-maven-plugin</artifactId>
                         <executions>
                             <execution>
                                 <id>server-provisioning</id>

@@ -408,6 +408,12 @@
                             </system-properties>
                         </configuration>
                     </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.jboss.eap.plugins</groupId>
+                <artifactId>eap-maven-plugin</artifactId>
+                <executions>
                     <execution>
                         <id>multi-channel-provisioning</id>
                         <goals>
@@ -664,6 +670,12 @@
                                     <goal>execute-commands</goal>
                                 </goals>
                             </execution>
+                        </executions>
+                    </plugin>
+                    <plugin>
+                        <groupId>org.jboss.eap.plugins</groupId>
+                        <artifactId>eap-maven-plugin</artifactId>
+                        <executions>
                             <execution>
                                 <id>channel-provisioning-comparison</id>
                                 <phase>none</phase>

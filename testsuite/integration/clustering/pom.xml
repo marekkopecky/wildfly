@@ -510,8 +510,8 @@
                 </executions>
             </plugin>
             <plugin>
-                <groupId>org.wildfly.plugins</groupId>
-                <artifactId>wildfly-maven-plugin</artifactId>
+                <groupId>org.jboss.eap.plugins</groupId>
+                <artifactId>eap-maven-plugin</artifactId>
                 <executions>
                     <!-- Package a cloud-profile server with the default 'bootable-jar-packaging' execution -->
                     <execution>
@@ -1774,8 +1774,8 @@
                         </executions>
                     </plugin>
                     <plugin>
-                        <groupId>org.wildfly.plugins</groupId>
-                        <artifactId>wildfly-maven-plugin</artifactId>
+                        <groupId>org.jboss.eap.plugins</groupId>
+                        <artifactId>eap-maven-plugin</artifactId>
                         <configuration>
                             <overwrite-provisioned-server>true</overwrite-provisioned-server>
                         </configuration>
@@ -1940,6 +1940,15 @@
                                     <provisioning-file>target/glow-scan/ts.surefire.clustering.singleton-local/provisioning.xml</provisioning-file>
                                 </configuration>
                             </execution>
+                        </executions>
+                    </plugin>
+                    <plugin>
+                        <groupId>org.wildfly.plugins</groupId>
+                        <artifactId>wildfly-maven-plugin</artifactId>
+                        <configuration>
+                            <overwrite-provisioned-server>true</overwrite-provisioned-server>
+                        </configuration>
+                        <executions>
                             <!-- Update server profile with shared configuration changes -->
                             <execution>
                                 <id>ts.config-as.configure-wildfly</id>

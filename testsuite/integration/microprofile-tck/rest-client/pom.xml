@@ -535,6 +535,15 @@
                             </scripts>
                         </configuration>
                     </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.jboss.eap.plugins</groupId>
+                <artifactId>eap-maven-plugin</artifactId>
+                <configuration>
+                    <overwrite-provisioned-server>true</overwrite-provisioned-server>
+                </configuration>
+                <executions>
                     <execution>
                         <id>mp-server-provisioning</id>
                         <goals>
@@ -639,8 +648,8 @@
                 </pluginManagement>
                 <plugins>
                     <plugin>
-                        <groupId>org.wildfly.plugins</groupId>
-                        <artifactId>wildfly-maven-plugin</artifactId>
+                        <groupId>org.jboss.eap.plugins</groupId>
+                        <artifactId>eap-maven-plugin</artifactId>
                         <executions>
                             <execution>
                                 <!-- Specify both feature-packs for the non-glow-driven provisioning. -->

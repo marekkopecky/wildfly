@@ -339,6 +339,7 @@
         <version.org.wildfly.glow>2.1.0.Final</version.org.wildfly.glow>
         <version.org.wildfly.licenses.plugin>2.4.4.Final</version.org.wildfly.licenses.plugin>
         <version.org.wildfly.plugin>6.0.0.Final</version.org.wildfly.plugin>
+        <version.org.eap.plugin>3.0.0.Beta-redhat-00054</version.org.eap.plugin>
         <version.org.wildfly.plugin.wildfly-detach-plugin>1.0.0.Final</version.org.wildfly.plugin.wildfly-detach-plugin>
         <version.org.wildfly.unstable.annotation.api>1.0.2.Final</version.org.wildfly.unstable.annotation.api>
         <version.org.wildfly.wildfly-channel-plugin>1.0.33</version.org.wildfly.wildfly-channel-plugin>
@@ -1102,6 +1103,11 @@
     <build>
         <pluginManagement>
             <plugins>
+                <plugin>
+                    <groupId>org.jboss.eap.plugins</groupId>
+                    <artifactId>eap-maven-plugin</artifactId>
+                    <version>${version.org.eap.plugin}</version>
+                </plugin>
                 <plugin>
                     <groupId>org.commonjava.maven.plugins</groupId>
                     <artifactId>project-sources-maven-plugin</artifactId>

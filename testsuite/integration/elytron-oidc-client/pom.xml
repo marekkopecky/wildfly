@@ -180,6 +180,12 @@
                             <goal>execute-commands</goal>
                         </goals>
                     </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.jboss.eap.plugins</groupId>
+                <artifactId>eap-maven-plugin</artifactId>
+                <executions>
                     <execution>
                         <id>bootable-jar-packaging</id>
                         <configuration>
@@ -292,6 +298,15 @@
                                     <goal>execute-commands</goal>
                                 </goals>
                             </execution>
+                        </executions>
+                    </plugin>
+                    <plugin>
+                        <groupId>org.jboss.eap.plugins</groupId>
+                        <artifactId>eap-maven-plugin</artifactId>
+                        <configuration>
+                            <overwrite-provisioned-server>true</overwrite-provisioned-server>
+                        </configuration>
+                        <executions>
                             <execution>
                                 <id>elytron-oidc-client-provisioning</id>
                                 <goals>
@@ -387,6 +402,15 @@
                                     <goal>execute-commands</goal>
                                 </goals>
                             </execution>
+                        </executions>
+                    </plugin>
+                    <plugin>
+                        <groupId>org.jboss.eap.plugins</groupId>
+                        <artifactId>eap-maven-plugin</artifactId>
+                        <configuration>
+                            <overwrite-provisioned-server>true</overwrite-provisioned-server>
+                        </configuration>
+                        <executions>
                             <execution>
                                 <id>elytron-oidc-client-provisioning</id>
                                 <goals>
@@ -565,6 +589,12 @@
                                 </goals>
                                 <phase>none</phase>
                             </execution>
+                        </executions>
+                    </plugin>
+                    <plugin>
+                        <groupId>org.jboss.eap.plugins</groupId>
+                        <artifactId>eap-maven-plugin</artifactId>
+                        <executions>
                             <!-- Disable the default provisioning -->
                             <execution>
                                 <id>server-provisioning</id>
@@ -651,6 +681,12 @@
                                 </goals>
                                 <phase>none</phase>
                             </execution>
+                        </executions>
+                    </plugin>
+                    <plugin>
+                        <groupId>org.jboss.eap.plugins</groupId>
+                        <artifactId>eap-maven-plugin</artifactId>
+                        <executions>
                             <!-- Disable the default provisioning -->
                             <execution>
                                 <id>server-provisioning</id>
