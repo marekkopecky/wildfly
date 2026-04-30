@@ -57,26 +57,6 @@
                 <artifactId>maven-dependency-plugin</artifactId>
                 <executions>
                     <execution>
-                        <id>unpack-galleon-resources</id>
-                        <phase>process-resources</phase>
-                        <goals>
-                            <goal>unpack</goal>
-                        </goals>
-                        <configuration>
-                            <artifactItems>
-                                <artifactItem>
-                                    <groupId>org.wildfly</groupId>
-                                    <artifactId>mvc-krazo-galleon-shared</artifactId>
-                                    <type>zip</type>
-                                </artifactItem>
-                            </artifactItems>
-                            <!-- The feature-pack build seems to ignore such things anyway, but to be
-                                 robust exclude artifact metadata content -->
-                            <excludes>**/pom.xml,META-INF,META-INF/**</excludes>
-                            <outputDirectory>${galleon.unpacked.resources.directory}</outputDirectory>
-                        </configuration>
-                    </execution>
-                    <execution>
                         <!-- WildFly is composed of 2 feature-packs so we copy the artifact list from
                              the ee-galleon-pack (in addition to this artifact list)
                              to generate all the log and error code when the feature-pack doc is created
@@ -292,13 +272,6 @@
         <dependency>
             <groupId>${full.maven.groupId}</groupId>
             <artifactId>wildfly-feature-pack-galleon-shared</artifactId>
-            <type>pom</type>
-            <scope>provided</scope>
-        </dependency>
-
-        <dependency>
-            <groupId>org.wildfly</groupId>
-            <artifactId>mvc-krazo-galleon-shared</artifactId>
             <type>pom</type>
             <scope>provided</scope>
         </dependency>

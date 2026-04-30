@@ -597,11 +597,6 @@
                                                 <name>standalone-microprofile.xml</name>
                                             </config>
                                         </included-configs>
-                                        <included-packages>
-                                            <!-- Tests will add the jakarta data extension, so provision its packages too -->
-                                            <name>org.wildfly.extension.jakarta.data</name>
-                                            <name>jakarta.data.api</name>
-                                        </included-packages>
                                     </feature-pack>
                                 </feature-packs>
                             </configuration>
@@ -873,7 +868,7 @@
                                 <goals>
                                     <goal>provision</goal>
                                 </goals>
-                                <phase>process-test-classes</phase>
+                                <phase>none</phase>
                                 <configuration>
                                     <provisioning-dir>${project.build.directory}/wildfly-jakarta-data</provisioning-dir>
                                     <record-provisioning-state>false</record-provisioning-state>
@@ -947,7 +942,8 @@
                             <!-- Tests against the install with jakarta data support -->
                             <execution>
                                 <id>jakarta-data-layers.surefire</id>
-                                <phase>test</phase>
+                                <!-- wildfly-jakarta-data does not exist since jakarta data runs in preview stability level. Disable the tests here -->
+                                <phase>none</phase>
                                 <goals>
                                     <goal>test</goal>
                                 </goals>
@@ -1191,11 +1187,6 @@
                                             <groupId>${testsuite.ee.feature.pack.groupId}</groupId>
                                             <artifactId>${testsuite.ee.feature.pack.artifactId}</artifactId>
                                             <version>${testsuite.ee.feature.pack.version}</version>
-                                            <included-packages>
-                                                <!-- Tests will add the jakarta data extension, so provision its packages too -->
-                                                <name>org.wildfly.extension.jakarta.data</name>
-                                                <name>jakarta.data.api</name>
-                                            </included-packages>
                                         </feature-pack>
                                         <!-- All this so we can declare the full FP -->
                                         <feature-pack>
@@ -1256,11 +1247,6 @@
                                             <groupId>${testsuite.ee.feature.pack.groupId}</groupId>
                                             <artifactId>${testsuite.ee.feature.pack.artifactId}</artifactId>
                                             <version>${testsuite.ee.feature.pack.version}</version>
-                                            <included-packages>
-                                                <!-- Tests will add the jakarta data extension, so provision its packages too -->
-                                                <name>org.wildfly.extension.jakarta.data</name>
-                                                <name>jakarta.data.api</name>
-                                            </included-packages>
                                         </feature-pack>
                                         <!-- All this so we can declare the full FP -->
                                         <feature-pack>

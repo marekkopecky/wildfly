@@ -738,34 +738,7 @@
                                 </configuration>
                             </execution>
 
-                            <execution>
-                                <id>mvc-krazo-provisioning</id>
-                                <goals>
-                                    <goal>provision</goal>
-                                </goals>
-                                <phase>${provisioning.phase}</phase>
-                                <configuration>
-                                    <install-dir>${layers.install.dir}/mvc-krazo</install-dir>
-                                    <feature-packs>
-                                        <feature-pack>
-                                            <groupId>${full.maven.groupId}</groupId>
-                                            <artifactId>${testsuite.full.feature.pack.artifactId}</artifactId>
-                                            <version>${full.maven.version}</version>
-                                            <inherit-configs>false</inherit-configs>
-                                            <inherit-packages>false</inherit-packages>
-                                        </feature-pack>
-                                    </feature-packs>
-                                    <configurations>
-                                        <config>
-                                            <model>standalone</model>
-                                            <name>standalone.xml</name>
-                                            <layers>
-                                                <layer>mvc-krazo</layer>
-                                            </layers>
-                                        </config>
-                                    </configurations>
-                                </configuration>
-                            </execution>
+
 
                             <!--
                                 All layers provisioned all together
@@ -1105,8 +1078,6 @@
                                                 <layer>microprofile-rest-client</layer>
                                                 <layer>microprofile-telemetry</layer>
                                                 <layer>microprofile-platform</layer>
-                                                <layer>mvc-krazo</layer>
-                                                <layer>vertx</layer>
                                             </layers>
                                             <excluded-layers>
                                                 <layer>jpa-distributed</layer>
@@ -1208,8 +1179,6 @@
                                                 <layer>microprofile-jwt</layer>
                                                 <layer>microprofile-openapi</layer>
                                                 <layer>microprofile-telemetry</layer>
-                                                <layer>mvc-krazo</layer>
-                                                <layer>vertx</layer>
                                             </layers>
                                             <excluded-layers>
                                                 <layer>jpa</layer>

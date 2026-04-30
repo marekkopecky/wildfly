@@ -694,9 +694,6 @@
                     <name>!no.preview.build</name>
                 </property>
             </activation>
-            <modules>
-                <module>preview</module>
-            </modules>
         </profile>
 
         <profile>

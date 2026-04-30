@@ -1750,7 +1750,6 @@
                 <module>legacy/opentracing-extension</module>
                 <module>microprofile</module>
                 <module>observability</module>
-                <module>release</module>
                 <module>testsuite</module>
             </modules>
         </profile>
@@ -1798,10 +1797,7 @@
             </activation>
             <modules>
                 <module>boms/preview-ee</module>
-                <module>boms/preview-test</module>
                 <module>boms/preview-expansion</module>
-                <module>boms/preview-test-expansion</module>
-                <module>preview</module>
             </modules>
         </profile>
 

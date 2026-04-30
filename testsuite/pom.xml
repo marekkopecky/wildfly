@@ -555,30 +555,6 @@
                 </dependency>
             </dependencies>
         </profile>
-        <profile>
-            <id>preview-server-tests</id>
-            <activation>
-                <property>
-                    <name>preview-server-tests</name>
-                </property>
-            </activation>
-            <modules>
-                <module>build-demander-preview</module> <!-- Ensure preview server build/dist modules used by tests are built -->
-                <module>aggregator-preview</module>
-                <module>integration</module>
-            </modules>
-            <dependencies>
-                <!-- Include a dependency on the build demander because in concurrent builds the order
-                     of items in the 'modules' element doesn't ensure earlier modules are
-                     built before later ones. So use a dependency make sure it is executed. -->
-                <dependency>
-                    <groupId>${project.groupId}</groupId>
-                    <artifactId>wildfly-ts-build-demander-preview</artifactId>
-                    <version>${project.version}</version>
-                    <type>pom</type>
-                </dependency>
-            </dependencies>
-        </profile>
 
 
         <!--

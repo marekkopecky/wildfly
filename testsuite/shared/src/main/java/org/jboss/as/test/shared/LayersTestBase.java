@@ -172,10 +172,13 @@ public abstract class LayersTestBase {
      */
     public static final String[] NO_LAYER_WILDFLY = {
             // Preview stability 'mvc-krazo' layer cannot be provisioned in OOTB standard wildfly
-            "org.wildfly.extension.mvc-krazo",
-            "jakarta.mvc.api",
-            "org.eclipse.krazo.core",
-            "org.eclipse.krazo.resteasy",
+// Jakarta MVC is a preview extension https://issues.redhat.com/browse/WFLY-18838
+//            "org.wildfly.extension.mvc-krazo",
+//            "jakarta.mvc.api",
+//            "org.eclipse.krazo.core",
+//            "org.eclipse.krazo.resteasy",
+            // 'preview' stability extension so not yet included in
+            // the "all-layers" installation
     };
 
     /**
@@ -317,10 +320,11 @@ public abstract class LayersTestBase {
             // Extension not included in the default config
             "org.wildfly.extension.microprofile.opentracing-smallrye",
             // Extension not included in the default config
-            "org.wildfly.extension.mvc-krazo",
-            "jakarta.mvc.api",
-            "org.eclipse.krazo.core",
-            "org.eclipse.krazo.resteasy",
+// Jakarta MVC is a preview extension https://issues.redhat.com/browse/WFLY-18838
+//            "org.wildfly.extension.mvc-krazo",
+//            "jakarta.mvc.api",
+//            "org.eclipse.krazo.core",
+//            "org.eclipse.krazo.resteasy",
             // Injected by jaxrs subsystem
             "org.jboss.resteasy.microprofile.config",
             "org.jboss.resteasy.resteasy-client-microprofile",
@@ -335,13 +339,15 @@ public abstract class LayersTestBase {
             "org.wildfly.extension.micrometer",
             "org.wildfly.micrometer.deployment",
             "io.micrometer",
-            "io.prometheus",
+// Prometheus is only available on community stability level
+//            "io.prometheus",
             "io.opentelemetry.proto",
             // Extension not included in the default config
-            "org.wildfly.extension.mvc-krazo",
-            "jakarta.mvc.api",
-            "org.eclipse.krazo.core",
-            "org.eclipse.krazo.resteasy",
+// Jakarta MVC is a preview extension https://issues.redhat.com/browse/WFLY-18838
+//            "org.wildfly.extension.mvc-krazo",
+//            "jakarta.mvc.api",
+//            "org.eclipse.krazo.core",
+//            "org.eclipse.krazo.resteasy",
     };
 
     /**
