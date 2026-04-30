@@ -11,7 +11,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <groupId>org.jboss.eap</groupId>
+        <groupId>org.jboss.eap.xp</groupId>
         <artifactId>wildfly-feature-pack-parent</artifactId>
         <!--
         Maintain separation between the artifact id and the version to help prevent
@@ -35,7 +35,7 @@
 
     <dependencies>
         <dependency>
-            <groupId>${ee.maven.groupId}</groupId>
+            <groupId>${full.maven.groupId}</groupId>
             <artifactId>wildfly-galleon-pack</artifactId>
             <type>zip</type>
             <scope>test</scope>
@@ -201,7 +201,7 @@
                             <goal>copy-resources</goal>
                         </goals>
                         <configuration>
-                            <outputDirectory>${project.build.testOutputDirectory}/glow/${project.version}</outputDirectory>
+                            <outputDirectory>${project.build.testOutputDirectory}/glow/${full.maven.version}</outputDirectory>
                             <resources>
                                 <resource>
                                     <directory>${project.basedir}/src/test/resources/glow/latest</directory>

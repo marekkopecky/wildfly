@@ -21,6 +21,7 @@
         <relativePath>../pom.xml</relativePath>
     </parent>
 
+    <groupId>org.jboss.eap.xp</groupId>
     <artifactId>wildfly-ee-10-expansion-build</artifactId>
 
     <name>WildFly: Legacy EE + Expansion Thin Server Build</name>
@@ -57,13 +58,13 @@
             </exclusions>
         </dependency>
         <dependency>
-            <groupId>${project.groupId}</groupId>
+            <groupId>${full.maven.groupId}</groupId>
             <artifactId>wildfly-galleon-pack</artifactId>
             <type>pom</type>
             <scope>provided</scope>
         </dependency>
         <dependency>
-            <groupId>${project.groupId}</groupId>
+            <groupId>${full.maven.groupId}</groupId>
             <artifactId>wildfly-galleon-pack</artifactId>
             <type>zip</type>
             <exclusions>
@@ -147,9 +148,9 @@
                                     </included-packages>
                                 </feature-pack>
                                 <feature-pack>
-                                    <groupId>${ee.maven.groupId}</groupId>
+                                    <groupId>${full.maven.groupId}</groupId>
                                     <artifactId>wildfly-galleon-pack</artifactId>
-                                    <version>${ee.maven.version}</version>
+                                    <version>${full.maven.version}</version>
                                     <included-packages>
                                         <name>docs.examples.configs</name>
                                     </included-packages>

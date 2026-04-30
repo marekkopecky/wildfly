@@ -20,7 +20,9 @@
         <version>41.0.0.Beta1</version>
     </parent>
 
+    <groupId>org.jboss.eap.xp</groupId>
     <artifactId>wildfly-feature-pack-parent</artifactId>
+
     <description>WildFly ${project.version} Galleon pack</description>
     <packaging>pom</packaging>
 

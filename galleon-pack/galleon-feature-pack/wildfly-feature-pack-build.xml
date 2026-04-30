@@ -3,7 +3,7 @@
   ~ SPDX-License-Identifier: Apache-2.0
   -->
 
-<build xmlns="urn:wildfly:feature-pack-build:3.5" producer="org.jboss.eap:wildfly-galleon-pack">
+<build xmlns="urn:wildfly:feature-pack-build:3.5" producer="org.jboss.eap.xp:wildfly-galleon-pack">
     <family name="wildfly">
       <criteria name="microprofile-7.1+"/>
       <criteria name="microprofile-7.1"/>

@@ -72,9 +72,9 @@
             <type>pom</type>
         </dependency>
         <dependency>
-            <groupId>org.jboss.eap</groupId>
+            <groupId>${full.maven.groupId}</groupId>
             <artifactId>wildfly-galleon-pack</artifactId>
-            <version>${ee.maven.version}</version>
+            <version>${full.maven.version}</version>
             <type>pom</type>
         </dependency>
         <dependency>

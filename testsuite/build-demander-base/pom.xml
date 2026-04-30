@@ -46,10 +46,10 @@
              (so testsuites can depend on it / ensure it's built)
              We use properties so profiles can override these default values.
         -->
-        <testsuite.default.base.build.groupId>${ee.maven.groupId}</testsuite.default.base.build.groupId>
+        <testsuite.default.base.build.groupId>${full.maven.groupId}</testsuite.default.base.build.groupId>
         <testsuite.default.base.build.artifactId>wildfly-build</testsuite.default.base.build.artifactId>
         <testsuite.default.base.dist.artifactId>wildfly-dist</testsuite.default.base.dist.artifactId>
-        <testsuite.default.base.build.version>${ee.maven.version}</testsuite.default.base.build.version>
+        <testsuite.default.base.build.version>${full.maven.version}</testsuite.default.base.build.version>
         <!-- Don't try to deploy the module -->
         <maven.deploy.skip>true</maven.deploy.skip>
         <skipNexusStagingDeployMojo>true</skipNexusStagingDeployMojo>
@@ -126,10 +126,10 @@
                 <property><name>latest-ee-full-server-tests</name></property>
             </activation>
             <properties>
-                <testsuite.default.base.build.groupId>${ee.maven.groupId}</testsuite.default.base.build.groupId>
+                <testsuite.default.base.build.groupId>${full.maven.groupId}</testsuite.default.base.build.groupId>
                 <testsuite.default.base.build.artifactId>${latest.full.build.artifactId}</testsuite.default.base.build.artifactId>
                 <testsuite.default.base.dist.artifactId>${latest.full.dist.artifactId}</testsuite.default.base.dist.artifactId>
-                <testsuite.default.base.build.version>${ee.maven.version}</testsuite.default.base.build.version>
+                <testsuite.default.base.build.version>${full.maven.version}</testsuite.default.base.build.version>
             </properties>
         </profile>
 
@@ -157,10 +157,10 @@
                 <property><name>legacy-ee-full-server-tests</name></property>
             </activation>
             <properties>
-                <testsuite.default.base.build.groupId>${ee.maven.groupId}</testsuite.default.base.build.groupId>
+                <testsuite.default.base.build.groupId>${full.maven.groupId}</testsuite.default.base.build.groupId>
                 <testsuite.default.base.build.artifactId>${legacy.full.build.artifactId}</testsuite.default.base.build.artifactId>
                 <testsuite.default.base.dist.artifactId>${legacy.full.dist.artifactId}</testsuite.default.base.dist.artifactId>
-                <testsuite.default.base.build.version>${ee.maven.version}</testsuite.default.base.build.version>
+                <testsuite.default.base.build.version>${full.maven.version}</testsuite.default.base.build.version>
             </properties>
         </profile>
 

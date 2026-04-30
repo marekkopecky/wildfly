@@ -121,9 +121,9 @@
                         <configuration>
                             <artifactItems>
                                 <artifactItem>
-                                    <groupId>${project.groupId}</groupId>
+                                    <groupId>${full.maven.groupId}</groupId>
                                     <artifactId>wildfly-galleon-pack</artifactId>
-                                    <version>${project.version}</version>
+                                    <version>${full.maven.version}</version>
                                     <classifier>doc</classifier>
                                     <type>zip</type>
                                     <overWrite>true</overWrite>

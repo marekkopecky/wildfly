@@ -11,7 +11,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <groupId>org.jboss.eap</groupId>
+        <groupId>org.jboss.eap.xp</groupId>
         <artifactId>wildfly-feature-pack-parent</artifactId>
         <!--
         Maintain separation between the artifact id and the version to help prevent
@@ -26,15 +26,19 @@
     <name>WildFly: Thin Server Build</name>
     <packaging>pom</packaging>
 
+    <properties>
+        <server.output.dir.version>${ee.maven.version}</server.output.dir.version>
+    </properties>
+
     <dependencies>
         <dependency>
-            <groupId>${project.groupId}</groupId>
+            <groupId>${full.maven.groupId}</groupId>
             <artifactId>wildfly-galleon-pack</artifactId>
             <type>pom</type>
             <scope>provided</scope>
         </dependency>
         <dependency>
-            <groupId>${project.groupId}</groupId>
+            <groupId>${full.maven.groupId}</groupId>
             <artifactId>wildfly-galleon-pack</artifactId>
             <type>zip</type>
             <exclusions>
@@ -114,9 +118,9 @@
                                     </included-packages>
                                 </feature-pack>
                                 <feature-pack>
-                                    <groupId>${ee.maven.groupId}</groupId>
+                                    <groupId>${full.maven.groupId}</groupId>
                                     <artifactId>wildfly-galleon-pack</artifactId>
-                                    <version>${ee.maven.version}</version>
+                                    <version>${full.maven.version}</version>
                                     <included-packages>
                                         <name>docs.examples.configs</name>
                                     </included-packages>

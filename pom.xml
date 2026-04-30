@@ -87,15 +87,15 @@
         <full.dist.product.release.version>8.2 Beta</full.dist.product.release.version>
         <full.dist.product.stability.level>default</full.dist.product.stability.level>
         <full.dist.product.min.stability.level>default</full.dist.product.min.stability.level>
-        <full.maven.groupId>${project.groupId}</full.maven.groupId>
-        <full.maven.version>${project.version}</full.maven.version>
+        <full.maven.groupId>org.jboss.eap.xp</full.maven.groupId>
+        <full.maven.version>40.0.0.Beta1-SNAPSHOT</full.maven.version>
         <ee.dist.product.release.name>${full.dist.product.release.name}</ee.dist.product.release.name>
         <ee.dist.product.slot>${full.dist.product.slot}</ee.dist.product.slot>
         <ee.dist.product.release.version>${full.dist.product.release.version}</ee.dist.product.release.version>
         <ee.dist.product.stability.level>default</ee.dist.product.stability.level>
         <ee.dist.product.min.stability.level>default</ee.dist.product.min.stability.level>
-        <ee.maven.groupId>${project.groupId}</ee.maven.groupId>
-        <ee.maven.version>${project.version}</ee.maven.version>
+        <ee.maven.groupId>org.jboss.eap</ee.maven.groupId>
+        <ee.maven.version>40.0.0.Beta1-SNAPSHOT</ee.maven.version>
         <legacy.jakarta.version>10</legacy.jakarta.version>
         <legacy.dist.product.release.name>JBoss EAP</legacy.dist.product.release.name>
         <!-- Segment of legacy-ee related artifactIds that will change across releases.
@@ -876,30 +876,30 @@
             </dependency>
 
             <dependency>
-                <groupId>${ee.maven.groupId}</groupId>
+                <groupId>${full.maven.groupId}</groupId>
                 <artifactId>wildfly-feature-pack-galleon-local</artifactId>
-                <version>${ee.maven.version}</version>
+                <version>${full.maven.version}</version>
                 <type>pom</type>
             </dependency>
 
             <dependency>
-                <groupId>${ee.maven.groupId}</groupId>
+                <groupId>${full.maven.groupId}</groupId>
                 <artifactId>wildfly-feature-pack-galleon-shared</artifactId>
-                <version>${ee.maven.version}</version>
+                <version>${full.maven.version}</version>
                 <type>pom</type>
             </dependency>
 
             <dependency>
-                <groupId>${ee.maven.groupId}</groupId>
+                <groupId>${full.maven.groupId}</groupId>
                 <artifactId>wildfly-galleon-pack</artifactId>
-                <version>${ee.maven.version}</version>
+                <version>${full.maven.version}</version>
                 <type>pom</type>
             </dependency>
 
             <dependency>
-                <groupId>${ee.maven.groupId}</groupId>
+                <groupId>${full.maven.groupId}</groupId>
                 <artifactId>wildfly-galleon-pack</artifactId>
-                <version>${ee.maven.version}</version>
+                <version>${full.maven.version}</version>
                 <type>zip</type>
             </dependency>
 
