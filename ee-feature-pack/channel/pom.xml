@@ -26,9 +26,9 @@
     </parent>
 
     <groupId>org.jboss.eap.channels</groupId>
-    <artifactId>wildfly-ee</artifactId>
+    <artifactId>wildfly-ee-11</artifactId>
 
-    <name>WildFly: EE Feature-Pack Channel</name>
+    <name>WildFly: EE 11 Feature-Pack Channel</name>
     <packaging>pom</packaging>
 
     <properties>

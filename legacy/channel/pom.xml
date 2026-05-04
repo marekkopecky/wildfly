@@ -26,9 +26,9 @@
     </parent>
 
     <groupId>org.jboss.eap.channels</groupId>
-    <artifactId>wildfly-compat-ee-10</artifactId>
+    <artifactId>wildfly</artifactId>
 
-    <name>WildFly: Channel for EE 10 compatibility</name>
+    <name>WildFly: Feature Pack Channel</name>
     <packaging>pom</packaging>
 
     <dependencies>
@@ -129,9 +129,9 @@
                     <manifestLogicalVersion>WildFly ${project.version}</manifestLogicalVersion>
                     <manifestRequirements>
                         <manifestRequirement>
-                            <id>${project.groupId}:wildfly-ee-10</id>
+                            <id>${project.groupId}:wildfly-${legacy.ee.artifactid.segment}</id>
                             <groupId>${project.groupId}</groupId>
-                            <artifactId>wildfly-ee-10</artifactId>
+                            <artifactId>wildfly-${legacy.ee.artifactid.segment}</artifactId>
                             <version>${project.version}</version>
                         </manifestRequirement>
                     </manifestRequirements>

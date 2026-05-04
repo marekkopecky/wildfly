@@ -100,7 +100,7 @@
                                 <channel>
                                     <manifest>
                                         <groupId>org.jboss.eap.channels</groupId>
-                                        <artifactId>wildfly</artifactId>
+                                        <artifactId>wildfly-compat-ee-11</artifactId>
                                         <version>${version.boms.channel.full}</version>
                                     </manifest>
                                 </channel>

@@ -20,9 +20,9 @@
         <version>41.0.0.Beta1</version>
     </parent>
 
-    <artifactId>wildfly-ee-build</artifactId>
+    <artifactId>wildfly-ee-11-build</artifactId>
 
-    <name>WildFly: EE Full Thin Server Build</name>
+    <name>WildFly: EE 11 Thin Server Build</name>
     <packaging>pom</packaging>
 
     <dependencies>
@@ -45,7 +45,7 @@
         </dependency>
         <dependency>
             <groupId>${channels.maven.groupId}</groupId>
-            <artifactId>wildfly-ee</artifactId>
+            <artifactId>${latest.ee.channel.artifactId}</artifactId>
             <type>yaml</type>
             <classifier>manifest</classifier>
             <exclusions>

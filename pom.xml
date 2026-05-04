@@ -101,21 +101,21 @@
         <!-- Segment of legacy-ee related artifactIds that will change across releases.
              Used in artifactIds of user-relevant artifacts where we want an artifactId
              that discloses what the artifact provides -->
-        <legacy.ee.artifactid.segment>ee-${legacy.jakarta.version}</legacy.ee.artifactid.segment>
-        <legacy.ee.feature.pack.artifactId>wildfly-${legacy.ee.artifactid.segment}-feature-pack</legacy.ee.feature.pack.artifactId>
+        <legacy.ee.artifactid.segment>ee</legacy.ee.artifactid.segment>
+        <legacy.ee.feature.pack.artifactId>wildfly-${legacy.ee.artifactid.segment}-galleon-pack</legacy.ee.feature.pack.artifactId>
         <legacy.ee.channel.artifactId>wildfly-${legacy.ee.artifactid.segment}</legacy.ee.channel.artifactId>
         <legacy.ee.build.artifactId>wildfly-${legacy.ee.artifactid.segment}-build</legacy.ee.build.artifactId>
         <legacy.ee.dist.artifactId>wildfly-${legacy.ee.artifactid.segment}-dist</legacy.ee.dist.artifactId>
-        <legacy.full.build.artifactId>wildfly-${legacy.ee.artifactid.segment}-expansion-build</legacy.full.build.artifactId>
-        <legacy.full.dist.artifactId>wildfly-${legacy.ee.artifactid.segment}-expansion-dist</legacy.full.dist.artifactId>
+        <legacy.full.build.artifactId>wildfly-build</legacy.full.build.artifactId>
+        <legacy.full.dist.artifactId>wildfly-dist</legacy.full.dist.artifactId>
         <latest.jakarta.version>11</latest.jakarta.version> <!-- for downstream use -->
-        <latest.ee.artifactid.segment>ee</latest.ee.artifactid.segment>
+        <latest.ee.artifactid.segment>ee-${latest.jakarta.version}</latest.ee.artifactid.segment>
         <latest.ee.feature.pack.artifactId>wildfly-${latest.ee.artifactid.segment}-galleon-pack</latest.ee.feature.pack.artifactId>
         <latest.ee.channel.artifactId>wildfly-${latest.ee.artifactid.segment}</latest.ee.channel.artifactId>
         <latest.ee.build.artifactId>wildfly-${latest.ee.artifactid.segment}-build</latest.ee.build.artifactId>
         <latest.ee.dist.artifactId>wildfly-${latest.ee.artifactid.segment}-dist</latest.ee.dist.artifactId>
-        <latest.full.build.artifactId>wildfly-build</latest.full.build.artifactId>
-        <latest.full.dist.artifactId>wildfly-dist</latest.full.dist.artifactId>
+        <latest.full.build.artifactId>wildfly-${latest.ee.artifactid.segment}-expansion-build</latest.full.build.artifactId>
+        <latest.full.dist.artifactId>wildfly-${latest.ee.artifactid.segment}-expansion-dist</latest.full.dist.artifactId>
         <preview.dist.product.release.name>WildFly Preview</preview.dist.product.release.name>
         <preview.dist.product.slot>${full.dist.product.slot}</preview.dist.product.slot>
         <preview.dist.product.release.version>${full.dist.product.release.version}</preview.dist.product.release.version>
@@ -245,8 +245,9 @@
         <!-- Version suffix that is appended to directories. Default is the maven GAV version but this can be edited to use a short form version -->
         <server.output.dir.version>8.2</server.output.dir.version>
         <!-- 'Qualifier' that is added to "ee-xxx" builds and dists -->
+        <!--<latest.ee.output.qualifier>ee-${latest.jakarta.version}-</latest.ee.output.qualifier>-->
         <latest.ee.output.qualifier></latest.ee.output.qualifier>
-        <legacy.ee.output.qualifier>ee-${legacy.jakarta.version}-</legacy.ee.output.qualifier>
+        <legacy.ee.output.qualifier></legacy.ee.output.qualifier>
         <preview.output.qualifier>preview-</preview.output.qualifier>
         <latest.server.output.dir>${server.output.dir.prefix}-${latest.ee.output.qualifier}${server.output.dir.version}</latest.server.output.dir>
         <legacy.server.output.dir>${server.output.dir.prefix}-${legacy.ee.output.qualifier}${server.output.dir.version}</legacy.server.output.dir>

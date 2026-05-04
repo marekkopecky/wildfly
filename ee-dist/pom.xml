@@ -20,11 +20,11 @@
         <version>41.0.0.Beta1</version>
     </parent>
 
-    <artifactId>wildfly-ee-dist</artifactId>
+    <artifactId>wildfly-ee-11-dist</artifactId>
     <packaging>jar</packaging>
 
-    <name>WildFly: EE Full Distribution</name>
-    <description>WildFly: EE Full Distribution</description>
+    <name>WildFly: EE 11 Distribution</name>
+    <description>WildFly: EE 11 Distribution</description>
     <url>https://wildfly.org</url>
 
     <organization>
@@ -94,7 +94,7 @@
         </dependency>
         <dependency>
             <groupId>${channels.maven.groupId}</groupId>
-            <artifactId>wildfly-ee</artifactId>
+            <artifactId>${latest.ee.channel.artifactId}</artifactId>
             <classifier>manifest</classifier>
             <type>yaml</type>
             <scope>provided</scope>
@@ -267,9 +267,9 @@
                                     <output-licenses-file>${project.build.directory}/community-licenses.xml</output-licenses-file>
                                     <excluded-licenses-versions>.*redhat-.*</excluded-licenses-versions>
                                     <offline>true</offline>
-                                    <fpGroupId>${project.groupId}</fpGroupId>
-                                    <fpArtifactId>wildfly-ee-galleon-pack</fpArtifactId>
-                                    <fpVersion>${project.version}</fpVersion>
+                                    <fpGroupId>${ee.maven.groupId}</fpGroupId>
+                                    <fpArtifactId>${latest.ee.feature.pack.artifactId}</fpArtifactId>
+                                    <fpVersion>${ee.maven.version}</fpVersion>
                                 </configuration>
                             </execution>
                         </executions>

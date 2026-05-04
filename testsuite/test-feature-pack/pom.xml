@@ -41,7 +41,7 @@
 
         <dependency>
             <groupId>${project.groupId}</groupId>
-            <artifactId>${latest.ee.feature.pack.artifactId}</artifactId>
+            <artifactId>${legacy.ee.feature.pack.artifactId}</artifactId>
             <type>pom</type>
             <exclusions>
                 <exclusion>

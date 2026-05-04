@@ -20,7 +20,7 @@
         <relativePath>../pom.xml</relativePath>
     </parent>
 
-    <artifactId>wildfly-legacy-ee-feature-pack-product-conf</artifactId>
+    <artifactId>wildfly-ee-feature-pack-product-conf</artifactId>
 
     <name>WildFly: Legacy Feature-Pack Product Configuration</name>
     <description>Provides an artifact whose MANIFEST.MF includes entries that provide installation name and version information.</description>

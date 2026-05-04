@@ -21,7 +21,7 @@
         <relativePath>../../../pom.xml</relativePath>
     </parent>
 
-    <artifactId>wildfly-ee-10-dist</artifactId>
+    <artifactId>wildfly-ee-dist</artifactId>
     <packaging>jar</packaging>
 
     <name>WildFly: Legacy EE Distribution</name>
@@ -95,7 +95,7 @@
         </dependency>
         <dependency>
             <groupId>${channels.maven.groupId}</groupId>
-            <artifactId>wildfly-${legacy.ee.artifactid.segment}</artifactId>
+            <artifactId>${legacy.ee.channel.artifactId}</artifactId>
             <classifier>manifest</classifier>
             <type>yaml</type>
             <scope>provided</scope>

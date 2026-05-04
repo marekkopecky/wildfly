@@ -13,6 +13,6 @@
 
     <resources>
         <resource-root path="."/>
-        <artifact name="${org.jboss.eap:wildfly-ee-feature-pack-product-conf}"/>
+        <artifact name="${org.jboss.eap:wildfly-ee-11-feature-pack-product-conf}"/>
     </resources>
 </module>

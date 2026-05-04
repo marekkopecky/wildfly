@@ -61,13 +61,13 @@
     <dependencies>
         <dependency>
             <groupId>org.jboss.eap</groupId>
-            <artifactId>wildfly-ee-10-feature-pack</artifactId>
+            <artifactId>wildfly-ee-galleon-pack</artifactId>
             <version>${ee.maven.version}</version>
             <type>pom</type>
         </dependency>
         <dependency>
             <groupId>${channels.maven.groupId}</groupId>
-            <artifactId>wildfly-ee-10</artifactId>
+            <artifactId>wildfly-ee</artifactId>
             <version>${ee.maven.version}</version>
             <type>pom</type>
         </dependency>
@@ -100,7 +100,7 @@
                                 <channel>
                                     <manifest>
                                         <groupId>${channels.maven.groupId}</groupId>
-                                        <artifactId>wildfly-ee-10</artifactId>
+                                        <artifactId>${legacy.ee.channel.artifactId}</artifactId>
                                         <version>${version.boms.channel.ee}</version>
                                     </manifest>
                                 </channel>

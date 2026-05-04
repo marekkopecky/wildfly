@@ -35,7 +35,7 @@
     <dependencies>
         <dependency>
             <groupId>${project.groupId}</groupId>
-            <artifactId>wildfly-ee-dist</artifactId>
+            <artifactId>wildfly-${legacy.ee.artifactid.segment}-dist</artifactId>
             <version>${project.version}</version>
             <type>zip</type>
             <exclusions>
@@ -62,7 +62,7 @@
                             <artifactItems>
                                 <artifactItem>
                                     <groupId>${project.groupId}</groupId>
-                                    <artifactId>wildfly-ee-10-dist</artifactId>
+                                    <artifactId>wildfly-${legacy.ee.artifactid.segment}-dist</artifactId>
                                     <version>${project.version}</version>
                                     <type>zip</type>
                                     <overWrite>true</overWrite>

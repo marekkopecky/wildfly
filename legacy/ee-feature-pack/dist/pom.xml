@@ -23,7 +23,7 @@
 
     <groupId>org.jboss.eap.xp</groupId>
     <version>7.0.0.Alpha-SNAPSHOT</version>
-    <artifactId>wildfly-ee-10-expansion-dist</artifactId>
+    <artifactId>wildfly-dist</artifactId>
     <packaging>jar</packaging>
 
     <name>WildFly: Legacy EE + Expansion Distribution</name>
@@ -95,11 +95,11 @@
                 </exclusion>
             </exclusions>
         </dependency>
-        <!-- Depends on the org.jboss.eap.channels:wildfly-compat-ee-10 artifact to ensure
+        <!-- Depends on the org.jboss.eap.channels:wildfly artifact to ensure
              that this channel is built first before the distribution is created -->
         <dependency>
             <groupId>${channels.maven.groupId}</groupId>
-            <artifactId>wildfly-compat-${legacy.ee.artifactid.segment}</artifactId>
+            <artifactId>wildfly</artifactId>
             <version>${ee.maven.version}</version>
             <classifier>manifest</classifier>
             <type>yaml</type>
@@ -182,7 +182,7 @@
                                     <name>wildfly</name>
                                     <manifest>
                                         <groupId>${channels.maven.groupId}</groupId>
-                                        <artifactId>wildfly-compat-${legacy.ee.artifactid.segment}</artifactId>
+                                        <artifactId>wildfly</artifactId>
                                         <version>${ee.maven.version}</version>
                                     </manifest>
                                 </channel>
@@ -438,7 +438,7 @@
             <id>external.channel.profile</id>
             <activation><property><name>external.wildfly.channels</name></property></activation>
             <properties>
-                <wildfly.channels>${channels.maven.groupId}:wildfly-compat-${legacy.ee.artifactid.segment}:${ee.maven.version}</wildfly.channels>
+                <wildfly.channels>${channels.maven.groupId}:wildfly:${ee.maven.version}</wildfly.channels>
             </properties>
         </profile>
     </profiles>

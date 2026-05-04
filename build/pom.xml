@@ -21,9 +21,9 @@
         <relativePath>../galleon-pack/pom.xml</relativePath>
     </parent>
 
-    <artifactId>wildfly-build</artifactId>
+    <artifactId>wildfly-ee-11-expansion-build</artifactId>
 
-    <name>WildFly: Thin Server Build</name>
+    <name>WildFly: EE 10 + Expansion Thin Server Build</name>
     <packaging>pom</packaging>
 
     <dependencies>
