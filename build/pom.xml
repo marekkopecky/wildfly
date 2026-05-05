@@ -23,7 +23,7 @@
 
     <artifactId>wildfly-ee-11-expansion-build</artifactId>
 
-    <name>WildFly: EE 10 + Expansion Thin Server Build</name>
+    <name>WildFly: EE 11 + Expansion Thin Server Build</name>
     <packaging>pom</packaging>
 
     <dependencies>
@@ -46,7 +46,8 @@
         </dependency>
         <dependency>
             <groupId>${channels.maven.groupId}</groupId>
-            <artifactId>wildfly</artifactId>
+            <artifactId>wildfly-compat-${latest.ee.artifactid.segment}</artifactId>
+            <version>${ee.maven.version}</version>
             <type>yaml</type>
             <classifier>manifest</classifier>
             <exclusions>
@@ -98,8 +99,8 @@
                                     <name>wildfly</name>
                                     <manifest>
                                         <groupId>${channels.maven.groupId}</groupId>
-                                        <artifactId>wildfly</artifactId>
-                                        <version>${full.maven.version}</version>
+                                        <artifactId>wildfly-compat-${latest.ee.artifactid.segment}</artifactId>
+                                        <version>${ee.maven.version}</version>
                                     </manifest>
                                 </channel>
                             </channels>
@@ -190,7 +191,7 @@
             <id>external.channel.profile</id>
             <activation><property><name>external.wildfly.channels</name></property></activation>
             <properties>
-                <wildfly.channels>${channels.maven.groupId}:wildfly:${full.maven.version}</wildfly.channels>
+                <wildfly.channels>${channels.maven.groupId}:wildfly-compat-${latest.ee.artifactid.segment}:${ee.maven.version}</wildfly.channels>
             </properties>
         </profile>
     </profiles>

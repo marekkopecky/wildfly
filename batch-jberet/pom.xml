@@ -188,7 +188,7 @@
                 <property>
                     <!-- This profile exists to make it is easy to stop doing what WildFly does downstream.
                          It's not meant to be turned off/on by external callers. -->
-                    <name>!WRONGLY.disable.latest.ee.specific.dependencies</name>
+                    <name>do.not.enable.this.profile</name>
                 </property>
             </activation>
             <dependencies>

@@ -102,12 +102,12 @@
              There are four profiles that ensure the appropriate pre-built servers are available before testing
              the output of different combinations of feature-packs.
 
-             1) Test the latest ee feature-pack + the wildfly feature-pack
-             2) Test the latest ee feature-pack alone. Using this also requires setting -P-expansion-server-tests
-                in order to disable the testsuite modules that require the wildfly feature-pack.
-             3) Test the legacy ee feature-pack + the wildfly feature-pack
-             4) Test the legacy ee feature-pack alone. Using this also requires setting -P-expansion-server-tests
-                in order to disable the testsuite modules that require the wildfly feature-pack.
+             1) Test the latest ee feature-pack + the wildfly feature-pack. Using this also requires setting -Pexpansion-server-tests
+                in order to enable the testsuite modules that require the wildfly feature-pack.
+             2) Test the latest ee feature pack alone.
+             3) Test the legacy ee feature-pack + the wildfly feature-pack. Using this also requires setting -Pexpansion-server-tests
+                in order to enable the testsuite modules that require the wildfly feature-pack.
+             4) Test the legacy ee feature-pack alone.
 
              (Note: there is no profile here for wildfly-preview feature-pack because this module will never be
               executed when testing WildFly Preview.)
@@ -139,9 +139,7 @@
             </properties>
         </profile>
 
-        <!-- Configures testsuite to use the latest non-default Galleon pack to provision EE content.
-             Test installations do not include functionality provided by the wildfly feature-pack,
-             so -P-expansion-server-tests must be used. -->
+        <!-- Configures testsuite to use the latest non-default Galleon pack to provision EE content. -->
         <profile>
             <id>latest-ee-only-server-tests</id>
             <activation>
@@ -170,9 +168,7 @@
             </properties>
         </profile>
 
-        <!-- Configures testsuite to use the legacy non-default feature-pack to provision EE content.
-             Test installations do not include functionality provided by the wildfly feature-pack,
-             so -P-expansion-server-tests must be used. -->
+        <!-- Configures testsuite to use the legacy non-default feature-pack to provision EE content. -->
         <profile>
             <id>legacy-ee-only-server-tests</id>
             <activation>

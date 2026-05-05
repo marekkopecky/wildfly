@@ -137,11 +137,11 @@
              if such swapping is valid for their build.
              Testsuite modules or profiles can override this to use a different dependency set,
              for example to test WildFly Preview or to test microprofile. -->
-        <dependency.management.import.artifact>wildfly-standard-ee-bom</dependency.management.import.artifact>
+        <dependency.management.import.artifact>wildfly-legacy-ee-bom</dependency.management.import.artifact>
         <!-- Same thing for test-only dependencies -->
         <dependency.management.import.test.artifact>wildfly-standard-test-bom</dependency.management.import.test.artifact>
         <!-- The EL API artifact has a different artifactId between EE 10 and 11. Make it easy to switch which we use. -->
-        <jakarta.el.api.artifactId>jakarta.el-api</jakarta.el.api.artifactId>
+        <jakarta.el.api.artifactId>jboss-el-api_5.0_spec</jakarta.el.api.artifactId>
 
         <!-- Repository Deployment Settings -->
         <nexus.repository.staging>wildfly-staging</nexus.repository.staging>

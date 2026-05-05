@@ -91,13 +91,13 @@
                      should obtain the dist to test -->
         <!-- First, the path, relative to the source root, where the parent of the maven child project
              whose output should be used is found. An empty value means the source root. -->
-        <testsuite.default.build.project.root></testsuite.default.build.project.root>
+        <testsuite.default.build.project.root>legacy/ee-feature-pack/</testsuite.default.build.project.root>
         <!-- Second, prefix to add to the standard maven child project whose output should be used.
              An empty value means no prefix.
              Custom test jobs can override this using -D, e.g. -Dtestsuite.default.build.project.prefix=ee- -->
-        <testsuite.default.build.project.prefix></testsuite.default.build.project.prefix>
+        <testsuite.default.build.project.prefix>ee-</testsuite.default.build.project.prefix>
         <!-- 'Qualifier' segment to include in the name of the directory containing the pre-built server -->
-        <server.output.dir.qualifier>${latest.ee.output.qualifier}</server.output.dir.qualifier>
+        <server.output.dir.qualifier>${legacy.ee.output.qualifier}</server.output.dir.qualifier>
         <wildfly.build.output.dir>${testsuite.default.build.project.root}${testsuite.default.build.project.prefix}build/target/${server.output.dir.prefix}-${server.output.dir.qualifier}${server.output.dir.version}</wildfly.build.output.dir>
         <!-- Used to provide an absolute location for the distribution under test. -->
         <!-- This value is overridden in modules with the correct relative pathname. -->
@@ -108,9 +108,9 @@
              that *could* be obtained solely from the wildfly-ee-galleon-pack.
              Note: It's valid to use an FP here that provides the EE content via its dependencies.
         -->
-        <testsuite.ee.feature.pack.groupId>${full.maven.groupId}</testsuite.ee.feature.pack.groupId>
-        <testsuite.ee.feature.pack.artifactId>wildfly-galleon-pack</testsuite.ee.feature.pack.artifactId>
-        <testsuite.ee.feature.pack.version>${full.maven.version}</testsuite.ee.feature.pack.version>
+        <testsuite.ee.feature.pack.groupId>${ee.maven.groupId}</testsuite.ee.feature.pack.groupId>
+        <testsuite.ee.feature.pack.artifactId>${legacy.ee.feature.pack.artifactId}</testsuite.ee.feature.pack.artifactId>
+        <testsuite.ee.feature.pack.version>${ee.maven.version}</testsuite.ee.feature.pack.version>
         <!-- Galleon feature-pack to use in testsuite provisioning executions that provide content
              that *cannot* be obtained solely from the wildfly-ee-galleon-pack or its dependencies.
              Test jobs can override this using -D to test using a different feature-pack.
@@ -124,8 +124,8 @@
         <testsuite.test.feature.pack.artifactId>wildfly-test-feature-pack</testsuite.test.feature.pack.artifactId>
 
         <!-- For cases where we know for sure we don't want the 'wildfly' FP or channel, we can use these -->
-        <testsuite.ee.only.channel.artifactId>${latest.ee.channel.artifactId}</testsuite.ee.only.channel.artifactId>
-        <testsuite.ee.only.feature.pack.artifactId>${latest.ee.feature.pack.artifactId}</testsuite.ee.only.feature.pack.artifactId>
+        <testsuite.ee.only.channel.artifactId>${legacy.ee.channel.artifactId}</testsuite.ee.only.channel.artifactId>
+        <testsuite.ee.only.feature.pack.artifactId>${legacy.ee.feature.pack.artifactId}</testsuite.ee.only.feature.pack.artifactId>
 
         <!-- END OF PROPERTIES RELATED TO CONFIGURING THE SERVER INSTALLATION TO TEST. -->
 
@@ -135,7 +135,7 @@
 
         <!-- Name of the profile that defines what feature-packs were used to provision the test server.
              Profiles set this; the value here is the profile with settings that match the global default values. -->
-        <server.provisioning.profile>latest-ee-full-server-tests</server.provisioning.profile>
+        <server.provisioning.profile>legacy-ee-only-server-tests</server.provisioning.profile>
 
         <!-- IP address defaults. -->
         <node0>127.0.0.1</node0>
@@ -210,7 +210,7 @@
         <trace>none</trace>
 
         <!-- Dynamic part of the name of ee-version-specific test source dir that may be added to the build -->
-        <additional.ee.test.source>ee11</additional.ee.test.source>
+        <additional.ee.test.source>ee10</additional.ee.test.source>
 
         <!-- properties to enable plugin executions -->
         <ts.bootable-jar-packaging.phase>none</ts.bootable-jar-packaging.phase>
@@ -532,10 +532,10 @@
         </profile>
         <profile>
             <id>expansion-server-tests</id>
-            <!-- Expansion server tests run unless -P !preview-server-tests is used -->
+            <!-- Unlike upstream, in EAP expansion server tests don't run unless this profile is activated -->
             <activation>
                 <property>
-                    <name>!preview-server-tests</name>
+                    <name>expansion-server-tests</name>
                 </property>
             </activation>
             <modules>
@@ -564,12 +564,12 @@
         <!--
              There are five profiles that set things up for testing different combinations of feature-packs.
 
-             1) Test the latest ee feature-pack + the wildfly feature-pack
-             2) Test the latest ee feature-pack alone. Using this also requires setting -P-expansion-server-tests
-                in order to disable the testsuite modules that require the wildfly feature-pack.
-             3) Test the legacy ee feature-pack + the wildfly feature-pack
-             4) Test the legacy ee feature-pack alone. Using this also requires setting -P-expansion-server-tests
-                in order to disable the testsuite modules that require the wildfly feature-pack.
+             1) Test the latest ee feature-pack + the wildfly feature-pack. Using this also requires setting -Pexpansion-server-tests
+                in order to enable the testsuite modules that require the wildfly feature-pack.
+             2) Test the latest ee feature-pack alone.
+             3) Test the legacy ee feature-pack + the wildfly feature-pack. Using this also requires setting -Pexpansion-server-tests
+                in order to enable the testsuite modules that require the wildfly feature-pack.
+             4) Test the legacy ee feature-pack alone.
              5) Test the wildfly-preview feature-pack.
 
              None of these are active by default. The 'test the wildfly-preview feature-pack' one is activated
@@ -605,6 +605,8 @@
                 <!-- For cases where we know for sure we don't want the 'wildfly' FP or channel, we can use these -->
                 <testsuite.ee.only.channel.artifactId>${latest.ee.channel.artifactId}</testsuite.ee.only.channel.artifactId>
                 <testsuite.ee.only.feature.pack.artifactId>${latest.ee.feature.pack.artifactId}</testsuite.ee.only.feature.pack.artifactId>
+                <!-- Use the EE 11 dependencies -->
+                <dependency.management.import.artifact>wildfly-standard-ee-bom</dependency.management.import.artifact>
                 <!-- Use the EE 11+ EL API artifact -->
                 <jakarta.el.api.artifactId>jakarta.el-api</jakarta.el.api.artifactId>
             </properties>
@@ -647,7 +649,7 @@
 
         <!-- Configures testsuite to use the latest non-default feature-pack to provision EE content.
              Test installations do not include functionality provided by the wildfly feature-pack,
-             so -P-expansion-server-tests must be used. -->
+             so -Pexpansion-server-tests cannot be used. -->
         <profile>
             <id>latest-ee-only-server-tests</id>
             <activation>
@@ -667,6 +669,8 @@
                 <!-- For cases where we know for sure we don't want the 'wildfly' FP or channel, we can use these -->
                 <testsuite.ee.only.channel.artifactId>${latest.ee.channel.artifactId}</testsuite.ee.only.channel.artifactId>
                 <testsuite.ee.only.feature.pack.artifactId>${latest.ee.feature.pack.artifactId}</testsuite.ee.only.feature.pack.artifactId>
+                <!-- Use the EE 11 dependencies -->
+                <dependency.management.import.artifact>wildfly-standard-ee-bom</dependency.management.import.artifact>
                 <!-- Use the EE 11+ EL API artifact -->
                 <jakarta.el.api.artifactId>jakarta.el-api</jakarta.el.api.artifactId>
             </properties>
@@ -692,7 +696,7 @@
                 <!-- For cases where we know for sure we don't want the 'wildfly' FP or channel, we can use these -->
                 <testsuite.ee.only.channel.artifactId>${legacy.ee.channel.artifactId}</testsuite.ee.only.channel.artifactId>
                 <testsuite.ee.only.feature.pack.artifactId>${legacy.ee.feature.pack.artifactId}</testsuite.ee.only.feature.pack.artifactId>
-                <!-- Use the WFP dependencies -->
+                <!-- Use the EE 10 dependencies -->
                 <dependency.management.import.artifact>wildfly-legacy-ee-bom</dependency.management.import.artifact>
                 <!-- If there are EE-version-specific test sources, uses the ee10 ones -->
                 <additional.ee.test.source>ee10</additional.ee.test.source>
@@ -728,8 +732,8 @@
         </profile>
 
         <!-- Configures testsuite to use the legacy non-default feature-pack to provision EE content.
-             Test installations do not include functionality provided by the wildfly feature-pack,
-             so -P-expansion-server-tests must be used. -->
+             Test installations do not include functionality provided by the wildfly feature pack,
+             so -Pexpansion-server-tests cannot be used. -->
         <profile>
             <id>legacy-ee-only-server-tests</id>
             <activation>
@@ -748,7 +752,7 @@
                 <!-- For cases where we know for sure we don't want the 'wildfly' FP or channel, we can use these -->
                 <testsuite.ee.only.channel.artifactId>${legacy.ee.channel.artifactId}</testsuite.ee.only.channel.artifactId>
                 <testsuite.ee.only.feature.pack.artifactId>${legacy.ee.feature.pack.artifactId}</testsuite.ee.only.feature.pack.artifactId>
-                <!-- Use the WFP dependencies -->
+                <!-- Use the EE 10 dependencies -->
                 <dependency.management.import.artifact>wildfly-legacy-ee-bom</dependency.management.import.artifact>
                 <!-- If there are EE-version-specific test sources, uses the ee10 ones -->
                 <additional.ee.test.source>ee10</additional.ee.test.source>

@@ -47,18 +47,6 @@
             </exclusions>
         </dependency>
         <dependency>
-            <groupId>${channels.maven.groupId}</groupId>
-            <artifactId>wildfly-${legacy.ee.artifactid.segment}</artifactId>
-            <type>yaml</type>
-            <classifier>manifest</classifier>
-            <exclusions>
-                <exclusion>
-                    <groupId>*</groupId>
-                    <artifactId>*</artifactId>
-                </exclusion>
-            </exclusions>
-        </dependency>
-        <dependency>
             <groupId>${full.maven.groupId}</groupId>
             <artifactId>wildfly-galleon-pack</artifactId>
             <type>pom</type>
@@ -75,12 +63,12 @@
                 </exclusion>
             </exclusions>
         </dependency>
-        <!-- Depends on the org.wildfly.channels:wildfly-compat-ee-10 artifact to ensure
+        <!-- Depends on the org.jboss.eap.channels:wildfly artifact to ensure
              that this channel is built first before the distribution is created -->
         <dependency>
             <groupId>${channels.maven.groupId}</groupId>
-            <artifactId>wildfly-compat-${legacy.ee.artifactid.segment}</artifactId>
-            <version>${full.maven.version}</version>
+            <artifactId>wildfly</artifactId>
+            <version>${ee.maven.version}</version>
             <classifier>manifest</classifier>
             <type>yaml</type>
             <scope>provided</scope>
@@ -133,8 +121,8 @@
                                     <name>wildfly</name>
                                     <manifest>
                                         <groupId>${channels.maven.groupId}</groupId>
-                                        <artifactId>wildfly-compat-${legacy.ee.artifactid.segment}</artifactId>
-                                        <version>${full.maven.version}</version>
+                                        <artifactId>wildfly</artifactId>
+                                        <version>${ee.maven.version}</version>
                                     </manifest>
                                 </channel>
                             </channels>
@@ -225,7 +213,7 @@
             <id>external.channel.profile</id>
             <activation><property><name>external.wildfly.channels</name></property></activation>
             <properties>
-                <wildfly.channels>${channels.maven.groupId}:wildfly-compat-${legacy.ee.artifactid.segment}:${full.maven.version}</wildfly.channels>
+                <wildfly.channels>${channels.maven.groupId}:wildfly:${ee.maven.version}</wildfly.channels>
             </properties>
         </profile>
     </profiles>
