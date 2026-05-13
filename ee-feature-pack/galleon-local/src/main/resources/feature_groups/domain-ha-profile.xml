@@ -11,6 +11,4 @@
     </feature-group>
 
     <feature-group name="basic-ha-profile"/>
-    <!-- Note: the legacy EE FP does not have this -->
-    <feature spec="subsystem.jakarta-data"/>
 </feature-group-spec>

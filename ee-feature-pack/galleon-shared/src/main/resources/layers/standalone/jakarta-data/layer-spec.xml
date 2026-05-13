@@ -16,5 +16,4 @@
              but I don't think that can be declared -->
         <layer name="jpa" optional="true"/>
     </dependencies>
-    <feature spec="subsystem.jakarta-data"/>
 </layer-spec>

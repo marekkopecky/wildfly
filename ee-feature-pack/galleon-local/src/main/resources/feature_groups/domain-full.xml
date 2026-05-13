@@ -34,8 +34,6 @@
                 <param name="use-qualified-name" value="false"/>
             </feature>
         </feature>
-        <!-- Note: the legacy EE FP does not have this -->
-        <feature spec="subsystem.jakarta-data"/>
     </feature>
 
     <feature spec="domain.system-property">

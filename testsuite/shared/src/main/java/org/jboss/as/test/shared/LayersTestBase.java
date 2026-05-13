@@ -129,8 +129,9 @@ public abstract class LayersTestBase {
      */
     public static final String[] NO_LAYER_STD_EE_LATEST = {
             // 'community' stability extension so not yet included in "all-layers" installation
-            "org.wildfly.extension.jakarta.data",
-            "jakarta.data.api"
+// Jakarta Data is a community feature not available for EAP. https://redhat.atlassian.net/browse/WFLY-21080
+//            "org.wildfly.extension.jakarta.data",
+//            "jakarta.data.api"
     };
 
     /**
@@ -141,7 +142,8 @@ public abstract class LayersTestBase {
     public static final String[] NO_LAYER_STD_EE_LEGACY = {
             // 'community' stability extension so not yet included in "all-layers" installation
             // also not included in the default configs. (But it is referenced via org.hibernate)
-            "jakarta.data.api"
+// Jakarta Data is a community feature not available for EAP. https://redhat.atlassian.net/browse/WFLY-21080
+//            "jakarta.data.api"
     };
 
     /**
@@ -437,7 +439,8 @@ public abstract class LayersTestBase {
     public static final String[] NO_LAYER_OR_REFERENCE_COMMON_EE_LEGACY = {
             // 'community' stability extension so not yet included in "all-layers" installation
             // also not included in the default configs
-            "org.wildfly.extension.jakarta.data",
+// Jakarta Data is a community feature not available for EAP. https://redhat.atlassian.net/browse/WFLY-21080
+//          "org.wildfly.extension.jakarta.data",
     };
 
     /**
