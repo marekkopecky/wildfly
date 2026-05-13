@@ -97,7 +97,7 @@
     </file>
     <file>
       <location>target/${legacy.server.output.dir}/modules/system/layers/base/org/wildfly/_internal/unstable-api-annotation-index/main/content/wildfly-ee-galleon-pack-unstable-api-annotation-index.zip</location>
-      <exists>true</exists>
+      <exists>false</exists>
     </file>
     <file>
       <location>target/${legacy.server.output.dir}/wildfly-ee-galleon-pack-unstable-api-annotation-index.zip</location>

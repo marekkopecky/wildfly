@@ -47,7 +47,7 @@
     </file>
     <file>
       <location>target/${latest.server.output.dir}/modules/system/layers/base/org/wildfly/_internal/unstable-api-annotation-index/main/content/wildfly-ee-galleon-pack-unstable-api-annotation-index.zip</location>
-      <exists>true</exists>
+      <exists>false</exists>
     </file>
     <file>
       <location>target/${latest.server.output.dir}/wildfly-ee-galleon-pack-unstable-api-annotation-index.zip</location>
@@ -55,7 +55,7 @@
     </file>
     <file>
       <location>target/${latest.server.output.dir}/modules/system/layers/base/org/wildfly/_internal/unstable-api-annotation-index/main/content/wildfly-galleon-pack-unstable-api-annotation-index.zip</location>
-      <exists>true</exists>
+      <exists>false</exists>
     </file>
     <file>
       <location>target/${latest.server.output.dir}/wildfly-galleon-pack-unstable-api-annotation-index.zip</location>
