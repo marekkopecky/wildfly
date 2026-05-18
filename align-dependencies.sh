@@ -8,27 +8,35 @@ fi
 MANIFEST_GAV="org.jboss.eap.channels:eap-8.2"
 
 usage() {
-  echo "Usage: align-dependencies.sh [-v] [path/to/manifest.yaml,...]"
+  echo "Usage: align-dependencies.sh [-v] [path/to/manifest.yaml,...] [-Dprop=value ...]"
   echo
-  echo "If no manifest path is given, manifest will be downloaded from a Maven "
-  echo "repository using G:As '$MANIFEST_GAV'. The latest available "
-  echo "manifest version is going to be used in this case."
+  echo "If no manifest path or -DmanifestFile is given, manifest will be downloaded"
+  echo "from a Maven repository using G:As '$MANIFEST_GAV'."
+  echo "The latest available manifest version is going to be used in this case."
+  echo
+  echo "Any -D* arguments are forwarded to the Maven plugin invocations."
 }
 
 # Parse options
-while getopts ":v" opt; do
-  echo opt $opt
-  case ${opt} in
-    v )
+EXTRA_PARAMS=""
+while [ $# -gt 0 ]; do
+  case "$1" in
+    -v)
       VERBOSE=true
       ;;
-    \? )
+    -h|--help)
       usage
-      exit 1
+      exit 0
+      ;;
+    -D*)
+      EXTRA_PARAMS="${EXTRA_PARAMS} $1"
+      ;;
+    *)
+      EXTRA_PARAMS="${EXTRA_PARAMS} -DmanifestFile=$1"
       ;;
   esac
+  shift
 done
-shift $((OPTIND -1))
 
 # Maven invocation with verbosity control
 mvn_exec() {
@@ -49,29 +57,22 @@ mvn_exec() {
 
 PARAMS=""
 
-if [ "$#" -eq 0 ]; then
+if [[ ! "$EXTRA_PARAMS" =~ -DmanifestFile ]] && [[ ! "$EXTRA_PARAMS" =~ -DmanifestGAV ]]; then
   echo "Using latest available version of the $MANIFEST_GAV manifest."
   PARAMS="${PARAMS} -DmanifestGAV=$MANIFEST_GAV"
-elif [ "$#" -eq 1 ]; then
-  if [ "$1" == "-h" ] || [ "$1" == "--help" ]; then
-    usage
-    exit 0
-  fi
-  PARAMS="${PARAMS} -DmanifestFile=$1"
-else
-  echo "Error: Illegal number of parameters"
-  echo
-  usage
-  exit 1
 fi
 
 # First, update the wildfly-core version:
 mvn_exec org.wildfly:wildfly-channel-maven-plugin:set-property -Dproperty=version.org.wildfly.core \
-  -Dstream=org.wildfly.core:wildfly-server $PARAMS \
+  -Dstream=org.wildfly.core:wildfly-server $PARAMS $EXTRA_PARAMS \
   || exit 1
 
 # Second, update the remaining dependencies.
-mvn_exec org.wildfly:wildfly-channel-maven-plugin:upgrade -DinjectRepositories=false $PARAMS \
+INJECT_REPOS=""
+if [[ ! "$EXTRA_PARAMS" =~ -DinjectRepositories ]]; then
+  INJECT_REPOS="-DinjectRepositories=false"
+fi
+mvn_exec org.wildfly:wildfly-channel-maven-plugin:upgrade $INJECT_REPOS $PARAMS $EXTRA_PARAMS \
   || exit 1
 
 if [ -n "${ADDITIONAL_REPOS}" ]; then
