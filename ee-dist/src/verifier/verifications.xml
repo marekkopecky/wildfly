@@ -29,6 +29,7 @@
    19) Some verifications around libartemis-native-32.so / libartemis-native-64.so to ensure the server distribution
        contains the -64 variant and does not contain the -32 one.
    20) Some Netty Linux native dependency verifications
+   21) Verify Jakarta Data Extension and Jarkarta Data API is not provisioned. They are available only for community stability level
 -->
   <files>
     <file>
@@ -219,5 +220,15 @@
       <exists>false</exists>
     </file>
     <!-- end of (#20) -->
+    <!-- start of (#21) -->
+    <file>
+      <location>target/${latest.server.output.dir}/modules/system/layers/base/org/wildfly/extension/jakarta/data/main/wildfly-jakarta-data-${ee.maven.version}.jar</location>
+      <exists>false</exists>
+    </file>
+    <file>
+      <location>target/${latest.server.output.dir}/modules/system/layers/base/jakarta/data/api/main/jakarta.data-api-${version.jakarta.data.jakarta-data-api}.jar</location>
+      <exists>false</exists>
+    </file>
+    <!-- end of (#21) -->
   </files>
 </verifications>

@@ -31,6 +31,7 @@
        contains the -64 variant and does not contain the -32 one.
    21) modules/layers.conf contains layers=microprofile
    22) Some Netty Linux native dependency verifications
+   23) Verify Jakarta Data Extension and Jarkarta Data API is not provisioned. They are available only for community stability level
 -->
   <files>
     <file>
@@ -239,5 +240,15 @@
       <exists>false</exists>
     </file>
     <!-- end of (#22) -->
+    <!-- start of (#23) -->
+    <file>
+      <location>target/${latest.server.output.dir}/modules/system/layers/base/org/wildfly/extension/jakarta/data/main/wildfly-jakarta-data-${ee.maven.version}.jar</location>
+      <exists>false</exists>
+    </file>
+    <file>
+      <location>target/${latest.server.output.dir}/modules/system/layers/base/jakarta/data/api/main/jakarta.data-api-${version.jakarta.data.jakarta-data-api}.jar</location>
+      <exists>false</exists>
+    </file>
+    <!-- end of (#23) -->
   </files>
 </verifications>
