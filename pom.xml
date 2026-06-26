@@ -20,7 +20,7 @@
         Maintain separation between the artifact id and the version to help prevent
         merge conflicts between commits changing the GA and those changing the V.
     -->
-    <version>41.0.0.Beta1</version>
+    <version>8.2.0.Alpha-SNAPSHOT</version>
 
     <packaging>pom</packaging>
 
@@ -95,7 +95,7 @@
         <ee.dist.product.stability.level>default</ee.dist.product.stability.level>
         <ee.dist.product.min.stability.level>default</ee.dist.product.min.stability.level>
         <ee.maven.groupId>org.jboss.eap</ee.maven.groupId>
-        <ee.maven.version>40.0.0.Beta1-SNAPSHOT</ee.maven.version>
+        <ee.maven.version>8.2.0.Alpha-SNAPSHOT</ee.maven.version>
         <legacy.jakarta.version>10</legacy.jakarta.version>
         <legacy.dist.product.release.name>JBoss EAP</legacy.dist.product.release.name>
         <!-- Segment of legacy-ee related artifactIds that will change across releases.
